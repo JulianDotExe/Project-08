@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoornHack</title>
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+    <!-- External Scripts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <!-- External Scripts -->
+
+</head>
+<body>
+ <div class="background backgroundLight"></div>
+
+    <header>
+        <div class="logo"></div>
+    </header>
+
+    <content>
+        <div class="container">
+            <button id="terug"><a href="/Klantenportaal/index.html"> Terug</a></button>
+            <button id="inloggen"><a href="database.html"> Inloggen</a></button>
+        </div>
+    </content>
+
+    <script>
+        $("#terug").click(function() {
+            location.replace("/Klantenportaal/index.html")
+        })
+        
+        $("#inloggen").click(function() {
+            location.replace("database.html")
+        })
+    </script>
+    
+</body>
+</html>
