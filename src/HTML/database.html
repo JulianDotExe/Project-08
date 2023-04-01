@@ -9,6 +9,7 @@
     
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <!-- External Scripts -->
     
 </head>
@@ -20,12 +21,18 @@
         
         <div class="log">
             <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
-            <span id="tekstlog"> <a href="/index.html""> Log out</a></span>
+            <span id="tekstlog"> <a href="../index.html"> Log out</a></span>
         </div>
     </header>
 
     <content>
 
     </content>
+
+    <script>
+        $(".log").click(function() {
+            location.replace("../index.html")
+        })
+    </script>
 </body>
 </html>

@@ -9,6 +9,7 @@
 
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
     <!-- External Scripts -->
     
 </head>
@@ -30,7 +31,7 @@
         </div>
 
         <div class="NavMenu">
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="menuHomepage"><a href="/index.html"> Homepage</a></span><br>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="menuHomepage"><a href="../index.html"> Homepage</a></span><br>
             <i class="fa fa-solid fa-caret-right fa-lg" style="color: #A82810;"></i><span class="navSpan" id="navCellencomplex"><a href="./cellencomplex.html"> <u>Cellencomplex</u></a></span><br>
             <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navNieuws"><a href="./nieuws.html"> Nieuws</a></span><br>
             <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navContact"><a href="./contact.html"> Contact</a></span>
@@ -48,5 +49,11 @@
             In totaal zijn er 23 cellen beschikbaar<br> binnen het complex.
         </div>
     </content>
+
+    <script>
+        $(".log").click(function() {
+            location.replace("./login.html")
+        })
+    </script>
 </body>
 </html>
