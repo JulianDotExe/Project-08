@@ -22,6 +22,7 @@ a {
     color: black
 }
 
+
 /*
 Background
 */
@@ -251,3 +252,25 @@ Inloggen
 /*
 Database
 */
+
+
+
+
+/**
+Footer
+**/
+
+/*
+Code
+*/
+
+.code {
+    background-color: #FBC490;
+    height: 30px; width: 30px;
+    border-radius: 50%;
+    position: absolute; display: flex;
+    place-content: center; place-items: center;
+    bottom: 1vh;
+    cursor: pointer;
+    opacity: 80%;
+}
