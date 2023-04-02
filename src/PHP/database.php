@@ -1,7 +1,7 @@
 <?php
 //initialiseren
 define('HOST', 'localhost');
-define('DATABASE', 'transportbedrijf');
+define('DATABASE', 'hekkensluiter_p07');
 define('USER', 'root');
 define('PASSWORD','');
 $dbconn='';
