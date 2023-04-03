@@ -1,6 +1,57 @@
 {
     "functions": {
-      ".php": {
+      "api/*.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+    
+      "api/index.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+
+      
+      "api/src/CSS/main.css": {
+        "runtime": "vercel-php@0.6.0"
+      },
+
+
+      "api/src/PHP/cellencomplex.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+      "api/src/PHP/contact.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+      "api/src/PHP/database.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+      "api/src/PHP/nieuws.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+
+
+      "api/src/PHP Data/authorisatie.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+      "api/src/PHP Data/failed.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+      "api/src/PHP Data/login.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+      "api/src/PHP Data/logout.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+      "api/src/PHP Data/overzicht.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+
+
+      "api/src/PHP Data/inc/check_login.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+      "api/src/PHP Data/db_conn.php": {
+        "runtime": "vercel-php@0.6.0"
+      },
+      "api/src/PHP Data/menu.php": {
         "runtime": "vercel-php@0.6.0"
       }
     }
