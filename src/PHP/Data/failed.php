@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HoornHack</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    <link rel="stylesheet" type="text/css" href="../../CSS/main.css">
     
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -16,23 +16,21 @@
 <body>
  <div class="background backgroundLight"></div>
 
-    <header>
-        <div class="logo"></div>
-        
-        <div class="log">
-            <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
-            <span id="tekstlog"> <a href="/index.html"> Log out</a></span>
-        </div>
-    </header>
-
     <content>
+    <div class="logocontain">
+        <div class="logobig"></div>
+        <span id="logocontaintekst">
+        <b>Inloggen mislukt.</b><br>
+        <b>U wordt terug gestuurd naar de inlogpagina.</b></span>
+    </div>
 
     </content>
 
-    <script>
-        $(".log").click(function() {
-            location.replace("/index.html")
-        })
-    </script>
+<?php
+    echo "<script>setTimeout(() => {
+        location.href='login.php'
+                }, 2500)</script>";
+?>
+
 </body>
 </html>

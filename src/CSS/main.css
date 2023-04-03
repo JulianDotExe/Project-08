@@ -62,6 +62,38 @@ Header
     background-repeat: no-repeat;
 }
 
+.logobig {
+    width: 37.5vh;
+    height: 12.5vh;
+    position: absolute;
+    top: 30%; left: 50%;
+    transform: translate(-50%, -50%);
+
+
+    background-image: url("/img/logo-nobg-notext.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.logocontain {
+    position: absolute;
+    top: 40%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%; height: 40%;
+    background-color: #FBC490;
+    border-radius: 150px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+#logocontaintekst {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%; top: 60%;
+    width: 100%;
+    text-align: center;
+    line-height: 35px;
+}
+
 .log {
     position: fixed;
     right: 20px;
@@ -228,6 +260,36 @@ Inloggen
     border-radius: 150px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 
+}
+
+::placeholder {
+    color: black;
+}
+
+#gn-login {
+    height: 8vh; width: 50vh;
+    border-radius: 50px; border: none;
+    text-align: center;
+    font-size: 2vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    cursor: text;
+
+    position: absolute;
+    top: 20%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#ww-login {
+    height: 8vh; width: 50vh;
+    border-radius: 50px; border: none;
+    text-align: center;
+    font-size: 2vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    cursor: text;
+
+    position: absolute;
+    top: 45%; left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #terug {

@@ -1,4 +1,12 @@
 <?php
+
+require_once("inc/db_conn.php");
+
+$uname = $_POST['uname'];
+$pwd = $_POST['pwd'];
+
+session_start();
+
 if (isset($_SESSION['uname'])) {
     echo "<script>location.href='overzicht.php'</script>";
 } else {
@@ -11,8 +19,10 @@ if (isset($_SESSION['uname'])) {
         $_SESSION['uname'] = $uname;
         echo "<script>location.href='overzicht.php'</script>";
     } else {
-        echo "<script>alert('Inloggen mislukt...')</script>";
-        echo "<script>location.href='login.php'</script>";
+        echo "<script>location.href='failed.php'</script>";
+        echo "<script>setTimeout(() => {
+            location.href='login.php'
+                  }, 1000)</script>";
     }
 }
 ?>

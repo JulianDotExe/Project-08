@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HoornHack</title>
     <link rel="stylesheet" type="text/css" href="./src/CSS/main.css">
-    <script src="src\JS\redirect.js"></script>
     
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -22,7 +21,7 @@
         
         <div class="log">
             <i class="fa fa-solid fa-user fa-lg" style="color: #f67b50;"></i>
-            <span id="tekstlog" onclick="RedirectLogin()"> Login</a></span>
+            <span id="tekstlog"> <a href="/src/PHP/Data/login.php"> Login</a></span>
         </div>
     </header>
 
@@ -37,10 +36,10 @@
         </div>
 
         <div class="NavMenu">
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #A82810;"></i><span class="navSpan" id="menuHomepage"><a href="index.html"> <u>Homepage</u></a></span><br>
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navCellencomplex"><a href="./src/HTML/cellencomplex.html"> Cellencomplex</a></span><br>
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navNieuws"><a href="./src/HTML/nieuws.html"> Nieuws</a></span><br>
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navContact"><a href="./src/HTML/contact.html"> Contact</a></span>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #A82810;"></i><span class="navSpan" id="menuHomepage"><a href="index.php"> <u>Homepage</u></a></span><br>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navCellencomplex"><a href="./src/PHP/cellencomplex.php"> Cellencomplex</a></span><br>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navNieuws"><a href="./src/PHP/nieuws.php"> Nieuws</a></span><br>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navContact"><a href="./src/PHP/contact.php"> Contact</a></span>
         </div>
     </content>
 
@@ -55,7 +54,7 @@
         })
 
         $(".log").click(function() {
-            window.location.replace("src/PHP/login.php")
+            window.location.replace("src/PHP/Data/login.php")
         })
     </script>
 </body>
