@@ -2,7 +2,7 @@
 require_once("db_conn.php");
 // Get the user's role from a database or session variable
 $uname = $_SESSION['uname'];
-$stmt = $pdo->prepare("SELECT type FROM gebruiker WHERE gebruikersnaam = :gebruikersnaam");
+$stmt = $pdo->prepare("SELECT type FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
 $stmt->bindParam(':gebruikersnaam', $uname);
 $stmt->execute();
 $userRole = $stmt->fetchColumn();

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HoornHack</title>
     <link rel="stylesheet" type="text/css" href="./src/CSS/main.css">
+    <script src="src\JS\redirect.js"></script>
     
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -21,7 +22,7 @@
         
         <div class="log">
             <i class="fa fa-solid fa-user fa-lg" style="color: #f67b50;"></i>
-            <span id="tekstlog"> <a href="./src/HTML/login.html"> Login</a></span>
+            <span id="tekstlog" onclick="RedirectLogin()"> Login</a></span>
         </div>
     </header>
 
@@ -54,7 +55,7 @@
         })
 
         $(".log").click(function() {
-            location.replace("./src/HTML/login.html")
+            window.location.replace("src/PHP/login.php")
         })
     </script>
 </body>

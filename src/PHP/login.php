@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <title>HoornHack</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    
+    <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <title>Login</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <!-- External Scripts -->
+
 </head>
 <body>
+ <div class="background backgroundLight"></div>
 
-<?php
-require_once("inc/db_conn.php");
-if (isset($_SESSION['uname'])) {
-    echo "<script>location.href='overzicht.php'</script>";
-}
-?>
+    <header>
+            <div class="logo"></div>
+    </header>
 
-    <!-- Het menu -->
-    <div class="menu">
-        <a href="index.html"><img class="logo" src="images/hoornhack_logo.png" alt="logo"></a>
-        <a class="menu_text" href="index.html">Home</a>
-        <a class="menu_text" href="over_ons.html">Over ons</a>
-        <a class="menu_text" href="contact.html">Contact</a>
-        <a class="menu_text" href="reserveren.html">Reserveren</a>
-        <a href="login.php"><img class="account"src="images/account_icon.png" alt="account icon"></a>
-    </div>
+    <?php
+    require_once("inc/db_conn.php");
+    if (isset($_SESSION['uname'])) {
+        echo "<script>location.href='overzicht.php'</script>";
+    }
+    ?>
 
-    <!-- Dit is het login gedeelte, hier word met de post methode en later in dit document word het verwerkt -->
-    <div class="login_background">
-        <div class="login_blok">
-            <p>Inloggen op het Hekkensluiter systeem</p>
-            <div class="login_blok2">
+    <content>
+        <div class="container">
                 <form action="authorisatie.php" method="POST">
                     <div class="login_text">
                         Inlognaam: <input type="text" name="uname">
@@ -40,19 +37,20 @@ if (isset($_SESSION['uname'])) {
                         Wachtwoord: <input type="text" name="pwd">
                     </div>
                     </br>
-                    <div class="submit_blok">
-                        <input type="submit" name="login" value="Inloggen">
-                    </div>
+                    <button id="inloggen" type="submit" name="submit" value="login"> Inloggen</button>                    
+                    <button id="terug"><a href="/index.html"> Terug</a></button>
                 </form>
             </div>
-        </div>
-    </div>
+    </content>
 
-
+    <script>
+        $("#terug").click(function() {
+            location.replace("/index.html")
+        })
+        
+        $("#inloggen").click(function() {
+            location.replace("database.html")
+        })
+    </script>
 </body>
 </html>
-
-
-
-<!-- Username database: hoornhack -->
-<!-- Password database: Wjg5l[-nn(QBbUqV -->
