@@ -2,13 +2,15 @@
 Algemeen
 */
 
+
 body{
     background-color: #F5EBE1;
     outline: none;
 }
 
 *{
-    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
+    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;
+    margin: 0; 
 }
 
 *, *::after, *::before {
@@ -315,11 +317,49 @@ Inloggen
 }
 
 /*
-Database
+Database - Sidebar
 */
 
+.sidebar {
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.btnStyle {
+    height: 7.5vh;
+    width: 35vh;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn1, .btn3, .btn6 {
+    margin-top: 25%;
+}
+
+.btn2, .btn4, .btn5, .btn7 {
+    margin-top: 5%;
+}
 
 
+/*
+Database - Main
+*/
+
+.dataContain {
+    width: 70%; height: 80%;;
+    background-color: white;
+    position: absolute;
+    top: 50.2%;    right: -30%;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+    border: 2px solid #000;
+
+}
 
 /**
 Footer

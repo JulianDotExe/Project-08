@@ -20,28 +20,38 @@
             <i class="fa fa-solid fa-x"></i>
         </div>
     </header>
-<?php
-    require_once("inc/db_conn.php");
-    if (!isset($_SESSION['uname'])) {
-        echo "<script>alert('Inloggen mislukt...')</script>";
-        echo "<script>location.href='login.php'</script>";
-    }
-?>
-    <!-- <div class="worker_menu">
 
-        <div class="menu_location">
-            <?php include("inc/menu.php") ?>
+    <?php
+
+        require_once("inc/db_conn.php");
+        if (!isset($_SESSION['uname'])) {
+            echo "<script>alert('Inloggen mislukt...')</script>";
+            echo "<script>location.href='login.php'</script>";
+        }
+    ?>
+
+    <content>
+       <div class="sidebar">
+             <button class="btnStyle btn1"> Sorteer - Vleugel </button>
+             <button class="btnStyle btn2"> Sorteer - Naam </button>
+
+             <button class="btnStyle btn3"> Overzicht - Gevangenen </button>
+             <button class="btnStyle btn4"> Overzicht - Personeel </button>
+             <button class="btnStyle btn5"> Overzicht - Bezoeken </button>
+
+             <button class="btnStyle btn6"> Gegevens - Toevoegen </button>
+             <button class="btnStyle btn7"> Gegevens - Bewerken </button>
         </div>
 
-    </div>
-
-    <div class="worker_content">
-        
-    </div> -->
+        <div class="dataContain">
+            <?php // include("inc/menu.php") ?>
+            
+        </div>
+    </content>
 
     <script>
         $(".log").click(function() {
-            location.replace("logout.php")
+            location.replace("./logout.php")
         })
     </script>
 </body>
