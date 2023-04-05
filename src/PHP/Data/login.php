@@ -10,6 +10,7 @@
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <!-- External Scripts -->
 
 </head>
@@ -33,16 +34,7 @@
                     <input type="text" id="gn-login" name="uname" placeholder="Gebruikersnaam . . .">
                     <input type="password" id="ww-login" name="pwd" placeholder="Wachtwoord . . . .">
                     <i class="eye fa fa-solid fa-eye" id="togglePassword" style="color: #f67b50;"></i>
-
-                    <form method="post" action="inc/verify.php">
-                        <?php
-                        require_once('inc/recaptchalib.php');
-                        $publickey = "your_public_key"; // you got this from the signup page
-                        echo recaptcha_get_html($publickey);
-                        ?>
-                        <input type="submit" />
-                    </form>
-
+                    <div class="g-recaptcha" data-sitekey="6LfT_hslAAAAAHm2MXbg-mt_RES4-hrz9BwUGlU4"></div>
                     <button id="inloggen" type="submit" name="submit" value="login"> Inloggen</button>     
                 </form>               
                     <button id="terug"><a href="/index.php"> Terug</a></button>

@@ -257,7 +257,7 @@ Inloggen
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%; height: 50%;
+    width: 50%; height: 60%;
     background-color: #FBC490;
     border-radius: 150px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
@@ -265,7 +265,7 @@ Inloggen
 
 .eye {
     position: absolute;
-    top: 42.5%; left: 67.5%;
+    top: 38%; left: 67.5%;
     transform: translate(-50%, -50%);
 }
 
@@ -295,7 +295,13 @@ Inloggen
     cursor: text;
 
     position: absolute;
-    top: 45%; left: 50%;
+    top: 40%; left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.g-recaptcha {
+    position: absolute;
+    top: 62.5%; left: 50%;
     transform: translate(-50%, -50%);
 }
 
@@ -306,7 +312,7 @@ Inloggen
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
     cursor: pointer;
 
-    bottom: 10vh; left: 20vh;
+    bottom: 5vh; left: 20vh;
     position: fixed;
 }
 
@@ -317,7 +323,7 @@ Inloggen
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
     cursor: pointer;
     
-    bottom: 10vh; right: 20vh;
+    bottom: 5vh; right: 20vh;
     position: fixed;
 }
 
@@ -380,7 +386,7 @@ Code
     border-radius: 50%;
     position: absolute; display: flex;
     place-content: center; place-items: center;
-    bottom: 1vh;
+    bottom: 1vh; left: 1vh;
     cursor: pointer;
     opacity: 80%;
 }

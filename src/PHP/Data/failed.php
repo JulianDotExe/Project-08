@@ -20,8 +20,8 @@
     <div class="logocontain">
         <div class="logobig"></div>
         <span id="logocontaintekst">
-        <b>Inloggen mislukt.</b><br>
-        <b>U wordt terug gestuurd naar de inlogpagina.</b></span>
+        Inloggen mislukt. (Incorrecte gegevens)<br>
+        U wordt terug gestuurd naar de inlogpagina.</span>
     </div>
 
     </content>

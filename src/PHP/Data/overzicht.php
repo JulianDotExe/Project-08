@@ -49,7 +49,7 @@
         </div>
 
         <div class="dataContain">
-            <?php // include("inc/menu.php") ?>
+            <?php include("inc/menu.php") ?>
         </div>
     </content>
 

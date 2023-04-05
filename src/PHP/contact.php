@@ -49,7 +49,7 @@
             Di: Gesloten.<br>
             Wo: 12:00 - 16:00.<br>
             Do: Gesloten.<br>
-            Vr: 12:00-16:00.<br>
+            Vr: 12:00 - 16:00.<br>
             Za: 10:00 - 14:00.<br>
             Zo: Gesloten.<br>
             <span style="font-size: 1.5vh;">Afspraak verplicht.</span>
