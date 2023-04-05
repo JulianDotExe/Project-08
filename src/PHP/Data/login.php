@@ -31,7 +31,18 @@
         <div class="container">
                 <form action="authorisatie.php" method="POST">
                     <input type="text" id="gn-login" name="uname" placeholder="Gebruikersnaam . . .">
-                    <input type="text" id="ww-login" name="pwd" placeholder="Wachtwoord . . . .">
+                    <input type="password" id="ww-login" name="pwd" placeholder="Wachtwoord . . . .">
+                    <i class="eye fa fa-solid fa-eye" id="togglePassword" style="color: #f67b50;"></i>
+
+                    <form method="post" action="inc/verify.php">
+                        <?php
+                        require_once('inc/recaptchalib.php');
+                        $publickey = "your_public_key"; // you got this from the signup page
+                        echo recaptcha_get_html($publickey);
+                        ?>
+                        <input type="submit" />
+                    </form>
+
                     <button id="inloggen" type="submit" name="submit" value="login"> Inloggen</button>     
                 </form>               
                     <button id="terug"><a href="/index.php"> Terug</a></button>
@@ -46,6 +57,17 @@
         $("#inloggen").click(function() {
             location.replace("database.php")
         })
+
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#ww-login');
+
+        togglePassword.addEventListener('click', function (e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
     </script>
 </body>
 </html>

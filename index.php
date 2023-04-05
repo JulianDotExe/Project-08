@@ -25,7 +25,6 @@
         </div>
     </header>
 
-
     <content>
         <div class="motto">
             Zitten om <br> te leren.

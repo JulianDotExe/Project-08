@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../CSS/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <title>Login</title>
+    <link rel="stylesheet" href="../../CSS/main.css">
+    
+    <!-- External Scripts -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <!-- External Scripts -->
+
 </head>
 <body>
     <div class="background backgroundLight"></div>
@@ -45,7 +50,6 @@
 
         <div class="dataContain">
             <?php // include("inc/menu.php") ?>
-            
         </div>
     </content>
 
