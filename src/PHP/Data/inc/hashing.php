@@ -1,6 +1,6 @@
 <?php
 
-$ww = 'ldj@T3s.#o-K0@Hoornhack';
+$ww = 'adminww';
 $pwHash = password_hash($ww, PASSWORD_BCRYPT);
 
 echo $ww . PHP_EOL;

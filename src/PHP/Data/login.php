@@ -30,11 +30,11 @@
 
     <content>
         <div class="container">
-                <form action="authorisatie.php" method="POST">
+                <form action="inc/authorisatie.php" method="POST">
                     <input type="text" id="gn-login" name="uname" placeholder="Gebruikersnaam . . .">
                     <input type="password" id="ww-login" name="pwd" placeholder="Wachtwoord . . . .">
                     <i class="eye fa fa-solid fa-eye" id="togglePassword" style="color: #f67b50;"></i>
-                    <div class="g-recaptcha" data-sitekey="6LfT_hslAAAAAHm2MXbg-mt_RES4-hrz9BwUGlU4"></div>
+                    <div class="g-recaptcha" data-sitekey="6Lc8OV4lAAAAANinYeJoXTeiKFQw-6Jr8J7zrWfS"></div>
                     <button id="inloggen" type="submit" name="submit" value="login"> Inloggen</button>     
                 </form>               
                     <button id="terug"><a href="/index.php"> Terug</a></button>

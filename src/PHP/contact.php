@@ -50,16 +50,24 @@
             Wo: 12:00 - 16:00.<br>
             Do: Gesloten.<br>
             Vr: 12:00 - 16:00.<br>
-            Za: 10:00 - 14:00.<br>
+            Za: 12:00 - 16:00.<br>
             Zo: Gesloten.<br>
             <span style="font-size: 1.5vh;">Afspraak verplicht.</span>
 
+        </div>
+
+        <div class="afspraak">
+            <span> <a href="./Data/afspraak.php"> Klik hier om een afspraak te maken.</a></span>
         </div>
     </content>
 
     <script>
         $(".log").click(function() {
             location.replace("./Data/login.php")
+        })
+
+        $(".afspraak").click(function() {
+            location.replace("./Data/afspraak.php")
         })
     </script>
 </body>
