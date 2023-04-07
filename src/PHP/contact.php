@@ -56,6 +56,8 @@
 
         </div>
 
+        <div class="img5"></div>
+
         <div class="afspraak">
             <span> <a href="./Data/afspraak.php"> Klik hier om een afspraak te maken.</a></span>
         </div>

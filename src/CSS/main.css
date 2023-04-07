@@ -24,6 +24,9 @@ a {
     color: black
 }
 
+.underline {
+    text-decoration: underline;
+}
 
 /*
 Background
@@ -210,6 +213,18 @@ Foto's
 
 }
 
+.img5 {
+    position: fixed;
+    background-image: url("/img/img5.jpg");
+    background-repeat: no-repeat;
+    background-size: 55vh;
+    width: 100%; height: 100%;
+    left: 40%; top: 20%;
+    z-index: -1;
+    filter: drop-shadow(1px 5px 5px #222);
+
+}
+
 /*
 Content Teksten
 */
@@ -273,7 +288,7 @@ Afspraak
     font-size: 2vh;
 
     position: absolute;
-    top: 50%; left: 50%;
+    top: 70%; left: 54%;
     transform: translate(-50%, -50%);
     filter: drop-shadow(1px 5px 5px #222);
 
@@ -432,7 +447,26 @@ Database - Main
     transform: translate(-50%, -50%);
     border-radius: 3px;
     border: 2px solid #000;
+}
 
+.dataContainAdd {
+    width: 70%; height: 82.5%;;
+    background-color: white;
+    position: absolute;
+    top: 50%;    right: -30%;
+    transform: translate(-50%, -50%);
+    border-radius: 3px;
+    border: 2px solid #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+td {
+    border: 1px solid #000;
+    text-align: center;
+    width: 20vh;
 }
 
 /**

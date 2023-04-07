@@ -56,7 +56,5 @@ if (isset($_POST['submit'])) {
 
     </content>
 
-    <script>
-    $(".form5").click(function(){setTimeout(() => {location.href='succesful.php'}, 0)})</script>"
 </body>
 </html>
