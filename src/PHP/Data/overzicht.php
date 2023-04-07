@@ -33,6 +33,11 @@
             echo "<script>alert('Inloggen mislukt...')</script>";
             echo "<script>location.href='login.php'</script>";
         }
+
+        $stmt = $pdo->prepare("SELECT functie FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
+        $stmt->bindParam(':gebruikersnaam', $uname);
+        $stmt->execute();
+        $userRole = $stmt->fetchColumn();
     ?>
 
     <content>
@@ -49,8 +54,83 @@
         </div>
 
         <div class="dataContain">
-            <?php include("inc/menu.php") ?>
+        <table>
+            <tr>
+                <?php 
+                switch($userRole) {
+                    case 'Bewaker':
+                        echo "  <th>Gedetineerde</th>
+                                <th>Cel & vleugel</th>";
+                    break;
+                    default:
+                        echo "  <th>ID</th>
+                                <th>Naam</th>
+                                <th>Woonplaats</th>
+                                <th>Begin-straf</th>
+                                <th>Eind-straf</th>
+                                <th>Cel-nummer</th>
+                                <th>Vleugel</th>
+                                <th>Opmerking</th>";
+                    break;
+                }
+                ?>
+            </tr>
+            <?php
+            $sql="SELECT * FROM gevangenen";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo "<tr>";
+                switch($userRole) {
+                    case 'Bewaker':
+                        echo "<td>".$row['naam_gedetineerd']."</td>
+                            <td>".$row['locatie_vleugel_cel']."</td>";
+                    break;
+                    case 'Coordinator':
+                        echo "<td>".$row['naam_gedetineerd']."</td>
+                            <td>".$row['geboortedatum_gedetineerd']."</td>
+                            <td>".$row['id_nummer']."</td>
+                            <td>".$row['adres_gedetineerd']."</td>
+                            <td>".$row['bezittingen']."</td>
+                            <td>".$row['datum_opsluiting']."</td>
+                            <td>".$row['datum_vrijlating']."</td>
+                            <td>".$row['datum_tijd_bezoek']."</td>
+                            <td>".$row['aantal_bezoeken']."</td>
+                            <td>".$row['locatie_vleugel_cel']." <a href='overplaatsen.php?id={$row['id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a></td>
+                            <td>".$row['historie_locatie']."</td>
+                            <td>".$row['reden_gedetineerd']."</td>
+                            <td>".$row['opmerkingen']."</td>
+                            <td>
+                                <a href='verwijderen.php?id={$row['id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                            </td>";
+                    break;
+                    default:
+                        echo "<td>".$row['naam_gedetineerd']."</td>
+                            <td>".$row['geboortedatum_gedetineerd']."</td>
+                            <td>".$row['id_nummer']."</td>
+                            <td>".$row['adres_gedetineerd']."</td>
+                            <td>".$row['bezittingen']."</td>
+                            <td>".$row['datum_opsluiting']."</td>
+                            <td>".$row['datum_vrijlating']."</td>
+                            <td>".$row['datum_tijd_bezoek']."</td>
+                            <td>".$row['aantal_bezoeken']."</td>
+                            <td>".$row['locatie_vleugel_cel']." <a href='overplaatsen.php?id={$row['id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a></td>
+                            <td>".$row['historie_locatie']."</td>
+                            <td>".$row['reden_gedetineerd']."</td>
+                            <td>".$row['opmerkingen']."</td>
+                            <td>
+                                <a href='wijzigen.php?id={$row['id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='verwijderen.php?id={$row['id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                            </td>";
+                    break;
+                }
+                echo "</tr>";
+            }
+            ?>
+        </table>
         </div>
+
+        
     </content>
 
     <script>
