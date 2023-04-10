@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit</title>
+    <title>Edit gevangenen</title>
     <link rel="stylesheet" href="../../../CSS/main.css">
     
     <!-- External Scripts -->
@@ -17,12 +17,6 @@
 
 <header>
     <div class="logo"></div>
-    
-    <div class="log">
-        <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
-        <span id="tekstlog"> <a href="logout.php"> Log out</a></span>
-        <i class="fa fa-solid fa-x"></i>
-    </div>
 </header>
 
 
@@ -60,6 +54,11 @@
 <?php 
 require_once("../inc/db_conn.php");
     if (isset($_POST['submit'])) {
+        echo '<div id="confirm">Actie succesvol</div>';
+        echo '<script>setTimeout(function(){
+            document.getElementById("confirm").style.display = "none";
+            window.location.href="../overzicht_gevangenen.php";
+        }, 2000);</script>';
         $naam= $_POST['naam'];
         $woonplaats = $_POST['woonplaats'];
         $beginstraf = $_POST['begin_straf'];

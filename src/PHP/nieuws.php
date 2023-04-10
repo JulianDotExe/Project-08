@@ -54,7 +54,7 @@
         <div class="n-content-2">
             <span style="font-size: 2.8vh;"><b>Alles op zijn tijd.</b></span>
             <p>Volgens een onderzoek komt 95%
-            Van de gevangenen die weer vrij
+            van de gevangenen die weer vrij
             komen, binnen een jaar weer goed
             terecht in de maatschappij met behulp van verschillende organisaties.</p>
            <span style="font-size: 1.5vh;">Donderdag, 16 Maart.</span>

@@ -45,6 +45,8 @@
              <button class="btnStyle btn3"> <a href="overzicht_gevangenen.php"> Overzicht - Gevangenen </a></button>
              <button class="btnStyle btn4"> <a href="overzicht_personeel.php"> Overzicht - Personeel </a></button>
              <button class="btnStyle btn5"> <a href="overzicht_bezoeken.php"> <span class="underline"> Overzicht - Bezoeken </span></a></button>
+
+             <button class="btnStyle btn6"> <a href="add/gegevens_add_bezoek.php">Bezoekers - Toevoegen </a></button>
         </div>
 
         <div class="dataContain dataCenter">
@@ -64,7 +66,8 @@
                                 <th>Naam bezoeker</th>
                                 <th>Naam gevangenen</th>
                                 <th>Tijd</th>
-                                <th>Datum</th>";
+                                <th>Datum</th>
+                                <th>Actie</th>";
                     break;
                 }
                 ?>
@@ -92,7 +95,11 @@
                             <td>".$row['naam_bezoeker']."</td>
                             <td>".$row['naam_gevangenen']."</td>
                             <td>".$row['tijd']."</td>
-                            <td>".$row['datum']."</td>";
+                            <td>".$row['datum']."</td>
+                            <td>
+                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                            </td>";
                     break;
                 }
                 echo "</tr>";
@@ -113,15 +120,14 @@
             location.replace("overzicht_gevangenen.php")
         })
 
-        
         $(".btn4").click(function () {
             location.replace("overzicht_personeel.php")
         })
 
-        
         $(".btn5").click(function () {
             location.replace("overzicht_bezoeken.php")
         })
+
     </script>
 </body>
 </html>

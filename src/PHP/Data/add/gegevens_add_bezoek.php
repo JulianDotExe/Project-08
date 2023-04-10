@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gevangenen toevoegen</title>
+    <title>Bezoeker toevoegen</title>
     <link rel="stylesheet" href="../../../CSS/main.css">
     
     <!-- External Scripts -->
@@ -43,14 +43,11 @@
 
         <div class="dataContainAdd">
             <form method="POST">
-                <input type="text" class="form form2" name="gevangenen_id" placeholder="Gevangenen ID . . ." required><br>
-                <input type="text" class="form form2" name="naam" placeholder="Gevangenen volledige naam . . ." required><br>
-                <input type="text" class="form form3" name="woonplaats" placeholder="Woonplaats . . ." required><br>
-                <input type="date" class="form form4" name="begin_straf" placeholder="Datum begin straf . . ." required><br>
-                <input type="date" class="form form4" name="eind_straf" placeholder="Datum eind straf . . ." required><br>
-                <input type="text" class="form form4" name="cel_nummer" placeholder="Cel nummer . . ." required><br>
-                <input type="text" class="form form4" name="vleugel" placeholder="Vleugel . . ." required><br>
-                <input type="text" class="form form4" name="opmerking" placeholder="Opmerking . . ."><br><br><br>
+                <input type="text" class="form form1" name="bezoek_id" placeholder="Bezoek ID . . ." required><br>
+                <input type="text" class="form form2" name="naam_bezoeker" placeholder="Bezoeker volledige naam . . ." required><br>
+                <input type="text" class="form form3" name="naam_gevangenen" placeholder="Gevangenen volledige naam . . ." required><br>
+                <input type="time" class="form form3" name="tijd" placeholder="Tijdstip" min="12:00:00" max="16:00:00" required><br>
+                <input type="date" class="form form4" name="datum" placeholder="Datum" required><br><br>
                 <input type="submit" name="submit" value="Submit" class="form formAdd"><br><br>
                 <input type="submit" name="terug" value="Terug" class="form formAdd return">
             </form>
@@ -62,29 +59,24 @@
             echo '<div id="confirm">Actie succesvol</div>';
             echo '<script>setTimeout(function(){
                 document.getElementById("confirm").style.display = "none";
-                window.location.href="../overzicht_gevangenen.php";
+                window.location.href="../overzicht_bezoek.php";
             }, 2000);</script>';
-            $gevangenenid = $_POST['gevangenen_id'];
-            $naam= $_POST['naam'];
-            $woonplaats = $_POST['woonplaats'];
-            $beginstraf = $_POST['begin_straf'];
-            $eindstraf = $_POST['eind_straf'];
-            $celnummer = $_POST['cel_nummer'];
-            $vleugel = $_POST['vleugel'];
-            $opmerking = $_POST['opmerking'];
+            $bezoek_id = $_POST['bezoek_id'];
+            $naam_bezoeker = $_POST['naam_bezoeker'];
+            $naam_gevangenen= $_POST['naam_gevangenen'];
+            $tijd = $_POST['tijd'];
+            $datum = $_POST['datum'];
+  
 
-            $sql = "INSERT INTO gevangenen SET gevangenen_id = :gevangenen_id, naam = :naam, woonplaats = :woonplaats, 
-            begin_straf = :begin_straf, eind_straf = :eind_straf, cel_nummer = :cel_nummer, vleugel = :vleugel, opmerking = :opmerking";
+            $sql = "INSERT INTO bezoekers SET bezoek_id = :bezoek_id, naam_bezoeker = :naam_bezoeker, naam_gevangenen = :naam_gevangenen, 
+            tijd = :tijd, datum = :datum";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
-                ':gevangenen_id' => $gevangenenid,
-                ':naam' => $naam,
-                ':woonplaats' => $woonplaats,
-                ':begin_straf' => $beginstraf,
-                ':eind_straf' => $eindstraf,
-                ':cel_nummer' => $celnummer,
-                ':vleugel' => $vleugel,
-                ':opmerking' => $opmerking
+                ':bezoek_id' => $bezoek_id,
+                ':naam_bezoeker' => $naam_bezoeker,
+                ':naam_gevangenen' => $naam_gevangenen,
+                ':tijd' => $tijd,
+                ':datum' => $datum
             ]);
         }
     ?>
@@ -112,7 +104,7 @@
         })
 
         $(".return").click(function () {
-            location.replace("../overzicht_gevangenen.php")
+            location.replace("../overzicht_bezoeken.php")
         })
 
     </script>

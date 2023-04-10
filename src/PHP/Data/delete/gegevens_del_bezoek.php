@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personeel verwijderen</title>
+    <title>Bezoekers verwijderen</title>
     <link rel="stylesheet" href="../../../CSS/main.css">
     
     <!-- External Scripts -->
@@ -14,20 +14,21 @@
 </head>
 <body>
 
+
 <div class="background backgroundLight"></div>
 
 <header>
     <div class="logo"></div>
 </header>
 
-<content>
+
 <?php
     require_once("../inc/db_conn.php");
     if (!isset($_SESSION['uname'])) {
         echo "<script>alert('Inloggen mislukt...')</script>";
         echo "<script>location.href='login.php'</script>";
     }
-    $sql="SELECT * FROM personeel";
+    $sql="SELECT * FROM bezoekers";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -35,13 +36,13 @@
 
 <div class="delContain">
     <form method="POST">
-        <h1>Verwijderen personeel:</h1>
+        <h1>Verwijderen bezoekers:</h1>
         <h2>
             <?php 
             $id = $_GET["id"];
-            $series = $pdo->query("SELECT * FROM personeel WHERE personeel_id = $id");
+            $series = $pdo->query("SELECT * FROM bezoekers WHERE bezoek_id = $id");
             $row = $series->fetch();
-            echo $row['naam'];
+            echo $row['naam_bezoeker'];
             ?>
         </h2>
         <b style="color:red; font-size: 22px;">Weet u zeker dat u deze actie wilt uitvoeren?</b>
@@ -52,19 +53,19 @@
 
 <?php
 if(isset($_POST['terug'])) {
-    echo "<script>location.href='../overzicht_personeel.php'</script>";
-    header("Location: ../overzicht_personeel.php");
+    echo "<script>location.href='../overzicht_bezoeken.php'</script>";
+    header("Location: ../overzicht_bezoeken.php");
     exit();
 }
 
 elseif(isset($_POST['verwijderen'])) {
-    $sql = "DELETE FROM personeel WHERE personeel_id = $id";
+    $sql = "DELETE FROM bezoekers WHERE bezoek_id = $id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    header("Location: ../overzicht_personeel.php");
+    header("Location: ../overzicht_bezoeken.php");
     exit();
 }
 ?>
-</content>
+
 </body>
 </html>

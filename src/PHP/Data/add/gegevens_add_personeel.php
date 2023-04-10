@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overzicht</title>
+    <title>Personeel toevoegen</title>
     <link rel="stylesheet" href="../../../CSS/main.css">
     
     <!-- External Scripts -->
@@ -18,12 +18,6 @@
 
     <header>
         <div class="logo"></div>
-        
-        <div class="log">
-            <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
-            <span id="tekstlog"> <a href="../logout.php"> Log out</a></span>
-            <i class="fa fa-solid fa-x"></i>
-        </div>
     </header>
 
     <?php
@@ -42,9 +36,6 @@
 
     <content>
        <div class="sidebar">
-             <!-- <button class="btnStyle btn1"> Sorteer - Vleugel </button>
-             <button class="btnStyle btn2"> Sorteer - Naam </button> -->
-
              <button class="btnStyle btn3"> <a href="../overzicht_gevangenen.php"> Overzicht - Gevangenen </a></button>
              <button class="btnStyle btn4"> <a href="../overzicht_personeel.php"> Overzicht - Personeel </a></button>
              <button class="btnStyle btn5"> <a href="../overzicht_bezoeken.php"> Overzicht - Bezoeken </a></button>
@@ -52,25 +43,30 @@
 
         <div class="dataContainAdd">
             <form method="POST">
-                <input type="text" class="form form2" name="personeel_id" placeholder="ID . . ."><br>
-                <input type="text" class="form form2" name="naam" placeholder="Volledige naam . . ."><br>
-                <input type="text" class="form form3" name="wachtwoord" placeholder="Wachtwoord . . ."><br>
-                <input type="text" class="form form4" name="gebruikersnaam" placeholder="Gebruikersnaam . . ."><br>
-                <input type="text" class="form form4" name="functie" placeholder="Functie . . ."><br><br><br>
-                <input type="submit" name="submit" value="Submit" class="form formAdd"><br><br>
-                <input type="submit" name="terug" value="Terug" class="form formAdd">
+                <input type="text" class="form form2" name="personeel_id" placeholder="ID . . ." required><br>
+                <input type="text" class="form form2" name="naam" placeholder="Volledige naam . . ." required><br>
+                <input type="text" class="form form3" name="wachtwoord" placeholder="Wachtwoord . . ." required><br>
+                <input type="text" class="form form4" name="gebruikersnaam" placeholder="Gebruikersnaam . . ." required><br>
+                <input type="text" class="form form4" name="functie" placeholder="Functie . . ." required><br><br><br>
+                <input type="submit" name="submit" value="Submit" class="form formAdd"><br><br>            
+                <input type="submit" name="terug" value="Terug" class="form formAdd return">
             </form>
-        
+
     <?php
         require_once("../inc/db_conn.php");
 
         if (isset($_POST['submit'])) {
+            echo '<div id="confirm">Actie succesvol</div>';
+            echo '<script>setTimeout(function(){
+                document.getElementById("confirm").style.display = "none";
+                window.location.href="../overzicht_personeel.php";
+            }, 2000);</script>';
             $personeelid = $_POST['personeel_id'];
             $naam= $_POST['naam'];
             $wachtwoord = $_POST['wachtwoord'];
             $gebruikersnaam = $_POST['gebruikersnaam'];
             $functie = $_POST['functie'];
-            
+
             $sql = "INSERT INTO personeel SET personeel_id = :personeel_id, naam = :naam, wachtwoord = :wachtwoord, 
             gebruikersnaam = :gebruikersnaam, functie = :functie";
             $stmt = $pdo->prepare($sql);
@@ -82,16 +78,9 @@
                 ':functie' => $functie,
             ]);
         }
-
-        if(isset($_POST['terug'])) {
-            echo "<script>location.href='../overzicht_personeel.php'</script>";
-            header("Location: ../overzicht_personeel.php");
-            exit();
-        }
     ?>
-        
+      
         </div>
-
         
     </content>
 
@@ -112,6 +101,10 @@
         
         $(".btn5").click(function () {
             location.replace("../overzicht_bezoeken.php")
+        })
+
+        $(".return").click(function () {
+            location.replace("../overzicht_personeel.php")
         })
     </script>
 </body>
