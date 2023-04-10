@@ -7,7 +7,7 @@ Werkende functies:
     - Edit gevangenen/personeel
     - Delete gevangenen/personeel
     - Required forms
-    - 
+    
 
 Niet werkende functies:
     - Geen sorteer optie voor overzicht
@@ -16,4 +16,33 @@ Niet werkende functies:
 
 
 
+Structuur:
 
+PROJECT-07 (project)
+|
+|            ------>Inhoud.txt (.txt)
+|            |   
+|----------->Extra (map)
+|            |
+|            ------>SQL (map)----->hekkensluiter_p07.sql
+|
+|
+|-----------img (map)---->images for the project (.png/.jpg)
+|
+|
+|                 -----------------------------------PHP (map)------->Klantenportaal files         
+|                 |                                        |                                         
+|-----------src (map)                                      |                                         
+|                 |                                        |             ------------------------------------>Database files (.php)
+|                 ------CSS (map)-----> main.css           |             |
+|                                                          |             |
+|                                                          |             |
+------->index.php (main file)                               ---------->Data (map)-------------------------------------------------------------------------------------->inc (map)--->Connection files (.php)
+                                                                                        |                            |                            |
+                                                                                      add (map)                  delete (map)                  edit (map)
+                                                                                        |                            |                            |
+                                                                                        |                            |                            |
+                                                                                        |                            |                            |
+                                                                                    Files voor gegev.           Files voor gegev.            Files voor gegev.
+                                                                                    toevoegen (.php)            verwijderen (.php)           editen (.php)
+                                                                

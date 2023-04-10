@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 10 apr 2023 om 02:53
+-- Gegenereerd op: 10 apr 2023 om 22:07
 -- Serverversie: 10.4.24-MariaDB
 -- PHP-versie: 8.1.4
 
@@ -40,7 +40,9 @@ CREATE TABLE `bezoekers` (
 --
 
 INSERT INTO `bezoekers` (`bezoek_id`, `naam_bezoeker`, `naam_gevangenen`, `tijd`, `datum`) VALUES
-(5, 'Julian van Stavel', 'Rik Balvers', '14:30:00', '2022-04-23');
+(5, 'Hannah Visser', 'Rik Balvers', '14:30:00', '2022-04-23'),
+(6, 'Julian van Stavel', 'Siebren Bijl', '15:00:00', '2022-04-23'),
+(7, 'Julian van Stavel', 'Dirk van Stavel', '12:00:00', '2022-05-07');
 
 -- --------------------------------------------------------
 
@@ -65,12 +67,12 @@ CREATE TABLE `gevangenen` (
 
 INSERT INTO `gevangenen` (`gevangenen_id`, `naam`, `woonplaats`, `begin_straf`, `eind_straf`, `cel_nummer`, `vleugel`, `opmerking`) VALUES
 (1, 'gevangenen1', 'Amsterdam', '2023-04-21', '2023-08-04', 1, 'A', ''),
-(2, 'gevangenen2', 'Rotterdam', '2023-02-14', '2023-04-27', 2, 'A', ''),
-(3, 'gevangenen3', 'Hengelo', '2023-03-16', '2025-03-13', 3, 'B', ''),
-(4, 'gevangenen4', 'Utrecht', '2023-02-14', '2024-02-09', 4, 'B', ''),
-(5, 'gevangenen5', 'Groningen', '2018-04-05', '2026-08-19', 5, 'C', ''),
-(6, 'gevangenen6', 'Lelystad', '2018-04-02', '2030-04-16', 6, 'C', ''),
-(7, 'gevangenen7', 'den Haag', '2023-03-24', '2023-04-23', 10, 'A', '');
+(2, 'gevangenen2', 'Rotterdam', '2023-02-14', '2023-04-27', 2, 'A', 'Aggresief'),
+(3, 'gevangenen3', 'Hengelo', '2023-03-16', '2025-03-13', 6, 'B', ''),
+(4, 'gevangenen4', 'Utrecht', '2023-02-14', '2024-02-09', 7, 'B', ''),
+(5, 'gevangenen5', 'Groningen', '2018-04-05', '2026-08-19', 15, 'C', 'Gevaarlijk'),
+(6, 'gevangenen6', 'Lelystad', '2018-04-02', '2030-04-16', 16, 'C', ''),
+(7, 'gevangenen7', 'den Haag', '2023-03-24', '2023-04-23', 3, 'A', 'Goed gedrag');
 
 -- --------------------------------------------------------
 
@@ -132,19 +134,19 @@ ALTER TABLE `personeel`
 -- AUTO_INCREMENT voor een tabel `bezoekers`
 --
 ALTER TABLE `bezoekers`
-  MODIFY `bezoek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `bezoek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT voor een tabel `gevangenen`
 --
 ALTER TABLE `gevangenen`
-  MODIFY `gevangenen_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `gevangenen_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
 
 --
 -- AUTO_INCREMENT voor een tabel `personeel`
 --
 ALTER TABLE `personeel`
-  MODIFY `personeel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
+  MODIFY `personeel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
