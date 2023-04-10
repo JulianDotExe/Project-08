@@ -59,7 +59,7 @@
                 <input type="date" class="form form4" name="eind_straf" placeholder="Datum eind straf . . ."><br>
                 <input type="text" class="form form4" name="cel_nummer" placeholder="Cel nummer . . ."><br>
                 <input type="text" class="form form4" name="vleugel" placeholder="Vleugel . . ."><br>
-                <input type="text" class="form form4" name="opmerking" placeholder="Opmerking . . ."><br><br>
+                <input type="text" class="form form4" name="opmerking" placeholder="Opmerking . . ."><br><br><br>
                 <input type="submit" name="submit" value="Submit" class="form formAdd"><br><br>
                 <input type="submit" name="terug" value="Terug" class="form formAdd">
             </form>

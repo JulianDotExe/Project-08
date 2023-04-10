@@ -49,8 +49,8 @@
              <button class="btnStyle btn6"> <a href="add/gegevens_add_gevang.php">Gevangenen - Toevoegen </a></button>
         </div>
 
-        <div class="dataContain">
-        <table>
+        <div class="dataContain dataCenter">
+        <table class="table">
             <tr>
                 <?php 
                 switch($userRole) {

@@ -56,8 +56,9 @@
                 <input type="text" class="form form2" name="naam" placeholder="Volledige naam . . ."><br>
                 <input type="text" class="form form3" name="wachtwoord" placeholder="Wachtwoord . . ."><br>
                 <input type="text" class="form form4" name="gebruikersnaam" placeholder="Gebruikersnaam . . ."><br>
-                <input type="text" class="form form4" name="functie" placeholder="Functie . . ."><br>
-                <input type="submit" name="submit" value="Submit" class="form5">
+                <input type="text" class="form form4" name="functie" placeholder="Functie . . ."><br><br><br>
+                <input type="submit" name="submit" value="Submit" class="form formAdd"><br><br>
+                <input type="submit" name="terug" value="Terug" class="form formAdd">
             </form>
         
     <?php
@@ -82,6 +83,11 @@
             ]);
         }
 
+        if(isset($_POST['terug'])) {
+            echo "<script>location.href='../overzicht_personeel.php'</script>";
+            header("Location: ../overzicht_personeel.php");
+            exit();
+        }
     ?>
         
         </div>

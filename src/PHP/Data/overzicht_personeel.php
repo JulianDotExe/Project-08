@@ -27,7 +27,6 @@
     </header>
 
     <?php
-
         require_once("inc/db_conn.php");
         if (!isset($_SESSION['uname'])) {
             echo "<script>alert('Inloggen mislukt...')</script>";
@@ -49,8 +48,8 @@
              <button class="btnStyle btn6"> <a href="add/gegevens_add_personeel.php">Personeel - Toevoegen </a></button>
         </div>
 
-        <div class="dataContain">
-        <table>
+        <div class="dataContain dataCenter">
+        <table class="table">
             <tr>
                 <?php 
                 switch($userRole) {

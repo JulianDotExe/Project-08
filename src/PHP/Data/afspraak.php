@@ -30,7 +30,7 @@
             <input type="submit" name="submit" value="Submit" class="form5">
             <input type="button" onclick="location.href='../../../index.php';" value="Terug" class="form form2"/>
         </form>
-=    </div>
+    </div>
 
 <?php
 require_once("./inc/db_conn.php");

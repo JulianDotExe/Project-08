@@ -47,8 +47,8 @@
              <button class="btnStyle btn5"> <a href="overzicht_bezoeken.php"> <span class="underline"> Overzicht - Bezoeken </span></a></button>
         </div>
 
-        <div class="dataContain">
-        <table>
+        <div class="dataContain dataCenter">
+        <table class="tableBezoek">
             <tr>
                 <?php 
                 switch($userRole) {
