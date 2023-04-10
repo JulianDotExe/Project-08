@@ -42,9 +42,6 @@
 
     <content>
        <div class="sidebar">
-             <button class="btnStyle btn1"> Sorteer - Vleugel </button>
-             <button class="btnStyle btn2"> Sorteer - Naam </button>
-
              <button class="btnStyle btn3"> <a href="overzicht_gevangenen.php"> Overzicht - Gevangenen </a></button>
              <button class="btnStyle btn4"> <a href="overzicht_personeel.php"> Overzicht - Personeel </a></button>
              <button class="btnStyle btn5"> <a href="overzicht_bezoeken.php"> <span class="underline"> Overzicht - Bezoeken </span></a></button>

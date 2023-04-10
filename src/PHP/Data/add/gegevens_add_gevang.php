@@ -42,8 +42,8 @@
 
     <content>
        <div class="sidebar">
-             <button class="btnStyle btn1"> Sorteer - Vleugel </button>
-             <button class="btnStyle btn2"> Sorteer - Naam </button>
+             <!-- <button class="btnStyle btn1"> Sorteer - Vleugel </button>
+             <button class="btnStyle btn2"> Sorteer - Naam </button> -->
 
              <button class="btnStyle btn3"> <a href="../overzicht_gevangenen.php"> Overzicht - Gevangenen </a></button>
              <button class="btnStyle btn4"> <a href="../overzicht_personeel.php"> Overzicht - Personeel </a></button>
@@ -59,8 +59,9 @@
                 <input type="date" class="form form4" name="eind_straf" placeholder="Datum eind straf . . ."><br>
                 <input type="text" class="form form4" name="cel_nummer" placeholder="Cel nummer . . ."><br>
                 <input type="text" class="form form4" name="vleugel" placeholder="Vleugel . . ."><br>
-                <input type="text" class="form form4" name="opmerking" placeholder="Opmerking . . ."><br>
-                <input type="submit" name="submit" value="Submit" class="form5">
+                <input type="text" class="form form4" name="opmerking" placeholder="Opmerking . . ."><br><br>
+                <input type="submit" name="submit" value="Submit" class="form formAdd"><br><br>
+                <input type="submit" name="terug" value="Terug" class="form formAdd">
             </form>
         
     <?php
@@ -91,6 +92,11 @@
             ]);
         }
 
+        if(isset($_POST['terug'])) {
+            echo "<script>location.href='../overzicht_gevangenen.php'</script>";
+            header("Location: ../overzicht_gevangenen.php");
+            exit();
+        }
     ?>
         
         </div>

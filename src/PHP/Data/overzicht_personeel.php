@@ -42,15 +42,11 @@
 
     <content>
        <div class="sidebar">
-             <button class="btnStyle btn1"> Sorteer - Functie </a></button>
-             <button class="btnStyle btn2"> Sorteer - Naam </button>
-
              <button class="btnStyle btn3"> <a href="overzicht_gevangenen.php"> Overzicht - Gevangenen </a></button>
              <button class="btnStyle btn4"> <a href="overzicht_personeel.php"> <span class="underline"> Overzicht - Personeel </span></a></button>
              <button class="btnStyle btn5"> <a href="overzicht_bezoeken.php"> Overzicht - Bezoeken </a></button>
 
-             <button class="btnStyle btn6"> <a href="add/gegevens_add_personeel.php">Gegevens - Toevoegen </a></button>
-             <button class="btnStyle btn7"> Gegevens - Bewerken </button>
+             <button class="btnStyle btn6"> <a href="add/gegevens_add_personeel.php">Personeel - Toevoegen </a></button>
         </div>
 
         <div class="dataContain">
@@ -70,7 +66,8 @@
                                 <th>Naam</th>
                                 <th>Wachtwoord</th>
                                 <th>Gebruikersnaam</th>
-                                <th>Functie</th>";
+                                <th>Functie</th>
+                                <th>Actie</th>";
                     break;
                 }
                 ?>
@@ -98,7 +95,11 @@
                             <td>".$row['naam']."</td>
                             <td>".$row['wachtwoord']."</td>
                             <td>".$row['gebruikersnaam']."</td>
-                            <td>".$row['functie']."</td>";
+                            <td>".$row['functie']."</td>
+                            <td>
+                                <a href='edit/gegevens_edit_personeel.php?id={$row['personeel_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_personeel.php?id={$row['personeel_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                            </td>";
                     break;
                 }
                 echo "</tr>";

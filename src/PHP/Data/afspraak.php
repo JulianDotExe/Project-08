@@ -28,8 +28,9 @@
             <input type="time" class="form form3" name="bezoek_tijd" placeholder="Tijdstip" min="12:00:00" max="16:00:00" ><br>
             <input type="date" class="form form4" name="bezoek_datum" placeholder="Datum" step="7" value="2022-04-09" value="2022-04-08"><br>
             <input type="submit" name="submit" value="Submit" class="form5">
+            <input type="button" onclick="location.href='../../../index.php';" value="Terug" class="form form2"/>
         </form>
-    </div>
+=    </div>
 
 <?php
 require_once("./inc/db_conn.php");

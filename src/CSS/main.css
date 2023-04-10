@@ -28,6 +28,10 @@ a {
     text-decoration: underline;
 }
 
+::placeholder {
+    color: black;
+}
+
 /*
 Background
 */
@@ -174,7 +178,6 @@ Foto's
     left: 42.5%; top: 10%;
     z-index: -1;
     filter: drop-shadow(1px 5px 5px #222);
-
 }
 
 .img2 {
@@ -186,7 +189,6 @@ Foto's
     left: 42.5%; top: 55%;
     z-index: -1;
     filter: drop-shadow(1px 5px 5px #222);
-
 }
 
 .img3 {
@@ -198,7 +200,6 @@ Foto's
     left: 42.5%; top: 10%;
     z-index: -1;
     filter: drop-shadow(1px 5px 5px #222);
-
 }
 
 .img4 {
@@ -210,7 +211,6 @@ Foto's
     left: 42.5%; top: 52.5%;
     z-index: -1;
     filter: drop-shadow(1px 5px 5px #222);
-
 }
 
 .img5 {
@@ -347,9 +347,7 @@ Inloggen
     transform: translate(-50%, -50%);
 }
 
-::placeholder {
-    color: black;
-}
+
 
 #gn-login {
     height: 8vh; width: 50vh;
@@ -447,7 +445,21 @@ Database - Main
     transform: translate(-50%, -50%);
     border-radius: 3px;
     border: 2px solid #000;
+    
+    display: flex;
+    justify-content: center; align-items: top;
 }
+
+td {
+    border: 1px solid #000;
+    text-align: center;
+    width: 20vh;
+    max-height: 20vh;
+}
+
+/*
+Database - Add
+*/
 
 .dataContainAdd {
     width: 70%; height: 82.5%;;
@@ -463,10 +475,69 @@ Database - Main
     align-items: center;
 }
 
-td {
-    border: 1px solid #000;
-    text-align: center;
+.formAdd {
+    cursor: pointer;
+}
+
+
+/*
+Database - Edit
+*/
+
+.editContain {
+    height: 60%; width: 30%;
+    position: fixed; display: flex; 
+    justify-content: center;
+    text-align: center; align-items: center;
+
+    top: 50%;    left: 50%;
+    transform: translate(-50%, -50%);
+
+    line-height: 5.5vh;
+    background-color: #FBC490;
+    border-radius: 15%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.editInput {
+    height: 3vh; width: 25vh;
+}
+
+.editInput::placeholder {
+    opacity: 0.5;
+}
+
+.editInputBtn {
+    height: 3vh;
+    width: 10vh;
+    cursor: pointer;
+}
+
+/*
+Database - Delete
+*/
+
+.delContain {
+    height: 60%; width: 30%;
+    position: fixed; display: flex; 
+    justify-content: center;
+    text-align: center; align-items: center;
+
+    top: 50%;    left: 50%;
+    transform: translate(-50%, -50%);
+
+    line-height: 10vh;
+    background-color: #FBC490;
+    border-radius: 15%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.delBtn {
+    height: 5vh;
     width: 20vh;
+    cursor: pointer;
+    margin-inline: 3vh;
+    display: inline;
 }
 
 /**
