@@ -14,13 +14,11 @@
 </head>
 <body>
 
-
 <div class="background backgroundLight"></div>
 
 <header>
     <div class="logo"></div>
 </header>
-
 
 <?php
     require_once("../inc/db_conn.php");

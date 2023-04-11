@@ -3,11 +3,14 @@ Project 07 HoornHack/HekkenSluiter
 Werkende functies:
     - Afspraak maken voor bezoek
     - Overzicht gevangenen/personeel/bezoeken
-    - Toevoegen gevangenen/personeel
-    - Edit gevangenen/personeel
-    - Delete gevangenen/personeel
+    - Toevoegen gevangenen/personeel/bezoeken
+    - Edit gevangenen/personeel/bezoeken
+    - Delete gevangenen/personeel/bezoeken
     - Required forms
-    
+    - Inloggen met eigen GN en WW
+    - Wachtwoord Hashing
+    - Recaptcha
+    - Uitloggen
 
 Niet werkende functies:
     - Geen sorteer optie voor overzicht

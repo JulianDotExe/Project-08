@@ -99,6 +99,16 @@
                             <td>".$row['vleugel']."</td>
                             <td>".$row['opmerking']."</td>";
                     break;
+                    case 'Directeur':
+                        echo "<td>".$row['gevangenen_id']."</td>
+                            <td>".$row['naam']."</td>
+                            <td>".$row['woonplaats']."</td>
+                            <td>".$row['begin_straf']."</td>
+                            <td>".$row['eind_straf']."</td>
+                            <td>".$row['cel_nummer']."</td>
+                            <td>".$row['vleugel']."</td>
+                            <td>".$row['opmerking']."</td>";
+                    break;
                     default:
                         echo "<td>".$row['gevangenen_id']."</td>
                             <td>".$row['naam']."</td>

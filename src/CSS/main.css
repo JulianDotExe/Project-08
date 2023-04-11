@@ -1,6 +1,6 @@
-/* 
+/*****
 Algemeen
-*/
+*****/
 
 
 body{
@@ -14,7 +14,7 @@ body{
 }
 
 *, *::after, *::before {
-	-webkit-user-select: none;
+	user-select: none;
 	-webkit-user-drag: none;
 	-webkit-app-region: no-drag;
 }
@@ -47,7 +47,6 @@ a {
     align-items: center;
 }
 
-
 /*
 Background
 */
@@ -73,9 +72,9 @@ Background
     opacity: 0.5;
 }
 
-/**
+/*****
 Header
-**/
+*****/
 
 /*
 Logo
@@ -97,7 +96,6 @@ Logo
     position: absolute;
     top: 30%; left: 50%;
     transform: translate(-50%, -50%);
-
 
     background-image: url("/img/logo-nobg-notext.png");
     background-size: cover;
@@ -136,9 +134,9 @@ Logo
     letter-spacing: 1px;  
 }
 
-/**
+/*****
 Main Content
-**/
+*****/
 
 /*
 Motto
@@ -448,6 +446,9 @@ Database - Sidebar
     margin-top: 5%;
 }
 
+/*****
+Database
+*****/
 
 /*
 Database - Main
@@ -467,8 +468,6 @@ Database - Main
     display: flex;
     justify-content: center;
 }
-
-
 
 td {
     border: 1px solid #000;
@@ -505,7 +504,6 @@ Database - Add
 .formAdd {
     cursor: pointer;
 }
-
 
 /*
 Database - Edit

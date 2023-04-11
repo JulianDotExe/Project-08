@@ -21,7 +21,6 @@
     </header>
 
     <?php
-
         require_once("../inc/db_conn.php");
         if (!isset($_SESSION['uname'])) {
             echo "<script>alert('Inloggen mislukt...')</script>";
@@ -51,7 +50,7 @@
                 <input type="text" class="form form4" name="cel_nummer" placeholder="Cel nummer . . ." required><br>
                 <input type="text" class="form form4" name="vleugel" placeholder="Vleugel . . ." required><br>
                 <input type="text" class="form form4" name="opmerking" placeholder="Opmerking . . ."><br><br><br>
-                <input type="submit" name="submit" value="Submit" class="form formAdd"><br><br>
+                <input type="submit" name="submit" value="Submit" class="form formAdd"><br>
                 <input type="submit" name="terug" value="Terug" class="form formAdd return">
             </form>
         

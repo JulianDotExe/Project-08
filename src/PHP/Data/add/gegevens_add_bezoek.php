@@ -21,7 +21,6 @@
     </header>
 
     <?php
-
         require_once("../inc/db_conn.php");
         if (!isset($_SESSION['uname'])) {
             echo "<script>alert('Inloggen mislukt...')</script>";
@@ -48,7 +47,7 @@
                 <input type="text" class="form form3" name="naam_gevangenen" placeholder="Gevangenen volledige naam . . ." required><br>
                 <input type="time" class="form form3" name="tijd" placeholder="Tijdstip" min="12:00:00" max="16:00:00" required><br>
                 <input type="date" class="form form4" name="datum" placeholder="Datum" required><br><br>
-                <input type="submit" name="submit" value="Submit" class="form formAdd"><br><br>
+                <input type="submit" name="submit" value="Submit" class="form formAdd"><br>
                 <input type="submit" name="terug" value="Terug" class="form formAdd return">
             </form>
         

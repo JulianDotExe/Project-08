@@ -45,10 +45,6 @@
         $("#terug").click(function() {
             location.replace("/index.php")
         })
-        
-        $("#inloggen").click(function() {
-            location.replace("database.php")
-        })
 
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#ww-login');
