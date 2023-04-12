@@ -23,9 +23,6 @@
 
     <?php
     require_once("inc/db_conn.php");
-    // if (isset($_SESSION['uname'])) {
-    //     echo "<script>location.href='ovezicht.php'</script>";
-    // }
     ?>
 
     <content>

@@ -2,7 +2,6 @@
 Algemeen
 *****/
 
-
 body{
     background-color: #F5EBE1;
     outline: none;
@@ -362,7 +361,6 @@ Inloggen
 }
 
 
-
 #gn-login {
     height: 8vh; width: 50vh;
     border-radius: 50px; border: none;
@@ -417,6 +415,11 @@ Inloggen
     position: fixed;
 }
 
+
+/*****
+Database
+*****/
+
 /*
 Database - Sidebar
 */
@@ -445,10 +448,6 @@ Database - Sidebar
 .btn2, .btn4, .btn5, .btn7 {
     margin-top: 5%;
 }
-
-/*****
-Database
-*****/
 
 /*
 Database - Main

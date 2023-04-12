@@ -27,7 +27,6 @@
     </header>
 
     <?php
-
         require_once("inc/db_conn.php");
         if (!isset($_SESSION['uname'])) {
             echo "<script>alert('Inloggen mislukt...')</script>";
@@ -59,7 +58,8 @@
                                 <th>Naam bezoeker</th>
                                 <th>Naam gevangenen</th>
                                 <th>Tijd</th>
-                                <th>Datum</th>";
+                                <th>Datum</th>
+                                <th>Actie</th>";
                     break;
                     default:
                         echo "  <th>Bezoek ID</th>
@@ -81,14 +81,25 @@
                 switch($userRole) {
                     case 'Bewaker':
                         echo "<td>".$row['bezoek_id']."</td>
-                            <td>".$row['naam_bezoeker']."</td>";
+                            <td>".$row['naam_bezoeker']."</td>
+                            <td>".$row['naam_gevangenen']."</td>
+                            <td>".$row['tijd']."</td>
+                            <td>".$row['datum']."</td>
+                            <td>
+                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                            </td>";
                     break;
                     case 'Coordinator':
                         echo "<td>".$row['bezoek_id']."</td>
                             <td>".$row['naam_bezoeker']."</td>
                             <td>".$row['naam_gevangenen']."</td>
                             <td>".$row['tijd']."</td>
-                            <td>".$row['datum']."</td>";
+                            <td>".$row['datum']."</td>
+                            <td>
+                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                            </td>";
                     break;
                     default:
                         echo "<td>".$row['bezoek_id']."</td>
@@ -107,8 +118,6 @@
             ?>
         </table>
         </div>
-
-        
     </content>
 
     <script>

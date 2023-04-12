@@ -1,25 +1,40 @@
+======================================================================================================================================================================================================================================
+
+
 Project 07 HoornHack/HekkenSluiter
 
-Werkende functies:
-    - Afspraak maken voor bezoek
-    - Overzicht gevangenen/personeel/bezoeken
-    - Toevoegen gevangenen/personeel/bezoeken
-    - Edit gevangenen/personeel/bezoeken
-    - Delete gevangenen/personeel/bezoeken
-    - Required forms
-    - Inloggen met eigen GN en WW
-    - Wachtwoord Hashing
-    - Recaptcha
-    - Uitloggen
 
-Niet werkende functies:
-    - Geen sorteer optie voor overzicht
-    - Geen aanduiding welke gebruiker is ingelogd
-    - Geen verschillende permissies voor verschillende functies
+======================================================================================================================================================================================================================================
 
 
+ Functies:
 
-Structuur:
+    Werkende functies:
+        - Afspraak maken voor bezoek
+        - Overzicht gevangenen/personeel/bezoeken
+        - Toevoegen gevangenen/personeel/bezoeken
+        - Edit gevangenen/personeel/bezoeken
+        - Delete gevangenen/personeel/bezoeken
+        - Required forms
+        - Inloggen met eigen GN en WW
+        - Wachtwoord Hashing
+        - Recaptcha
+        - Uitloggen
+        - Wachtwoord Hide/Show
+        - Shadow gebruik (CSS)
+        - Icon gebruik (CSS)
+
+    Niet werkende functies:
+        - Geen sorteer optie voor overzicht
+        - Geen aanduiding welke gebruiker is ingelogd
+        - Geen verschillende permissies voor verschillende functies
+        - Niet responsive
+
+
+======================================================================================================================================================================================================================================
+
+
+Mappen Structuur:
 
 PROJECT-07 (project)
 |
@@ -49,3 +64,56 @@ PROJECT-07 (project)
                                                                                     Files voor gegev.           Files voor gegev.            Files voor gegev.
                                                                                     toevoegen (.php)            verwijderen (.php)           editen (.php)
                                                                 
+
+======================================================================================================================================================================================================================================
+
+
+CSS indeling:
+
+    Algemeen:
+        - Background
+
+    Header:
+        - Logo
+
+    Main Content:
+        - Motto
+        - Navigation Menu
+        - Foto's
+        - Content Teksten
+        - Afspraak
+        - Inloggen
+
+    Database:
+        - Database - Sidebar
+        - Database - Main
+        - Database - Add
+        - Database - Edit
+        - Database - Delete
+
+    Footer:
+        - Code
+
+
+======================================================================================================================================================================================================================================
+
+
+External Script gebruik:
+
+    Font-Awesome
+    https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css
+
+    Jquery
+    https://code.jquery.com/jquery-3.6.3.js
+
+    
+======================================================================================================================================================================================================================================
+
+
+Github:
+
+    Github Repo
+    https://github.com/JulianDotExe/Project-07
+
+
+======================================================================================================================================================================================================================================

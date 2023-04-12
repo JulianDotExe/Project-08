@@ -87,7 +87,17 @@
                 switch($userRole) {
                     case 'Bewaker':
                         echo "<td>".$row['gevangenen_id']."</td>
-                            <td>".$row['naam']."</td>";
+                            <td>".$row['naam']."</td>
+                            <td>".$row['woonplaats']."</td>
+                            <td>".$row['begin_straf']."</td>
+                            <td>".$row['eind_straf']."</td>
+                            <td>".$row['cel_nummer']."</td>
+                            <td>".$row['vleugel']."</td>
+                            <td>".$row['opmerking']."</td>
+                            <td>
+                                <a href='edit/gegevens_edit_gevang.php?id={$row['gevangenen_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_gevang.php?id={$row['gevangenen_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                            </td>";
                     break;
                     case 'Coordinator':
                         echo "<td>".$row['gevangenen_id']."</td>
@@ -97,7 +107,11 @@
                             <td>".$row['eind_straf']."</td>
                             <td>".$row['cel_nummer']."</td>
                             <td>".$row['vleugel']."</td>
-                            <td>".$row['opmerking']."</td>";
+                            <td>".$row['opmerking']."</td>
+                            <td>
+                                <a href='edit/gegevens_edit_gevang.php?id={$row['gevangenen_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_gevang.php?id={$row['gevangenen_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                            </td>";
                     break;
                     case 'Directeur':
                         echo "<td>".$row['gevangenen_id']."</td>
@@ -107,7 +121,11 @@
                             <td>".$row['eind_straf']."</td>
                             <td>".$row['cel_nummer']."</td>
                             <td>".$row['vleugel']."</td>
-                            <td>".$row['opmerking']."</td>";
+                            <td>".$row['opmerking']."</td>
+                            <td>
+                                <a href='edit/gegevens_edit_gevang.php?id={$row['gevangenen_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_gevang.php?id={$row['gevangenen_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                            </td>";
                     break;
                     default:
                         echo "<td>".$row['gevangenen_id']."</td>
@@ -129,8 +147,6 @@
             ?>
         </table>
         </div>
-
-        
     </content>
 
     <script>
