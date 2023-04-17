@@ -41,11 +41,11 @@
 
     <content>
        <div class="sidebar">
-             <button class="btnStyle btn3"> <a href="overzicht_gevangenen.php"> Overzicht - Gevangenen </a></button>
-             <button class="btnStyle btn4"> <a href="overzicht_personeel.php"> Overzicht - Personeel </a></button>
-             <button class="btnStyle btn5"> <a href="overzicht_bezoeken.php"> <span class="underline"> Overzicht - Bezoeken </span></a></button>
+             <button class="btnStyle btn3"><a href="overzicht_gevangenen.php">Overzicht - Gevangenen </a></button>
+             <button class="btnStyle btn4"><a href="overzicht_personeel.php">Overzicht - Personeel </a></button>
+             <button class="btnStyle btn5"><a href="overzicht_bezoeken.php"><span class="underline"> Overzicht - Bezoeken </span></a></button>
 
-             <button class="btnStyle btn6"> <a href="add/gegevens_add_bezoek.php">Bezoekers - Toevoegen </a></button>
+             <button class="btnStyle btn6"><a href="add/gegevens_add_bezoek.php">Bezoekers - Toevoegen </a></button>
         </div>
 
         <div class="dataContain dataCenter">

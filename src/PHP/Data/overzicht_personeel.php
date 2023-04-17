@@ -129,12 +129,10 @@
             location.replace("overzicht_gevangenen.php")
         })
 
-        
         $(".btn4").click(function () {
             location.replace("overzicht_personeel.php")
         })
 
-        
         $(".btn5").click(function () {
             location.replace("overzicht_bezoeken.php")
         })

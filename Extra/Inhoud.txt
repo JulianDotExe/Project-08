@@ -154,6 +154,7 @@ Database:
         -naam_gevangenen
         -tijd
         -datum
+
     Gevangenen:
         -gevangenen_id
         -naam
@@ -163,6 +164,7 @@ Database:
         -cel_nummer
         -vleugel
         -opmerking
+        
     Personeel:
         -personeel_id
         -naam

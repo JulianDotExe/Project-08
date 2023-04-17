@@ -1,5 +1,4 @@
 <?php
-
 $ww = 'adminww';
 $pwHash = password_hash($ww, PASSWORD_BCRYPT);
 
@@ -11,5 +10,4 @@ if (password_verify($ww, $pwHash)) {
 } else {
     echo 'Invalid password';
 }
-
 ?>
