@@ -44,7 +44,7 @@
             echo $row['naam'];
             ?>
         </h2>
-        <b style="color:red; font-size: 22px;">Weet u zeker dat u deze actie wilt uitvoeren?</b>
+        <b style="color:red; font-size: 18px;">Weet u zeker dat u deze actie wilt uitvoeren?</b>
         <input type="submit" name="verwijderen" class="delBtn" value="Verwijderen">
         <input type="submit" name="terug" class="delBtn" value="Terug">
     </form>

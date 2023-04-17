@@ -136,7 +136,6 @@
         $(".btn5").click(function () {
             location.replace("overzicht_bezoeken.php")
         })
-
     </script>
 </body>
 </html>
