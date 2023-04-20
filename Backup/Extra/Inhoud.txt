@@ -1,0 +1,177 @@
+======================================================================================================================================================================================================================================
+
+
+Project 07 HoornHack/HekkenSluiter 
+
+!* Dit bestand openen in Full Screen voor duidelijk overzicht (Mogelijkheid om te openen in Visual Studio Code) *!
+
+
+======================================================================================================================================================================================================================================
+
+
+ Team:
+    
+    - Julian
+    - Ninoh
+    - Rik
+
+ Klant:
+
+    - Opperhek
+    
+
+======================================================================================================================================================================================================================================
+
+
+ Functies:
+
+    Werkende functies:
+        - Afspraak maken voor bezoek.
+        - Overzicht gevangenen/personeel/bezoeken.
+        - Toevoegen gevangenen/personeel/bezoeken.
+        - Edit gevangenen/personeel/bezoeken.
+        - Delete gevangenen/personeel/bezoeken.
+        - Required forms.
+        - Inloggen met eigen GN en WW.
+        - Wachtwoord Hashing.
+        - Recaptcha.
+        - Uitloggen.
+        - Wachtwoord Hide/Show.
+        - Shadow gebruik (CSS).
+        - Icon gebruik (CSS).
+        - Alleen tussen 12:00 en 16:00 een afspraak maken.
+        - Nieuws items pagina.
+        - Contact pagina.
+        - Informatie gevangenis pagina.
+        - Confirmation voor verwijderen.
+        - Melding voor succesvolle actie.
+
+    Niet werkende functies:
+        - Geen sorteer optie voor overzicht. (Was optioneel)
+        - Geen aanduiding welke gebruiker is ingelogd. (Was optioneel)
+        - Geen verschillende permissies voor verschillende functies.
+        - Niet responsive. (Was optioneel)
+        - Geen favicon. (Was optioneel)
+        - Je kan ipv specifieke dagen, alle dagen een afspraak maken. (Was optioneel)
+        - Als gevangenen namen incorrect zijn bij afspraak plannen dan geen error.
+
+
+======================================================================================================================================================================================================================================
+
+
+Mappen Structuur:
+
+PROJECT-07 (project)
+|
+|            ------>Inhoud.txt (.txt)
+|            |   
+|----------->Extra (map)
+|            |
+|            ------>SQL (map)----->hekkensluiter_p07.sql
+|
+|
+|-----------img (map)---->images for the project (.png/.jpg)
+|
+|
+|                 -----------------------------------PHP (map)------->Klantenportaal files (.php)         
+|                 |                                        |                                         
+|-----------src (map)                                      |                                         
+|                 |                                        |             ------------------------------------>Database files (.php)
+|                 ------CSS (map)-----> main.css           |             |
+|                                                          |             |
+|                                                          |             |
+------->index.php (main file)                               ---------->Data (map)-------------------------------------------------------------------------------------->inc (map)--->Connection files (.php)
+                                                                                        |                            |                            |
+                                                                                      add (map)                  delete (map)                  edit (map)
+                                                                                        |                            |                            |
+                                                                                        |                            |                            |
+                                                                                        |                            |                            |
+                                                                                    Files voor gegev.           Files voor gegev.            Files voor gegev.
+                                                                                    toevoegen (.php)            verwijderen (.php)           editen (.php)
+                                                                
+
+======================================================================================================================================================================================================================================
+
+
+CSS indeling:
+
+    Algemeen:
+        - Background
+
+    Header:
+        - Logo
+
+    Main Content:
+        - Motto
+        - Navigation Menu
+        - Foto's
+        - Content Teksten
+        - Afspraak
+        - Inloggen
+
+    Database:
+        - Database - Sidebar
+        - Database - Main
+        - Database - Add
+        - Database - Edit
+        - Database - Delete
+
+    Footer:
+        - Code
+
+
+======================================================================================================================================================================================================================================
+
+
+External Script gebruik:
+
+    Font-Awesome
+    https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css
+
+    Jquery
+    https://code.jquery.com/jquery-3.6.3.js
+
+    Recaptcha
+    https://www.google.com/recaptcha/api.js
+
+    
+======================================================================================================================================================================================================================================
+
+
+Github:
+
+    Github Repo
+    https://github.com/JulianDotExe/Project-07
+
+
+======================================================================================================================================================================================================================================
+
+
+Database:
+    Bezoekers:
+        -bezoek_id
+        -naam_bezoeker
+        -naam_gevangenen
+        -tijd
+        -datum
+
+    Gevangenen:
+        -gevangenen_id
+        -naam
+        -woonplaats
+        -begin_straf
+        -eind_straf
+        -cel_nummer
+        -vleugel
+        -opmerking
+        
+    Personeel:
+        -personeel_id
+        -naam
+        -wachtwoord
+        -gebruikersnaam
+        -functie
+        -wwhash
+
+
+======================================================================================================================================================================================================================================
