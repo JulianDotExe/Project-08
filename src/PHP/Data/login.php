@@ -34,6 +34,7 @@
                     <div class="g-recaptcha" data-sitekey="6Lc8OV4lAAAAANinYeJoXTeiKFQw-6Jr8J7zrWfS"></div>
                     <button id="inloggen" type="submit" name="submit" value="login"> Inloggen</button>     
                 </form>               
+                    <button id="vergeten"><a href="ww/vergeten.php"> Wachtwoord vergeten</a></button>
                     <button id="terug"><a href="/index.php"> Terug</a></button>
             </div>
     </content>

@@ -19,6 +19,12 @@
     <header>
         <div class="logo"></div>
         
+        <div class="user">
+            <?php 
+            include("OOP/user.php");
+            ?>
+        </div>
+
         <div class="log">
             <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
             <span id="tekstlog"> <a href="logout.php"> Log out</a></span>

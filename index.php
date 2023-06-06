@@ -19,7 +19,7 @@
 
     <header>
         <div class="logo"></div>
-        
+
         <div class="log">
             <i class="fa fa-solid fa-user fa-lg" style="color: #f67b50;"></i>
             <span id="tekstlog"> <a href="/src/PHP/Data/login.php"> Login</a></span>

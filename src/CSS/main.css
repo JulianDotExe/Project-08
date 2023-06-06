@@ -120,10 +120,22 @@ Logo
     line-height: 35px;
 }
 
+
+/* User */
+.user {
+    background-color: #fff;
+    border-radius: 10px; border: 2px solid #222;
+    width: 20vh; height: 3.5vh;
+    top: 10px; right: 120px;
+    position: fixed; 
+    text-align: center;
+    display: grid;
+}
+
 .log {
     position: fixed;
     right: 20px;
-    top: 15px;
+    top: 10px;
     cursor: pointer;
 }
 
@@ -395,24 +407,74 @@ Inloggen
 
 #terug {
     height: 7vh; width: 20vh;
-    border-radius: 50px; border: none;
+    border-radius: 20px; border: none;
     font-size: 2vh;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
     cursor: pointer;
 
-    bottom: 5vh; left: 20vh;
+    bottom: 5vh; left: 15vh;
     position: fixed;
+}
+
+#vergeten {
+    height: 7vh; width: 20vh;
+    border-radius: 20px; border: none;
+    font-size: 2vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    cursor: pointer;
+
+    position: fixed;
+    bottom: 1.5vh;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
 
 #inloggen {
     height: 7vh; width: 20vh;
-    border-radius: 50px; border: none;
+    border-radius: 20px; border: none;
     font-size: 2vh;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
     cursor: pointer;
     
-    bottom: 5vh; right: 20vh;
+    bottom: 5vh; right: 15vh;
     position: fixed;
+}
+
+
+/* Wachtwoord vergeten */
+#terugvergeten {
+    height: 7vh; width: 20vh;
+    border-radius: 20px; border: none;
+    font-size: 2vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    cursor: pointer;
+
+    bottom: 7.5vh; left: 22.5vh;
+    position: fixed;
+}
+
+#versturen {
+    height: 7vh; width: 20vh;
+    border-radius: 20px; border: none;
+    font-size: 2vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    cursor: pointer;
+    
+    bottom: 7.5vh; right: 22.5vh;
+    position: fixed;
+}
+
+#gn-vergeten {
+    height: 8vh; width: 50vh;
+    border-radius: 50px; border: none;
+    text-align: center;
+    font-size: 2vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    cursor: text;
+
+    position: absolute;
+    top: 30%; left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
