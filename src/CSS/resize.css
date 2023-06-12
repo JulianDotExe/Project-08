@@ -1,0 +1,211 @@
+@media only screen and (max-width: 600px)  {
+    body {
+        overflow: scroll;
+    }
+    
+    /* Homepage */
+    .background {
+        background-size: cover;
+        opacity: 0.3;
+    }
+
+    .motto {
+        top: 70%; left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Footer */
+    .logoFooter-home {
+        display: flex;
+        top: 90%;
+    }
+
+    .logoFooter-cc {
+        display: flex;
+        top: 165%;
+    }
+
+    .logoFooter-news {
+        display: flex;
+        top: 245%;
+    }
+
+    .logoFooter-contact {
+        display: flex;
+        top: 200%;
+    }
+
+    /* NavMenu */
+    .currentPage {
+        position: absolute;
+        top: 20%; left: 50%;
+        transform: translate(-50%, -50%);
+        font-style: normal;
+        font-weight: bold;    
+        font-size: 5vh;   
+        opacity: 1; 
+    }
+
+    .NavMenu {
+        position: absolute;
+        left: 50%; top: 40%;
+        font-size: 3.25vh;
+        opacity: 1;
+    }
+
+    /* Cellencomplexplage */
+    .img3 {
+        position: absolute;
+        top: 80%; left: 50%;
+        transform: translate(-50%, -50%);    
+        background-size: cover;
+        width: 80%; height: 40%;
+    }
+    
+    .cc-content {
+        position: absolute;
+        top: 130%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 75%;
+        font-size: 2.5vh;
+        text-align: center;
+    }
+
+    .img4 {
+        display: none;
+    }
+
+    /* Newspage */
+    .img1 {
+        position: absolute;
+        top: 80%; left: 50%;
+        transform: translate(-50%, -50%);
+        background-size: cover;
+        width: 80%; height: 40%;
+    }
+
+    .n-content-1 {
+        position: absolute;
+        top: 125%; left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .img2 {
+        position: absolute;
+        top: 170%; left: 50%;
+        transform: translate(-50%, -50%);
+        background-size: cover;
+        width: 80%; height: 40%;
+    }
+
+    .n-content-2 {
+        position: absolute;
+        top: 215%; left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Contactpage */
+    .img5 {
+        position: absolute;
+        top: 105%; left: 50%;
+        transform: translate(-50%, -50%);
+        background-size: cover;
+        width: 60%; height: 40%;
+    }
+    
+    .c-content-1 {
+        position: absolute;
+        top: 70%; left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;    
+        font-weight: bold;
+        font-size: 2.2vh;
+    }
+
+    .c-content-2 {
+        position: absolute;
+        top: 170%; left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;    
+        font-size: 2.4vh;
+    }
+
+    .afspraak {
+        top: 135%; left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Login */
+    .container {
+        border-radius: 25px;
+        width: 90%; height: 85%;
+        top: 52.5%;
+    }
+
+    .eye {
+        top: 33%;
+    }
+
+    .g-recaptcha {
+        top: 55%;
+    }
+
+    #gn-login {
+        width: 40vh;
+        top: 15%;
+    }
+
+    #ww-login {
+        width: 40vh;
+        top: 35%;
+    }
+
+    #terug {
+        left: 5vh;
+        width: 17.5vh;
+        border-radius: 15px;
+    }
+
+    #vergeten {
+        width: 30vh;
+        border-radius: 15px;
+        bottom: 15vh;
+    }
+
+    #inloggen {
+        right: 5vh;
+        width: 17.5vh;
+        border-radius: 15px;
+    }
+
+    /* Database */
+    .sidebar {
+        position: absolute;
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .btn1, .btn2, .btn4, .btn5, .btn6, .btn7{
+        margin-top: 20%;
+    }
+
+    /* .dataContain {
+        width: 80%; height: 100%;
+        top: 70%;
+    }
+
+    td {
+        width: 10vh;
+        font-size: 10px;
+    }
+    
+    .table {
+        max-height: 250px;
+        
+    } */
+
+    .back {
+         left: 5%;
+    }
+}
+

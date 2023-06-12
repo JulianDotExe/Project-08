@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HoornHack</title>
     <link rel="stylesheet" type="text/css" href="../CSS/main.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/resize.css">
     
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -61,6 +62,9 @@
         </div>
     </content>
 
+    <footer>
+        <div class="logoFooter logoFooter-news"></div>
+    </footer>
     <script>
         $(".log").click(function() {
             location.replace("./Data/login.php")

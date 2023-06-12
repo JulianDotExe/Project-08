@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HoornHack</title>
     <link rel="stylesheet" type="text/css" href="../CSS/main.css">
-    
+    <link rel="stylesheet" type="text/css" href="../CSS/resize.css">
+
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
@@ -44,15 +45,15 @@
         </div>
 
         <div class="c-content-2">
-            <span style="font-size: 2.8vh;"><B>Bezoektijden "HoornHack":</B></span><br>
-            Ma: Gesloten.<br>
-            Di: Gesloten.<br>
-            Wo: 12:00 - 16:00.<br>
-            Do: Gesloten.<br>
-            Vr: 12:00 - 16:00.<br>
-            Za: 12:00 - 16:00.<br>
-            Zo: Gesloten.<br>
-            <span style="font-size: 1.5vh;">Afspraak verplicht.</span>
+            <p><span class="c-content-2-span" style="font-size: 2.25vh;"><B>Bezoektijden "HoornHack":</B></span></p>
+            <p>Ma: Gesloten.</p>
+            <p>Di: Gesloten.</p>
+            <p>Wo: 12:00 - 16:00.</p>
+            <p>Do: Gesloten.</p>
+            <p>Vr: 12:00 - 16:00.</p>
+            <p>Za: 12:00 - 16:00.</p>
+            <p>Zo: Gesloten.</p>
+            <span style="font-size: 1.75vh;">Afspraak verplicht.</span>
 
         </div>
 
@@ -62,6 +63,10 @@
             <span> <a href="./Data/afspraak.php"> Klik hier om een afspraak te maken.</a></span>
         </div>
     </content>
+
+    <footer>
+        <div class="logoFooter logoFooter-contact"></div>
+    </footer>
 
     <script>
         $(".log").click(function() {

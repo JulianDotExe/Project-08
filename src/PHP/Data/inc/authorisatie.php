@@ -26,7 +26,7 @@ $response = file_get_contents($url);
 $response = json_decode($response);
 
 if (isset($_SESSION['uname'])) {
-    echo "<script>location.href='../overzicht_gevangenen.php'</script>";
+    echo "<script>location.href='../indexdb.php'</script>";
 } else {
     $stmt = $pdo->prepare("SELECT * FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
     $stmt->bindParam(':gebruikersnaam', $uname);
@@ -36,7 +36,7 @@ if (isset($_SESSION['uname'])) {
 
     if($user && password_verify($pwd, $user['wwhash']) && $response->success) {
         $_SESSION['uname'] = $uname;
-        echo "<script>location.href='../overzicht_gevangenen.php'</script>";
+        echo "<script>location.href='../indexdb.php'</script>";
     } else {
         echo "<script>location.href='../failed.php'</script>";
     }

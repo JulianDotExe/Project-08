@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overzicht</title>
     <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/resize.css">
     
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -18,12 +19,6 @@
 
     <header>
         <div class="logo"></div>
-        
-        <div class="user">
-            <?php 
-            include("OOP/user.php");
-            ?>
-        </div>
 
         <div class="log">
             <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
@@ -46,12 +41,8 @@
     ?>
 
     <content>
-       <div class="sidebar">
-             <button class="btnStyle btn3"> <a href="overzicht_gevangenen.php"> Overzicht - Gevangenen </a></button>
-             <button class="btnStyle btn4"> <a href="overzicht_personeel.php"> <span class="underline"> Overzicht - Personeel </span></a></button>
-             <button class="btnStyle btn5"> <a href="overzicht_bezoeken.php"> Overzicht - Bezoeken </a></button>
-
-             <button class="btnStyle btn6"> <a href="add/gegevens_add_personeel.php">Personeel - Toevoegen </a></button>
+        <div class="back">
+            <i class="fa fa-solid fa-arrow-left fa-2x" style="color: #f67b50;"></i>
         </div>
 
         <div class="dataContain dataCenter">
@@ -130,21 +121,9 @@
         $(".log").click(function() {
             location.replace("./logout.php")
         })
-
-        $(".btn3").click(function () {
-            location.replace("overzicht_gevangenen.php")
-        })
-
-        $(".btn4").click(function () {
-            location.replace("overzicht_personeel.php")
-        })
-
-        $(".btn5").click(function () {
-            location.replace("overzicht_bezoeken.php")
-        })
-
-        $(".btn6").click(function () {
-            location.replace("add/gegevens_add_personeel.php")
+        
+        $(".back").click(function() {
+            location.replace("./indexdb.php")
         })
     </script>
 </body>

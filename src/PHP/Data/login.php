@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="../../CSS/main.css">
-    
+    <link rel="stylesheet" type="text/css" href="../../CSS/resize.css">
+
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>

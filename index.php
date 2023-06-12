@@ -7,7 +7,8 @@
     <title>HoornHack</title>
 
     <link rel="stylesheet" type="text/css" href="./src/CSS/main.css">
-    
+    <link rel="stylesheet" type="text/css" href="./src/CSS/resize.css">
+
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
@@ -31,9 +32,9 @@
             Zitten om <br> te leren.
         </div>
         
-        <div class="currentPage">
+        <span class="currentPage">
             Homepage
-        </div>
+        </span>
 
         <div class="NavMenu">
             <i class="fa fa-solid fa-caret-right fa-lg" style="color: #A82810;"></i><span class="navSpan" id="menuHomepage"><a href="index.php"> <u>Homepage</u></a></span><br>
@@ -47,7 +48,10 @@
         <div class="code">
             <i class="fa fa-solid fa-code fa-lg" style="color: #f67b50;"></i>
         </div>
+        <div class="logoFooter logoFooter-home"></div>
+
     </footer>
+
     <script>
         $(".code").click(function() {
             location.replace("https://github.com/JulianDotExe/Project-07")
