@@ -47,6 +47,9 @@
             <i class="fa fa-solid fa-arrow-left fa-2x" style="color: #f67b50;"></i>
         </div>
 
+        <span class="add"><i class="fa fa-solid fa-plus fa-2x" style="color: #f67b50;"></i></span>
+
+
         <div class="dataContain dataCenter">
         <table class="table">
             <tr>
@@ -74,10 +77,12 @@
                                 <th>Actie</th>";
                     break;
                 }
-                ?>
+            ?>
+
+            
             </tr>
             <?php
-            $sql="SELECT * FROM gevangenen";
+            $sql="SELECT * FROM gevangenen LIMIT 5  ";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -145,6 +150,7 @@
             ?>
         </table>
         </div>
+
     </content>
 
     <script>

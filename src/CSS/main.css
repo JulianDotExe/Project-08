@@ -572,6 +572,13 @@ td {
 Database - Add
 */
 
+/* .add {
+    position: absolute;
+    top: 20%;    right: 5%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+} */
+
 .dataContainAdd {
     width: 70%; height: 82.5%;;
     background-color: white;
