@@ -45,17 +45,17 @@
     </content>
 
     <footer>
-        <div class="code">
+        <!-- <div class="code">
             <i class="fa fa-solid fa-code fa-lg" style="color: #f67b50;"></i>
-        </div>
+        </div> -->
         <div class="logoFooter logoFooter-home"></div>
 
     </footer>
 
     <script>
-        $(".code").click(function() {
-            location.replace("https://github.com/JulianDotExe/Project-07")
-        })
+        // $(".code").click(function() {
+        //     location.replace("https://github.com/JulianDotExe/Project-07")
+        // })
 
         $(".log").click(function() {
             window.location.replace("src/PHP/Data/login.php")
