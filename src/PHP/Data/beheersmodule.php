@@ -19,7 +19,6 @@
 
     <header>
         <div class="logo"></div>
-         
 
         <div class="log">
             <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
@@ -29,11 +28,12 @@
     </header>
 
     <content>
-       <div class="sidebar">
-             <button class="btnStyle btn3"> <a href="overzicht_gevangenen.php"> Overzicht - Gevangenen</a></button>
-             <button class="btnStyle btn4"> <a href="overzicht_personeel.php"> Overzicht - Personeel </a></button>
-             <button class="btnStyle btn5"> <a href="overzicht_bezoeken.php"> Overzicht - Bezoeken </a></button>
-             <button class="btnStyle btn6"> <a href="add/gegevens_add_gevang.php">Beheersmodule</a></button>
+       <div class="menuContain">
+        <span class="menuTitle"> Beheersmodule </span>
+             <button class="btnStyle btn3"> <a href="add/gegevens_add_personeel.php"> Toevoegen - Personeel</a></button>
+             <button class="btnStyle btn4"> <a href="beheer/permissies.php"> Permissies - Personeel </a></button>
+             <button class="btnStyle btn5"> <a href="beheer/overzicht_functie.php"> Overzicht - Functies </a></button>
+             <button class="btnStyle btn6"> <a href="indexdb.php"><i class="fa fa-solid fa-arrow-left" style="color: #000;"></i> Verlaat Beheersmodule</a></button>
         </div>
     </content>
 
@@ -43,19 +43,19 @@
         })
 
         $(".btn3").click(function () {
-            location.replace("overzicht_gevangenen.php")
+            location.replace("add/gegevens_add_personeel.php")
         })
         
         $(".btn4").click(function () {
-            location.replace("overzicht_personeel.php")
+            location.replace("beheer/permissies.php")
         })
         
         $(".btn5").click(function () {
-            location.replace("overzicht_bezoeken.php")
+            location.replace("beheer/overzicht_functie.php")
         })
 
         $(".btn6").click(function () {
-            location.replace("add/gegevens_add_gevang.php")
+            location.replace("indexdb.php")
         })
     </script>
 </body>

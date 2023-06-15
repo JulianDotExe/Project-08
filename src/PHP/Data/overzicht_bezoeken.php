@@ -45,6 +45,8 @@
             <i class="fa fa-solid fa-arrow-left fa-2x" style="color: #f67b50;"></i>
         </div>
 
+        <span class="add"><i class="fa fa-solid fa-plus fa-2x" style="color: #f67b50;"></i></span>
+
         <div class="dataContain dataCenter">
         <table class="tableBezoek">
             <tr>
@@ -124,6 +126,10 @@
 
         $(".back").click(function() {
             location.replace("./indexdb.php")
+        })
+
+        $(".add").click(function() {
+            location.replace("add/gegevens_add_bezoek.php")
         })
     </script>
 </body>

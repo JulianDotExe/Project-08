@@ -51,20 +51,20 @@
                 <?php 
                 switch($userRole) {
                     case 'Bewaker':
-                        echo "  <th>Personeel ID</th>
-                                <th>Naam</th>
+                        echo "  <th>ID</th>
+                                <th id='optional'>Naam</th>
                                 <th>Wachtwoord</th>
                                 <th>Gebruikersnaam</th>
                                 <th>Functie</th>
-                                <th>Actie</th>";
+                                <th id='optional'>Actie</th>";
                     break;
                     default:
-                        echo "  <th>Personeel ID</th>
-                                <th>Naam</th>
+                        echo "  <th>ID</th>
+                                <th id='optional'>Naam</th>
                                 <th>Wachtwoord</th>
                                 <th>Gebruikersnaam</th>
                                 <th>Functie</th>
-                                <th>Actie</th>";
+                                <th id='optional'>Actie</th>";
                     break;
                 }
                 ?>
@@ -78,33 +78,33 @@
                 switch($userRole) {
                     case 'Bewaker':
                         echo "<td>".$row['personeel_id']."</td>
-                            <td>".$row['naam']."</td>
+                            <td id='optional'>".$row['naam']."</td>
                             <td>".$row['wachtwoord']."</td>
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie']."</td>
-                            <td>
+                            <td id='optional'>
                                 <a href='edit/gegevens_edit_personeel.php?id={$row['personeel_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='delete/gegevens_del_personeel.php?id={$row['personeel_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
                     break;
                     case 'Coordinator':
                         echo "<td>".$row['personeel_id']."</td>
-                            <td>".$row['naam']."</td>
+                            <td id='optional'>".$row['naam']."</td>
                             <td>".$row['wachtwoord']."</td>
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie']."</td>
-                            <td>
+                            <td id='optional'>
                                 <a href='edit/gegevens_edit_personeel.php?id={$row['personeel_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='delete/gegevens_del_personeel.php?id={$row['personeel_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
                     break;
                     default:
                         echo "<td>".$row['personeel_id']."</td>
-                            <td>".$row['naam']."</td>
+                            <td id='optional'>".$row['naam']."</td>
                             <td>".$row['wachtwoord']."</td>
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie']."</td>
-                            <td>
+                            <td id='optional'>
                                 <a href='edit/gegevens_edit_personeel.php?id={$row['personeel_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='delete/gegevens_del_personeel.php?id={$row['personeel_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";

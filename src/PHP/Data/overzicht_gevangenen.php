@@ -49,32 +49,31 @@
 
         <span class="add"><i class="fa fa-solid fa-plus fa-2x" style="color: #f67b50;"></i></span>
 
-
         <div class="dataContain dataCenter">
         <table class="table">
             <tr>
                 <?php 
                 switch($userRole) {
                     case 'Bewaker':
-                        echo "  <th>Gevangenen ID</th>
+                        echo "  <th>ID</th>
                                 <th>Naam</th>
-                                <th>Woonplaats</th>
-                                <th>Begin-straf</th>
-                                <th>Eind-straf</th>
+                                <th id='optional'>Woonplaats</th>
+                                <th id='optional'>Begin-straf</th>
+                                <th id='optional'>Eind-straf</th>
                                 <th>Cel-nummer</th>
                                 <th>Vleugel</th>
                                 <th>Opmerking</th>";
                     break;
                     default:
-                        echo "  <th>Gevangenen ID</th>
+                        echo "  <th>ID</th>
                                 <th>Naam</th>
-                                <th>Woonplaats</th>
-                                <th>Begin-straf</th>
-                                <th>Eind-straf</th>
-                                <th>Cel-nummer</th>
+                                <th id='optional'>Woonplaats</th>
+                                <th id='optional'>Begin-straf</th>
+                                <th id='optional'>Eind-straf</th>
+                                <th>Cel-Nr.</th>
                                 <th>Vleugel</th>
                                 <th>Opmerking</th>
-                                <th>Actie</th>";
+                                <th id='optional'>Actie</th>";
                     break;
                 }
             ?>
@@ -91,13 +90,13 @@
                     case 'Bewaker':
                         echo "<td>".$row['gevangenen_id']."</td>
                             <td>".$row['naam']."</td>
-                            <td>".$row['woonplaats']."</td>
-                            <td>".$row['begin_straf']."</td>
-                            <td>".$row['eind_straf']."</td>
+                            <td id='optional'>".$row['woonplaats']."</td>
+                            <td id='optional'>".$row['begin_straf']."</td>
+                            <td id='optional'>".$row['eind_straf']."</td>
                             <td>".$row['cel_nummer']."</td>
                             <td>".$row['vleugel']."</td>
                             <td>".$row['opmerking']."</td>
-                            <td>
+                            <td id='optional'>
                                 <a href='edit/gegevens_edit_gevang.php?id={$row['gevangenen_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='delete/gegevens_del_gevang.php?id={$row['gevangenen_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
@@ -105,13 +104,13 @@
                     case 'Coordinator':
                         echo "<td>".$row['gevangenen_id']."</td>
                             <td>".$row['naam']."</td>
-                            <td>".$row['woonplaats']."</td>
-                            <td>".$row['begin_straf']."</td>
-                            <td>".$row['eind_straf']."</td>
+                            <td id='optional'>".$row['woonplaats']."</td>
+                            <td id='optional'>".$row['begin_straf']."</td>
+                            <td id='optional'>".$row['eind_straf']."</td>
                             <td>".$row['cel_nummer']."</td>
                             <td>".$row['vleugel']."</td>
                             <td>".$row['opmerking']."</td>
-                            <td>
+                            <td id='optional'>
                                 <a href='edit/gegevens_edit_gevang.php?id={$row['gevangenen_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='delete/gegevens_del_gevang.php?id={$row['gevangenen_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
@@ -120,12 +119,12 @@
                         echo "<td>".$row['gevangenen_id']."</td>
                             <td>".$row['naam']."</td>
                             <td>".$row['woonplaats']."</td>
-                            <td>".$row['begin_straf']."</td>
-                            <td>".$row['eind_straf']."</td>
+                            <td id='optional'>".$row['begin_straf']."</td>
+                            <td id='optional'>".$row['eind_straf']."</td>
                             <td>".$row['cel_nummer']."</td>
                             <td>".$row['vleugel']."</td>
                             <td>".$row['opmerking']."</td>
-                            <td>
+                            <td id='optional'>
                                 <a href='edit/gegevens_edit_gevang.php?id={$row['gevangenen_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='delete/gegevens_del_gevang.php?id={$row['gevangenen_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
@@ -133,13 +132,13 @@
                     default:
                         echo "<td>".$row['gevangenen_id']."</td>
                             <td>".$row['naam']."</td>
-                            <td>".$row['woonplaats']."</td>
-                            <td>".$row['begin_straf']."</td>
-                            <td>".$row['eind_straf']."</td>
+                            <td id='optional'>".$row['woonplaats']."</td>
+                            <td id='optional'>".$row['begin_straf']."</td>
+                            <td id='optional'>".$row['eind_straf']."</td>
                             <td>".$row['cel_nummer']."</td>
                             <td>".$row['vleugel']."</td>
                             <td>".$row['opmerking']."</td>
-                            <td>
+                            <td id='optional'>
                                 <a href='edit/gegevens_edit_gevang.php?id={$row['gevangenen_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='delete/gegevens_del_gevang.php?id={$row['gevangenen_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
@@ -160,6 +159,10 @@
 
         $(".back").click(function() {
             location.replace("./indexdb.php")
+        })
+
+        $(".add").click(function() {
+            location.replace("add/gegevens_add_gevang.php")
         })
     </script>
 </body>

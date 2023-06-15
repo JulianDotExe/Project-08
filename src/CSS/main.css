@@ -501,7 +501,7 @@ Database
 *****/
 
 /*
-Database - Sidebar
+Database - Sidebar/Menu
 */
 
 .back {
@@ -510,9 +510,9 @@ Database - Sidebar
     cursor: pointer;
 }
 
-.sidebar {
-    width: 20%;
-    height: 100%;
+.menuContain {
+    width: 30%;
+    height: 75%;
     position: fixed;
     align-items: center;
     display: flex;
@@ -520,6 +520,9 @@ Database - Sidebar
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
     justify-content: center;
+    background-color: #FBC490;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 .btnStyle {
@@ -528,12 +531,19 @@ Database - Sidebar
     border-radius: 3px;
     cursor: pointer;
     font-size: 16px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 .btn1, .btn2, .btn4, .btn5, .btn6, .btn7{
     margin-top: 10%;
 }
 
+.menuTitle {
+    font-style: italic; font-size: 24px;
+    color: #000;
+    position: absolute;
+    top: 5%;
+}
 
 /*
 Database - Main
@@ -572,18 +582,19 @@ td {
 Database - Add
 */
 
-/* .add {
+.add {
     position: absolute;
-    top: 20%;    right: 5%;
+    top: 85%;    left: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
-} */
+    z-index: 15;
+}
 
 .dataContainAdd {
     width: 70%; height: 82.5%;;
     background-color: white;
     position: absolute;
-    top: 50%;    right: -30%;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 3px;
     border: 2px solid #000;

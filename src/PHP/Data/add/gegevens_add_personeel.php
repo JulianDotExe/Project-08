@@ -34,12 +34,6 @@
     ?>
 
     <content>
-       <div class="sidebar">
-             <button class="btnStyle btn3"> <a href="../overzicht_gevangenen.php"> Overzicht - Gevangenen </a></button>
-             <button class="btnStyle btn4"> <a href="../overzicht_personeel.php"> Overzicht - Personeel </a></button>
-             <button class="btnStyle btn5"> <a href="../overzicht_bezoeken.php"> Overzicht - Bezoeken </a></button>
-        </div>
-
         <div class="dataContainAdd">
             <form method="POST">
                 <input type="text" class="form form2" name="personeel_id" placeholder="ID . . ." required><br>
@@ -88,22 +82,8 @@
             location.replace("../logout.php")
         })
 
-        $(".btn3").click(function () {
-            location.replace("../overzicht_gevangenen.php")
-        })
-
-        
-        $(".btn4").click(function () {
-            location.replace("../overzicht_personeel.php")
-        })
-
-        
-        $(".btn5").click(function () {
-            location.replace("../overzicht_bezoeken.php")
-        })
-
         $(".return").click(function () {
-            location.replace("../overzicht_personeel.php")
+            location.replace("../beheersmodule.php")
         })
     </script>
 </body>

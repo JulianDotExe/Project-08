@@ -179,30 +179,31 @@
     }
 
     /* Database */
-    .sidebar {
+    .menuContain {
         position: absolute;
         left: 50%; top: 50%;
         transform: translate(-50%, -50%);
+        width: 300px;
     }
 
     .btn1, .btn2, .btn4, .btn5, .btn6, .btn7{
-        margin-top: 20%;
-    }
-
-    /* .dataContain {
-        width: 80%; height: 100%;
-        top: 70%;
+        margin-top: 15%;
     }
 
     td {
-        width: 10vh;
-        font-size: 10px;
+        /* display: none; */
+        font-size: 3vw;
     }
-    
-    .table {
-        max-height: 250px;
-        
-    } */
+
+    th {
+        font-size: 3vw;
+    }
+   
+    #optional{
+        display: none;
+    }
+
+ 
 
     .back {
          left: 5%;
