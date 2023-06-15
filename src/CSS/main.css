@@ -370,6 +370,14 @@ Afspraak
     justify-content: center;
 }
 
+#melding {
+    height: 50px; width: 50px;
+    position: absolute;
+    margin-top: -15px; margin-left: 15px;
+    display: none;
+}
+
+
 /*
 Inloggen
 */

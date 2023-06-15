@@ -46,8 +46,8 @@
        <div class="menuContain">
         <span class="menuTitle"> Gebruikersportaal </span>
              <button class="btnStyle btn3"> <a href="overzicht_gevangenen.php"> Overzicht - Gevangenen</a></button>
-             <button class="btnStyle btn4"> <a href="overzicht_personeel.php"> Overzicht - Personeel </a></button>
-             <button class="btnStyle btn5"> <a href="overzicht_bezoeken.php"> Overzicht - Bezoeken </a></button>
+             <button class="btnStyle btn4"> <a href="overzicht_personeel.php"> Overzicht - Personeel</a></button>
+             <button class="btnStyle btn5"> <a href="overzicht_bezoeken.php"> Overzicht - Bezoeken <img src="../../../img/new.png" id="melding"></a></button>
              <button class="btnStyle btn6"> <a href="beheersmodule.php">Beheersmodule <i class="fa fa-solid fa-arrow-right" style="color: #000;"></i></a></button>
         </div>
     </content>
