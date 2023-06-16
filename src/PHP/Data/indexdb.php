@@ -21,9 +21,11 @@
         <div class="logo"></div>
          
 
-        <div class="log">
-            <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
-            <span id="tekstlog"> <a href="logout.php"> Log out</a></span>
+        <div class="header">
+            <i class="fa fa-solid fa-power-off fa-lg log" style="color: #f67b50;"></i>
+            <span id="tekstlog" class="log"> <a href="logout.php"> Log out</a></span><br><br>
+            <i class="fa fa-solid fa-gear fa-lg bh" style="color: #f67b3c;"></i>
+            <span id="tekstlog"> <a href="beheersmodule.php"> Beheer</a></span>
             <i class="fa fa-solid fa-x"></i>
         </div>
     </header>
@@ -47,8 +49,7 @@
         <span class="menuTitle"> Gebruikersportaal </span>
              <button class="btnStyle btn3"> <a href="overzicht_gevangenen.php"> Overzicht - Gevangenen</a></button>
              <button class="btnStyle btn4"> <a href="overzicht_personeel.php"> Overzicht - Personeel</a></button>
-             <button class="btnStyle btn5"> <a href="overzicht_bezoeken.php"> Overzicht - Bezoeken <i class="fa fa-solid fa-star" id="melding" style="color: #f67b3c;"></i></i></a></button>
-             <button class="btnStyle btn6"> <a href="beheersmodule.php">Beheersmodule <i class="fa fa-solid fa-arrow-right" style="color: #000;"></i></a></button>
+             <button class="btnStyle btn5" id="meldingDis"> <a href="overzicht_bezoeken.php" id="meldingDis"> Overzicht - Bezoeken <i class="fa fa-solid fa-star" id="melding" style="color: #f67b3c;"></i></i></a></button>
         </div>
     </content>
 
@@ -56,6 +57,10 @@
     <script>
         $(".log").click(function() {
             location.replace("./logout.php")
+        })
+
+        $(".bh").click(function() {
+            location.replace("beheersmodule.php")
         })
 
         $(".btn3").click(function () {
@@ -70,10 +75,6 @@
             location.replace("overzicht_bezoeken.php")
         })
 
-        $(".btn6").click(function () {
-            location.replace("beheersmodule.php")
-        })
-
         document.addEventListener('DOMContentLoaded', function() {
         // Retrieve the flag from localStorage
         var buttonClicked = localStorage.getItem('buttonClicked');
@@ -84,9 +85,11 @@
             var element = document.getElementById('melding');
             element.style.display = 'contents';
 
-            // Reset the flag in localStorage
+            // Reset the flag in 
+        document.getElementById('meldingDis').addEventListener('click', function() {
             localStorage.setItem('buttonClicked', 'false');
-        }
+                });
+             }
         });
     </script>
 </body>

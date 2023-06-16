@@ -39,14 +39,21 @@
 
 <div class="editContain">
     <form method="POST">
+        Naam:
         <input type="text" class="editInput" id="naam" placeholder="Naam . . ." name="naam" value="<?php echo $row['naam'] ?>"><br>
+        Woonplaats:
         <input type="text" class="editInput" id="woonplaats" placeholder="Woonplaats . . ." name="woonplaats" value="<?php echo $row['woonplaats'] ?>"><br>
+        Begin Straf:
         <input type="text" class="editInput" id="begin_straf" placeholder="Begin Straf . . ." name="begin_straf" value="<?php echo $row['begin_straf'] ?>"><br>
+        Eind Straf:
         <input type="text" class="editInput" id="eind_straf" placeholder="Eind Straf . . ." name="eind_straf" value="<?php echo $row['eind_straf'] ?>"><br>
+        Cel Nummer:
         <input type="text" class="editInput" id="cel_nummer" placeholder="Cel Nummer . . ." name="cel_nummer" value="<?php echo $row['cel_nummer'] ?>"><br>
+        Vleugel:
         <input type="text" class="editInput" id="vleugel" placeholder="Vleugel . . ." name="vleugel" value="<?php echo $row['vleugel'] ?>"><br>
+        Opmerking:
         <input type="text" class="editInput" id="opmerking" placeholder="Opmerking . . ." name="opmerking" value="<?php echo $row['opmerking'] ?>"><br>
-        <input type="submit" class="editInputBtn" name="submit" value="Edit">
+        <input type="submit" class="editInputBtn" name="submit" value="Save">
         <input type="button" onclick="location.href='../overzicht_gevangenen.php';" value="Terug" class="editInputBtn"/>
     </form>
 </div>

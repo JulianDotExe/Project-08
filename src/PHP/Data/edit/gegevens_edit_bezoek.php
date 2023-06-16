@@ -39,11 +39,15 @@
 
 <div class="editContain">
     <form method="POST">
+        Naam bezoeker:
         <input type="text" class="editInput" id="naam_bezoeker" placeholder="Naam bezoeker . . ." name="naam_bezoeker" value="<?php echo $row['naam_bezoeker'] ?>"><br>
+        Naam gevangenen:
         <input type="text" class="editInput" id="naam_gevangenen" placeholder="Naam gevangenen . . ." name="naam_gevangenen" value="<?php echo $row['naam_gevangenen'] ?>"><br>
+        Tijd:
         <input type="time" class="editInput" id="tijd" placeholder="Tijdstip . . ." name="tijd" value="<?php echo $row['tijd'] ?>"><br>
+        Datum:
         <input type="date" class="editInput" id="datum" placeholder="Datum . . ." name="datum" value="<?php echo $row['datum'] ?>"><br>
-        <input type="submit" class="editInputBtn" name="submit" value="Edit">
+        <input type="submit" class="editInputBtn" name="submit" value="Save">
         <input type="button" onclick="location.href='../overzicht_bezoeken.php';" value="Terug" class="editInputBtn"/>
     </form>
 </div>

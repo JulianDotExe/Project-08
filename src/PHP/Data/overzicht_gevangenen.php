@@ -21,7 +21,7 @@
         <div class="logo"></div>
          
 
-        <div class="log">
+        <div class="header">
             <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
             <span id="tekstlog"> <a href="logout.php"> Log out</a></span>
             <i class="fa fa-solid fa-x"></i>
@@ -153,7 +153,7 @@
     </content>
 
     <script>
-        $(".log").click(function() {
+        $(".header").click(function() {
             location.replace("./logout.php")
         })
 

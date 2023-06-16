@@ -20,7 +20,7 @@
     <header>
         <div class="logo"></div>
 
-        <div class="log">
+        <div class="header">
             <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
             <span id="tekstlog"> <a href="logout.php"> Log out</a></span>
             <i class="fa fa-solid fa-x"></i>
@@ -58,7 +58,8 @@
                                 <th>Naam gevangenen</th>
                                 <th>Tijd</th>
                                 <th>Datum</th>
-                                <th>Actie</th>";
+                                <th>Goedkeuring</th>
+                                <th>Actie</th>"; 
                     break;
                     default:
                         echo "  <th>Bezoek ID</th>
@@ -66,7 +67,8 @@
                                 <th>Naam gevangenen</th>
                                 <th>Tijd</th>
                                 <th>Datum</th>
-                                <th>Actie</th>";
+                                <th>Goedkeuring</th>
+                                <th>Actie</th>"; 
                     break;
                 }
                 ?>
@@ -107,6 +109,10 @@
                             <td>".$row['tijd']."</td>
                             <td>".$row['datum']."</td>
                             <td>
+                                <i class='fa fa-solid fa-thumbs-up'></i>
+                                <i class='fa fa-solid fa-thumbs-down'></i>
+                            </td>
+                            <td>
                                 <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
@@ -120,7 +126,7 @@
     </content>
 
     <script>
-        $(".log").click(function() {
+        $(".header").click(function() {
             location.replace("./logout.php")
         })
 

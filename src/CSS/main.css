@@ -153,11 +153,12 @@ Logo
     display: grid;
 }
 
-.log {
+.header {
     position: fixed;
     right: 20px;
     top: 10px;
     cursor: pointer;
+    text-align: right;
 }
 
 #tekstlog {
@@ -547,7 +548,7 @@ Database - Sidebar/Menu
 .btnStyle {
     height: 7.5vh;
     width: 35vh;
-    border-radius: 3px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 16px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
@@ -597,6 +598,7 @@ td {
     max-height: 150px;
 }
 
+
 /*
 Database - Add
 */
@@ -635,8 +637,8 @@ Database - Edit
     height: 70%; width: 30%;
     position: fixed; display: flex; 
     justify-content: center;
-    text-align: center; align-items: center;
-
+    align-items: center;
+    text-align: end;
     top: 50%;    left: 50%;
     transform: translate(-50%, -50%);
 

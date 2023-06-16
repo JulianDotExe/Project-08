@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <title>Webshop</title>
+    <title>Hoornhack</title>
 </head>
 <body>
 <div class="content">

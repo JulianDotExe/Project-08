@@ -21,7 +21,7 @@
     <header>
         <div class="logo"></div>
 
-        <div class="log">
+        <div class="header">
             <i class="fa fa-solid fa-user fa-lg" style="color: #f67b50;"></i>
             <span id="tekstlog"> <a href="/src/PHP/Data/login.php"> Login</a></span>
         </div>
@@ -57,7 +57,7 @@
         //     location.replace("https://github.com/JulianDotExe/Project-07")
         // })
 
-        $(".log").click(function() {
+        $(".header").click(function() {
             window.location.replace("src/PHP/Data/login.php")
         })
     </script>

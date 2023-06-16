@@ -20,7 +20,7 @@
     <header>
         <div class="logo"></div>
         
-        <div class="log">
+        <div class="header">
             <i class="fa fa-solid fa-user fa-lg" style="color: #f67b50;"></i>
             <span id="tekstlog"> <a href="./Data/login.php"> Login</a></span>
         </div>
@@ -57,7 +57,7 @@
     </footer>
 
     <script>
-        $(".log").click(function() {
+        $(".header").click(function() {
             location.replace("./Data/login.php")
         })
     </script>

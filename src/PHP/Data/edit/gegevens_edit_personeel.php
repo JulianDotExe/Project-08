@@ -39,11 +39,15 @@
 
 <div class="editContain">
     <form method="POST">
+        Naam:
         <input type="text" class="editInput" id="naam" placeholder="Naam . . ." name="naam" value="<?php echo $row['naam'] ?>"><br>
+        Wachtwoord:
         <input type="text" class="editInput" id="wachtwoord" placeholder="Wachtwoord . . ." name="wachtwoord" value="<?php echo $row['wachtwoord'] ?>"><br>
+        Gebruikersnaam:
         <input type="text" class="editInput" id="gebruikersnaam" placeholder="Gebruikersnaam . . ." name="gebruikersnaam" value="<?php echo $row['gebruikersnaam'] ?>"><br>
+        Functie:
         <input type="text" class="editInput" id="functie" placeholder="Functie . . ." name="functie" value="<?php echo $row['functie'] ?>"><br>
-        <input type="submit" class="editInputBtn" name="submit" value="Edit">
+        <input type="submit" class="editInputBtn" name="submit" value="Save">
         <input type="button" onclick="location.href='../overzicht_personeel.php';" value="Terug" class="editInputBtn"/>
     </form>
 </div>
