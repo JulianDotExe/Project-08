@@ -19,7 +19,6 @@
     <header>
         <div class="logo"></div>
     </header>
-
     <content>
     <div class="afspraakcontain">
         <form method="POST">
@@ -28,7 +27,7 @@
             <input type="time" class="form form3" name="bezoek_tijd" placeholder="Tijdstip" min="12:00:00" max="16:00:00" required><br>
             <input type="date" class="form form4" name="bezoek_datum" placeholder="Datum" required><br>
             <input type="submit" name="submit" value="Submit" class="form5">
-            <input type="button" onclick="location.href='../../../index.php';" value="Terug" class="form form2"/>
+            <input type="button" onclick="location.href='../../../index.php';" value="Terug" class="form form2"/>    
         </form>
     </div>
 
@@ -36,11 +35,11 @@
     require_once("./inc/db_conn.php");
 
     if (isset($_POST['submit'])) {
-        echo '<div id="confirm">Actie succesvol</div>';
-        echo '<script>setTimeout(function(){
-            document.getElementById("confirm").style.display = "none";
-            window.location.href="afspraak.php";
-        }, 2000);</script>';
+        echo '<div id="confirm">
+            <p><input type="submit" id="meldingClick" value="Actie succesvol, klik om door te gaan"></p>
+            </div>';
+    
+        
         $naambezoeker = $_POST['naam_bezoeker'];
         $naamgevangenen= $_POST['naam_gevangenen'];
         $tijd = $_POST['bezoek_tijd'];
@@ -58,5 +57,15 @@
     }
     ?>
     </content>
+
+    <script>
+        $("#meldingClick").click(function (){
+            location.replace("../../../index.php")
+        })
+
+        document.getElementById("meldingClick").addEventListener("click", function() {
+            localStorage.setItem("buttonClicked", "true");
+        });
+    </script>
 </body>
 </html>

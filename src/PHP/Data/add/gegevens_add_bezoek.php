@@ -54,7 +54,6 @@
             echo '<script>setTimeout(function(){
                 document.getElementById("confirm").style.display = "none";
                 window.location.href="../overzicht_bezoeken.php";
-                document.getElementById("melding").style.display = "flex";
             }, 2000);</script>';
             $bezoek_id = $_POST['bezoek_id'];
             $naam_bezoeker = $_POST['naam_bezoeker'];

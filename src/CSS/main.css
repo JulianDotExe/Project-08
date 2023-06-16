@@ -40,10 +40,17 @@ a {
     border-radius: 50px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 
-    font-size: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#meldingClick {
+    font-size: 20px;
+    color: #000;
+    height: 50px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    cursor: pointer;
 }
 
 /*
@@ -370,13 +377,17 @@ Afspraak
     justify-content: center;
 }
 
+/* Melding */
+
+
+
 #melding {
-    height: 50px; width: 50px;
-    position: absolute;
-    margin-top: -15px; margin-left: 15px;
     display: none;
 }
 
+/* .fa.fa-star {
+    display: none;
+} */
 
 /*
 Inloggen

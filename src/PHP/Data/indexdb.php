@@ -47,10 +47,11 @@
         <span class="menuTitle"> Gebruikersportaal </span>
              <button class="btnStyle btn3"> <a href="overzicht_gevangenen.php"> Overzicht - Gevangenen</a></button>
              <button class="btnStyle btn4"> <a href="overzicht_personeel.php"> Overzicht - Personeel</a></button>
-             <button class="btnStyle btn5"> <a href="overzicht_bezoeken.php"> Overzicht - Bezoeken <img src="../../../img/new.png" id="melding"></a></button>
+             <button class="btnStyle btn5"> <a href="overzicht_bezoeken.php"> Overzicht - Bezoeken <i class="fa fa-solid fa-star" id="melding" style="color: #f67b3c;"></i></i></a></button>
              <button class="btnStyle btn6"> <a href="beheersmodule.php">Beheersmodule <i class="fa fa-solid fa-arrow-right" style="color: #000;"></i></a></button>
         </div>
     </content>
+
 
     <script>
         $(".log").click(function() {
@@ -72,6 +73,21 @@
         $(".btn6").click(function () {
             location.replace("beheersmodule.php")
         })
+
+        document.addEventListener('DOMContentLoaded', function() {
+        // Retrieve the flag from localStorage
+        var buttonClicked = localStorage.getItem('buttonClicked');
+
+        // Check if the flag is set
+        if (buttonClicked === 'true') {
+            // Modify the element's display property
+            var element = document.getElementById('melding');
+            element.style.display = 'contents';
+
+            // Reset the flag in localStorage
+            localStorage.setItem('buttonClicked', 'false');
+        }
+        });
     </script>
 </body>
 </html>
