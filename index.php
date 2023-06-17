@@ -37,10 +37,10 @@
         </span>
 
         <div class="NavMenu">
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #A82810;"></i><span class="navSpan" id="menuHomepage"><a href="index.php"> <u>Homepage</u></a></span><br>
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navCellencomplex"><a href="./src/PHP/cellencomplex.php"> Cellencomplex</a></span><br>
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navNieuws"><a href="./src/PHP/nieuws.php"> Nieuws</a></span><br>
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navContact"><a href="./src/PHP/contact.php"> Contact</a></span>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #A82810;"></i><span id="menuHomepage"><a class="navSpan" href="index.php"> <u>Homepage</u></a></span><br>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span id="navCellencomplex"><a class="navSpan" href="./src/PHP/cellencomplex.php"> Cellencomplex</a></span><br>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span id="navNieuws"><a class="navSpan" href="./src/PHP/nieuws.php"> Nieuws</a></span><br>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span id="navContact"><a class="navSpan" href="./src/PHP/contact.php"> Contact</a></span>
         </div>
     </content>
 

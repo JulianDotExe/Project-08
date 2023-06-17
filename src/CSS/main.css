@@ -20,7 +20,8 @@ body{
 
 a {
     text-decoration: none;
-    color: black
+    color: black;
+    transition: all 250ms ease-out;
 }
 
 .underline {
@@ -51,6 +52,18 @@ a {
     height: 50px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
     cursor: pointer;
+}
+
+/* Animations */
+
+.btnStyle:hover {
+    transition: all 200ms ease-in;
+    scale: 1.05;
+}
+
+a.navSpan:hover {
+    transition: all 250ms ease-in;
+    color: #fff;
 }
 
 /*
@@ -210,9 +223,6 @@ Navigation Menu
     cursor: pointer;
 }
 
-.navSpan {
-    color: black
-}
 
 /*
 Foto's
@@ -378,17 +388,13 @@ Afspraak
     justify-content: center;
 }
 
-/* Melding */
-
-
-
-#melding {
-    display: none;
+#meldingClick {
+    font-size: 20px;
+    color: #000;
+    height: 50px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    cursor: pointer;
 }
-
-/* .fa.fa-star {
-    display: none;
-} */
 
 /*
 Inloggen
@@ -402,6 +408,8 @@ Inloggen
     background-color: #FBC490;
     border-radius: 150px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    place-content: center;
+    display: flex;
 }
 
 .eye {
@@ -462,9 +470,7 @@ Inloggen
     cursor: pointer;
 
     position: fixed;
-    bottom: 1.5vh;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    bottom: 5vh; 
 }
 
 #inloggen {
@@ -515,6 +521,36 @@ Inloggen
     transform: translate(-50%, -50%);
 }
 
+/* Wachtwoord resetten */
+.resetContain {
+    width: 30%;
+    height: 50%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    background-color: #FBC490;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.resetTitle {
+    font-style: italic; font-size: 24px;
+    color: #000;
+    position: absolute;
+    
+    left: 50%; top: 10%;
+    transform: translate(-50%, -50%);
+}
+
+.submit {
+    width: 12.5vh; height: 3.5vh;
+
+    margin-top: 50px;
+}
 
 /*****
 Database
@@ -532,7 +568,7 @@ Database - Sidebar/Menu
 
 .menuContain {
     width: 30%;
-    height: 75%;
+    height: 50%;
     position: fixed;
     align-items: center;
     display: flex;
@@ -552,6 +588,7 @@ Database - Sidebar/Menu
     cursor: pointer;
     font-size: 16px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    transition: all 200ms ease-out;
 }
 
 .btn1, .btn2, .btn4, .btn5, .btn6, .btn7{
@@ -559,11 +596,19 @@ Database - Sidebar/Menu
 }
 
 .menuTitle {
-    font-style: italic; font-size: 24px;
+    /* font-style: italic;  */
+    font-size: 24px;
     color: #000;
     position: absolute;
     top: 5%;
 }
+
+/* Melding */
+
+#melding {
+    display: none;
+}
+
 
 /*
 Database - Main
@@ -688,6 +733,23 @@ Database - Delete
     cursor: pointer;
     margin-inline: 3vh;
     display: inline;
+}
+
+
+/* Beheersmodule */
+.beheerContain {
+    width: 30%;
+    height: 60%;
+    position: fixed;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    background-color: #FBC490;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 /**

@@ -18,6 +18,12 @@
 
     <header>
         <div class="logo"></div>
+
+        <div class="header">
+            <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
+            <span id="tekstlog"> <a href="../logout.php"> Log out</a></span>
+            <i class="fa fa-solid fa-x"></i>
+        </div>
     </header>
 
     <?php
@@ -34,6 +40,11 @@
     ?>
 
     <content>
+
+        <div class="back">
+            <i class="fa fa-solid fa-arrow-left fa-2x" style="color: #f67b50;"></i>
+        </div>
+
         <div class="dataContainAdd">
             <form method="POST">
                 <input type="text" class="form form2" name="personeel_id" placeholder="ID . . ." required><br>
@@ -52,7 +63,7 @@
             echo '<div id="confirm">Actie succesvol</div>';
             echo '<script>setTimeout(function(){
                 document.getElementById("confirm").style.display = "none";
-                window.location.href="../overzicht_personeel.php";
+                window.location.href="../beheer/overzicht_personeel.php";
             }, 2000);</script>';
             $personeelid = $_POST['personeel_id'];
             $naam= $_POST['naam'];
@@ -82,8 +93,12 @@
             location.replace("../logout.php")
         })
 
+        $(".back").click(function() {
+            location.replace("../beheer/overzicht_personeel.php")
+        })
+
         $(".return").click(function () {
-            location.replace("../beheersmodule.php")
+            location.replace("../beheer/overzicht_personeel.php")
         })
     </script>
 </body>

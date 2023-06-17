@@ -48,7 +48,6 @@
        <div class="menuContain">
         <span class="menuTitle"> Gebruikersportaal </span>
              <button class="btnStyle btn3"> <a href="overzicht_gevangenen.php"> Overzicht - Gevangenen</a></button>
-             <button class="btnStyle btn4"> <a href="overzicht_personeel.php"> Overzicht - Personeel</a></button>
              <button class="btnStyle btn5" id="meldingDis"> <a href="overzicht_bezoeken.php" id="meldingDis"> Overzicht - Bezoeken <i class="fa fa-solid fa-star" id="melding" style="color: #f67b3c;"></i></i></a></button>
         </div>
     </content>
@@ -67,9 +66,6 @@
             location.replace("overzicht_gevangenen.php")
         })
         
-        $(".btn4").click(function () {
-            location.replace("overzicht_personeel.php")
-        })
         
         $(".btn5").click(function () {
             location.replace("overzicht_bezoeken.php")

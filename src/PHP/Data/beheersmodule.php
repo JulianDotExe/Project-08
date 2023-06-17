@@ -16,7 +16,6 @@
 </head>
 <body>
     <div class="background backgroundLight"></div>
-
     <header>
         <div class="logo"></div>
 
@@ -30,11 +29,11 @@
     </header>
 
     <content>
-       <div class="menuContain">
-        <span class="menuTitle"> Beheersmodule </span>
-             <button class="btnStyle btn3"> <a href="add/gegevens_add_personeel.php"> Toevoegen - Personeel</a></button>
-             <button class="btnStyle btn4"> <a href="beheer/permissies.php"> Permissies - Personeel </a></button>
+       <div class="beheerContain">
+        <span class="menuTitle">Beheersmodule <i class="fa fa-solid fa-gears" style="color: #000000;"></i></span>
+             <button class="btnStyle btn3"> <a href="beheer/overzicht_personeel.php"> Overzicht - Personeel</a></button>
              <button class="btnStyle btn5"> <a href="beheer/overzicht_functie.php"> Overzicht - Functies </a></button>
+             <button class="btnStyle btn4"> <a href="beheer/permissies.php"> Permissies - Personeel </a></button>
         </div>
     </content>
 
@@ -48,7 +47,7 @@
         })
 
         $(".btn3").click(function () {
-            location.replace("add/gegevens_add_personeel.php")
+            location.replace("beheer/overzicht_personeel.php")
         })
         
         $(".btn4").click(function () {

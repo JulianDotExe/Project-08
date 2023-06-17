@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overzicht</title>
-    <link rel="stylesheet" href="../../CSS/main.css">
-    <link rel="stylesheet" href="../../CSS/resize.css">
+    <link rel="stylesheet" href="../../../CSS/main.css">
+    <link rel="stylesheet" href="../../../CSS/resize.css">
     
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -22,16 +22,16 @@
 
         <div class="header">
             <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
-            <span id="tekstlog"> <a href="logout.php"> Log out</a></span>
+            <span id="tekstlog"> <a href="../logout.php"> Log out</a></span>
             <i class="fa fa-solid fa-x"></i>
         </div>
     </header>
 
     <?php
-        require_once("inc/db_conn.php");
+        require_once("../inc/db_conn.php");
         if (!isset($_SESSION['uname'])) {
             echo "<script>alert('Inloggen mislukt...')</script>";
-            echo "<script>location.href='login.php'</script>";
+            echo "<script>location.href='../login.php'</script>";
         }
 
         $stmt = $pdo->prepare("SELECT functie FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
@@ -44,6 +44,8 @@
         <div class="back">
             <i class="fa fa-solid fa-arrow-left fa-2x" style="color: #f67b50;"></i>
         </div>
+
+        <span class="add"><i class="fa fa-solid fa-plus fa-2x" style="color: #f67b50;"></i></span>
 
         <div class="dataContain dataCenter">
         <table class="table">
@@ -94,8 +96,8 @@
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie']."</td>
                             <td id='optional'>
-                                <a href='edit/gegevens_edit_personeel.php?id={$row['personeel_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='delete/gegevens_del_personeel.php?id={$row['personeel_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='../edit/gegevens_edit_personeel.php?id={$row['personeel_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='../delete/gegevens_del_personeel.php?id={$row['personeel_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
                     break;
                     default:
@@ -105,8 +107,8 @@
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie']."</td>
                             <td id='optional'>
-                                <a href='edit/gegevens_edit_personeel.php?id={$row['personeel_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='delete/gegevens_del_personeel.php?id={$row['personeel_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='../edit/gegevens_edit_personeel.php?id={$row['personeel_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='../delete/gegevens_del_personeel.php?id={$row['personeel_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
                     break;
                 }
@@ -119,11 +121,15 @@
 
     <script>
         $(".header").click(function() {
-            location.replace("./logout.php")
+            location.replace("../logout.php")
         })
         
         $(".back").click(function() {
-            location.replace("./indexdb.php")
+            location.replace("../beheersmodule.php")
+        })
+
+        $(".add").click(function() {
+            location.replace("../add/gegevens_add_personeel.php")
         })
     </script>
 </body>

@@ -1,10 +1,30 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../../CSS/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <title>Hoornhack</title>
 </head>
 <body>
-<div class="content">
+
+<div class="background backgroundLight"></div>
+
+<header>
+    <div class="logo"></div>
+</header>
+
+
+<?php
+    // Verbinding maken met de database
+    require_once("../inc/db_conn.php");
+?>
+
+<div class="resetContain">
+<span class="resetTitle">Wachtwoord resetten</span>
     <form name="resetformulier" method="POST"
           enctype="multipart/form-data" action=""
           onsubmit="if(wachtwoord1.value   !== wachtwoord2.value){
@@ -12,12 +32,11 @@
                 return false;
                 }
                 ">
-        <p id="page_titel">Wachtwoord resetten</p>
-        <input required type="email" name="email" placeholder="bij@voorbeeld.com" /><br>
-        <input required type="password"  name="wachtwoord1" placeholder="nieuw wachtwoord"/><br>
-        <input required type="password" name="wachtwoord2" placeholder="herhaal nieuw wachtwoord"  /> <br>
-        <div class="icon_container">
-            <input type="submit" class="icon" id="submit"  name="submit" value="&rarr;" />
+        <input required type="email" class="form form1" name="email" placeholder="naam@voorbeeld.com" /><br>
+        <input required type="password" class="form form2" name="wachtwoord1" placeholder="nieuw wachtwoord"/><br>
+        <input required type="password" class="form form3" name="wachtwoord2" placeholder="herhaal nieuw wachtwoord"  /> <br>
+        <div>
+            <input type="submit" class="submit" id="submit"  name="submit" value="Submit &rarr;" />
         </div>
     </form>
 </div>
@@ -30,32 +49,32 @@ if(isset($_POST["submit"])) {
         $timestamp1 = $_GET["timestamp"];
         $melding = "";
         // zoek in database e-mail en de token uit de link
-        include("../DBconfig.php");
+        // include("../DBconfig.php");
         $email = htmlspecialchars($_POST["email"]);
         $wachtwoord = htmlspecialchars($_POST["wachtwoord1"]);
         $wachtwoordHash = password_hash($wachtwoord, PASSWORD_DEFAULT);
         try {
-            $sql = "SELECT * FROM klant WHERE email = ? AND token = ?";
+            $sql = "SELECT * FROM personeel WHERE email_personeel = ? AND token = ?";
             $stmt = $verbinding->prepare($sql);
             $stmt->execute(array($email,$token));
-            $stmt = $stmt->fetch(PDO::FETCH_ASSOC);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
             // hier controleren we of de link verlopen is.
-            if($stmt) {
+            if($result) {
                 $timestamp2 = new DateTime("now");
                 $timestamp2 = $timestamp2->getTimestamp();
                 $dif = $timestamp2 - $timestamp1;
                 // als de link geldig is slaan we het nieuwe wachtwoord op.
                 if(($timestamp2 - $timestamp1) < 43200){
-                    $query = "UPDATE klant SET `wachtwoord` = ? WHERE `email` = ?";
+                    $query = "UPDATE gebruiker SET `wwhash` = ? WHERE `email_gebruiker` = ?";
                     $stmt = $verbinding->prepare($query);
                     $stmt = $stmt->execute(array($wachtwoordHash, $email));
                     if($stmt) {
                         echo "<script>alert('Uw wachtwoord is reset.'); 
-            location.href='index.php';</script>";
+            location.href='../login.php';</script>";
                     }
                 }else{
                     echo "<script>alert('Link is verlopen.'); 
-          location.href='index.php';</script>";
+          location.href='../login.php';</script>";
                 }
             }
         }catch(PDOException $e) {
