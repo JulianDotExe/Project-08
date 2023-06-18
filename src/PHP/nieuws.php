@@ -32,10 +32,10 @@
         </div>
 
         <div class="NavMenu">
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="menuHomepage"><a href="/index.php"> Homepage</a></span><br>
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navCellencomplex"><a href="./cellencomplex.php"> Cellencomplex</a></span><br>
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #A82810;"></i><span class="navSpan" id="navNieuws"><a href="./nieuws.php"> <u>Nieuws</u></a></span><br>
-            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span class="navSpan" id="navContact"><a href="./contact.php"> Contact</a></span>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span id="menuHomepage"><a class="navSpan" href="/index.php"> Homepage</a></span><br>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span id="navCellencomplex"><a class="navSpan" href="./cellencomplex.php"> Cellencomplex</a></span><br>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #A82810;"></i><span id="navNieuws"><a class="navSpan" href="./nieuws.php"> <u>Nieuws</u></a></span><br>
+            <i class="fa fa-solid fa-caret-right fa-lg" style="color: #f67b50;"></i><span id="navContact"><a class="navSpan" href="./contact.php"> Contact</a></span>
         </div>
 
         <div class="img1"></div>

@@ -21,7 +21,7 @@ body{
 a {
     text-decoration: none;
     color: black;
-    transition: all 250ms ease-out;
+    transition: all 50ms ease-out;
 }
 
 .underline {
@@ -62,9 +62,14 @@ a {
 }
 
 a.navSpan:hover {
-    transition: all 250ms ease-in;
-    color: #fff;
-    font-size: 40px;
+    transition: all 50ms ease-in;
+    font-weight: bolder;
+    font-size: 2.9vh;
+}
+
+#tekstlog:hover {
+    text-decoration: underline;
+    transition: all 100ms ease-in;
 }
 
 /*
@@ -179,6 +184,7 @@ Logo
     font-size: 16px;
     text-shadow: 0px 9px 35px black;
     letter-spacing: 1px;  
+    transition: all 100ms ease-out;
 }
 
 /*****
