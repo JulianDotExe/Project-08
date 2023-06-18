@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit personeel</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../../../img/favicon/site.webmanifest">
+
     <link rel="stylesheet" href="../../../CSS/main.css">
     
     <!-- External Scripts -->
@@ -40,15 +46,13 @@
 <div class="editContain">
     <form method="POST">
         Naam:
-        <input type="text" class="editInput" id="naam" placeholder="Naam . . ." name="naam" value="<?php echo $row['naam'] ?>"><br>
-        Wachtwoord:
-        <input type="text" class="editInput" id="wachtwoord" placeholder="Wachtwoord . . ." name="wachtwoord" value="<?php echo $row['wachtwoord'] ?>"><br>
+        <input type="text" class="editInput" id="naam" placeholder="Naam . . ." name="naam" value="<?php echo $row['naam_personeel'] ?>"><br>
         Gebruikersnaam:
         <input type="text" class="editInput" id="gebruikersnaam" placeholder="Gebruikersnaam . . ." name="gebruikersnaam" value="<?php echo $row['gebruikersnaam'] ?>"><br>
         Functie:
         <input type="text" class="editInput" id="functie" placeholder="Functie . . ." name="functie" value="<?php echo $row['functie'] ?>"><br>
         <input type="submit" class="editInputBtn" name="submit" value="Save">
-        <input type="button" onclick="location.href='../overzicht_personeel.php';" value="Terug" class="editInputBtn"/>
+        <input type="button" onclick="location.href='../beheer/overzicht_personeel.php';" value="Terug" class="editInputBtn"/>
     </form>
 </div>
 
@@ -61,16 +65,13 @@ require_once("../inc/db_conn.php");
             window.location.href="../overzicht_personeel.php";
         }, 2000);</script>';
         $naam= $_POST['naam'];
-        $wachtwoord = $_POST['wachtwoord'];
         $gebruikersnaam = $_POST['gebruikersnaam'];
         $functie = $_POST['functie'];
 
-        $sql = "UPDATE personeel SET naam = :naam, wachtwoord = :wachtwoord, 
-        gebruikersnaam = :gebruikersnaam, functie = :functie WHERE id_personeel = :id_personeel";
+        $sql = "UPDATE personeel SET naam = :naam, gebruikersnaam = :gebruikersnaam, functie = :functie WHERE id_personeel = :id_personeel";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':naam' => $naam,
-            ':wachtwoord' => $wachtwoord,
             ':gebruikersnaam' => $gebruikersnaam,
             ':functie' => $functie,
             ':id_personeel' => $id

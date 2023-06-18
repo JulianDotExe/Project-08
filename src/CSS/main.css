@@ -32,6 +32,8 @@ a {
     color: black;
 }
 
+/* Melding systeem */
+
 #confirm {
     position: absolute;
     top: 50%; left: 50%;
@@ -54,7 +56,23 @@ a {
     cursor: pointer;
 }
 
-/* Animations */
+/* Knoppen */
+.return {
+    width: 12.5vh; height: 5vh;
+    margin-top: 50px;
+    float: left;
+}
+
+.submit {
+    width: 12.5vh; height: 5vh;
+    margin-top: 50px;
+    float: right;
+}
+
+
+/*****
+Animations 
+*****/
 
 .btnStyle:hover {
     transition: all 200ms ease-in;
@@ -72,9 +90,18 @@ a.navSpan:hover {
     transition: all 100ms ease-in;
 }
 
-/*
+.back:hover {
+    transition: all 150ms ease-in;
+    scale: 1.20;
+}
+
+/* .add:hover {
+    transition: all 150ms ease-in;
+} */
+
+/*****
 Background
-*/
+*****/
 
 .background {
     background-color: #F5EBE1;
@@ -113,6 +140,7 @@ Logo
     background-image: url("/img/logo-nobg-notext.png");
     background-size: cover;
     background-repeat: no-repeat;
+    filter: drop-shadow(1px 2px 2px #222);
 }
 
 .logobig {
@@ -367,7 +395,8 @@ Afspraak
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     width: 30%; height: 60%;
-    background-color: #FBC490;
+    background: rgb(251,196,144);
+    background: radial-gradient(circle, rgba(251,196,144,1) 0%, rgba(251,170,96,1) 100%);    
     border-radius: 50px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 
@@ -389,8 +418,9 @@ Afspraak
 
 .form5 {
     margin-top: 7.5vh;
+    margin-left: -5vh;
     height: 5vh;
-    width: 30vh;
+    width: 15vh;
     display: flex;
     justify-content: center;
 }
@@ -412,7 +442,8 @@ Inloggen
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     width: 50%; height: 60%;
-    background-color: #FBC490;
+    background: rgb(251,196,144);
+    background: radial-gradient(circle, rgba(251,196,144,1) 0%, rgba(251,170,96,1) 100%);    
     border-radius: 150px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
     place-content: center;
@@ -539,7 +570,8 @@ Inloggen
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
     justify-content: center;
-    background-color: #FBC490;
+    background: rgb(251,196,144);
+    background: radial-gradient(circle, rgba(251,196,144,1) 0%, rgba(251,170,96,1) 100%);
     border-radius: 50px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
@@ -553,11 +585,12 @@ Inloggen
     transform: translate(-50%, -50%);
 }
 
-.submit {
+/* .submit {
     width: 12.5vh; height: 3.5vh;
 
     margin-top: 50px;
-}
+} */
+
 
 /*****
 Database
@@ -571,6 +604,8 @@ Database - Sidebar/Menu
     position: fixed;
     top: 10%; left: 5%;
     cursor: pointer;
+    filter: drop-shadow(1px 2px 2px #222);
+    transition: all 150ms ease-out;
 }
 
 .menuContain {
@@ -583,8 +618,10 @@ Database - Sidebar/Menu
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
     justify-content: center;
-    background-color: #FBC490;
-    border-radius: 50px;
+    background: rgb(251,196,144);
+    background: radial-gradient(circle, rgba(251,196,144,1) 0%, rgba(251,170,96,1) 100%);
+    /* border: solid 1.5px #000; */
+    border-radius: 40px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
@@ -611,7 +648,6 @@ Database - Sidebar/Menu
 }
 
 /* Melding */
-
 #melding {
     display: none;
 }
@@ -656,11 +692,14 @@ Database - Add
 */
 
 .add {
-    position: absolute;
+    position: fixed;
     top: 85%;    left: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
     z-index: 15;
+
+    filter: drop-shadow(1px 2px 2px #222);
+    transition: all 150ms ease-out;
 }
 
 .dataContainAdd {
@@ -695,7 +734,8 @@ Database - Edit
     transform: translate(-50%, -50%);
 
     line-height: 7.5vh;
-    background-color: #FBC490;
+    background: rgb(251,196,144);
+    background: radial-gradient(circle, rgba(251,196,144,1) 0%, rgba(251,170,96,1) 100%);
     border-radius: 15%;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
@@ -729,7 +769,8 @@ Database - Delete
     transform: translate(-50%, -50%);
 
     line-height: 10vh;
-    background-color: #FBC490;
+    background: rgb(251,196,144);
+    background: radial-gradient(circle, rgba(251,196,144,1) 0%, rgba(251,170,96,1) 100%);    
     border-radius: 15%;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
@@ -743,7 +784,10 @@ Database - Delete
 }
 
 
-/* Beheersmodule */
+/* 
+Beheersmodule - Main 
+*/
+
 .beheerContain {
     width: 30%;
     height: 60%;
@@ -754,8 +798,9 @@ Database - Delete
     left: 50%; top: 50%;
     transform: translate(-50%, -50%);
     justify-content: center;
-    background-color: #FBC490;
-    border-radius: 50px;
+    background: rgb(251,196,144);
+    background: radial-gradient(circle, rgba(251,196,144,1) 0%, rgba(251,170,96,1) 100%);    
+    border-radius: 40px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 

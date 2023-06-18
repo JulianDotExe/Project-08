@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gevangenen toevoegen</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../../../img/favicon/site.webmanifest">
+
     <link rel="stylesheet" href="../../../CSS/main.css">
     
     <!-- External Scripts -->
@@ -44,9 +50,9 @@
                 <input type="date" class="form form4" name="eind_straf" placeholder="Datum eind straf . . ." required><br>
                 <input type="text" class="form form4" name="cel_nummer" placeholder="Cel nummer . . ." required><br>
                 <input type="text" class="form form4" name="vleugel" placeholder="Vleugel . . ." required><br>
-                <input type="text" class="form form4" name="opmerking" placeholder="Opmerking . . ."><br><br><br>
-                <input type="submit" name="submit" value="Submit" class="form formAdd"><br>
-                <input type="submit" name="terug" value="Terug" class="form formAdd return">
+                <input type="text" class="form form4" name="opmerking" placeholder="Opmerking . . ."><br>
+                <input type="submit" name="terug" value="Terug" class="return">
+                <input type="submit" name="submit" value="Submit" class="submit">
             </form>
         
     <?php

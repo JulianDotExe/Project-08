@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personeel verwijderen</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../../../img/favicon/site.webmanifest">
+
     <link rel="stylesheet" href="../../../CSS/main.css">
     
     <!-- External Scripts -->
@@ -39,9 +45,9 @@
         <h2>
             <?php 
             $id = $_GET["id"];
-            $series = $pdo->query("SELECT * FROM personeel WHERE personeel_id = $id");
+            $series = $pdo->query("SELECT * FROM personeel WHERE id_personeel = $id");
             $row = $series->fetch();
-            echo $row['naam'];
+            echo $row['naam_personeel'];
             ?>
         </h2>
         <b style="color:red; font-size: 18px;">Weet u zeker dat u deze actie wilt uitvoeren?</b>
@@ -53,15 +59,15 @@
 <?php
 if(isset($_POST['terug'])) {
     echo "<script>location.href='../overzicht_personeel.php'</script>";
-    header("Location: ../overzicht_personeel.php");
+    header("Location: ../beheer/overzicht_personeel.php");
     exit();
 }
 
 elseif(isset($_POST['verwijderen'])) {
-    $sql = "DELETE FROM personeel WHERE personeel_id = $id";
+    $sql = "DELETE FROM personeel WHERE id_personeel = $id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    header("Location: ../overzicht_personeel.php");
+    header("Location: ../beheer/overzicht_personeel.php");
     exit();
 }
 ?>

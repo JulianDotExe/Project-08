@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personeel toevoegen</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../../../img/favicon/site.webmanifest">
+
     <link rel="stylesheet" href="../../../CSS/main.css">
     
     <!-- External Scripts -->
@@ -51,9 +57,9 @@
                 <input type="text" class="form form2" name="naam_personeel" placeholder="Volledige naam . . ." required><br>
                 <input type="text" class="form form3" name="wachtwoord" placeholder="Wachtwoord . . ." required><br>
                 <input type="text" class="form form4" name="gebruikersnaam" placeholder="Gebruikersnaam . . ." required><br>
-                <input type="text" class="form form4" name="functie" placeholder="Functie . . ." required><br><br><br>
-                <input type="submit" name="submit" value="Submit" class="form formAdd"><br>            
-                <input type="submit" name="terug" value="Terug" class="form formAdd return">
+                <input type="text" class="form form4" name="functie" placeholder="Functie . . ." required><br>
+                <input type="submit" name="terug" value="Terug" class="return">
+                <input type="submit" name="submit" value="Submit" class="submit">           
             </form>
 
     <?php

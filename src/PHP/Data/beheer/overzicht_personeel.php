@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overzicht</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../../../img/favicon/site.webmanifest">
+
     <link rel="stylesheet" href="../../../CSS/main.css">
     <link rel="stylesheet" href="../../../CSS/resize.css">
     
@@ -55,7 +61,6 @@
                     case 'Bewaker':
                         echo "  <th>ID</th>
                                 <th id='optional'>Naam</th>
-                                <th>Wachtwoord</th>
                                 <th>Gebruikersnaam</th>
                                 <th>Functie</th>
                                 <th id='optional'>Actie</th>";
@@ -63,7 +68,6 @@
                     default:
                         echo "  <th>ID</th>
                                 <th id='optional'>Naam</th>
-                                <th>Wachtwoord</th>
                                 <th>Gebruikersnaam</th>
                                 <th>Functie</th>
                                 <th id='optional'>Actie</th>";
@@ -81,7 +85,6 @@
                     case 'Bewaker':
                         echo "<td>".$row['id_personeel']."</td>
                             <td id='optional'>".$row['naam_personeel']."</td>
-                            <td>".$row['wachtwoord']."</td>
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie']."</td>
                             <td id='optional'>
@@ -92,7 +95,6 @@
                     case 'Coordinator':
                         echo "<td>".$row['id_personeel']."</td>
                             <td id='optional'>".$row['naam_personeel']."</td>
-                            <td>".$row['wachtwoord']."</td>
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie']."</td>
                             <td id='optional'>
@@ -103,7 +105,6 @@
                     default:
                         echo "<td>".$row['id_personeel']."</td>
                             <td id='optional'>".$row['naam_personeel']."</td>
-                            <td>".$row['wachtwoord']."</td>
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie']."</td>
                             <td id='optional'>
