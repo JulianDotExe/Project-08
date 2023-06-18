@@ -37,8 +37,8 @@
 
         <div class="dataContainAdd">
             <form method="POST">
-                <input type="text" class="form form2" name="gevangenen_id" placeholder="Gevangenen ID . . ." required><br>
-                <input type="text" class="form form2" name="naam" placeholder="Gevangenen volledige naam . . ." required><br>
+                <input type="text" class="form form2" name="id_gevangenen" placeholder="Gevangenen ID . . ." required><br>
+                <input type="text" class="form form2" name="naam_gevangenen" placeholder="Gevangenen volledige naam . . ." required><br>
                 <input type="text" class="form form3" name="woonplaats" placeholder="Woonplaats . . ." required><br>
                 <input type="date" class="form form4" name="begin_straf" placeholder="Datum begin straf . . ." required><br>
                 <input type="date" class="form form4" name="eind_straf" placeholder="Datum eind straf . . ." required><br>
@@ -58,8 +58,8 @@
                 document.getElementById("confirm").style.display = "none";
                 window.location.href="../overzicht_gevangenen.php";
             }, 2000);</script>';
-            $gevangenenid = $_POST['gevangenen_id'];
-            $naam= $_POST['naam'];
+            $idgevangenen = $_POST['id_gevangenen'];
+            $gevangenennaam= $_POST['naam_gevangenen'];
             $woonplaats = $_POST['woonplaats'];
             $beginstraf = $_POST['begin_straf'];
             $eindstraf = $_POST['eind_straf'];
@@ -67,12 +67,12 @@
             $vleugel = $_POST['vleugel'];
             $opmerking = $_POST['opmerking'];
 
-            $sql = "INSERT INTO gevangenen SET gevangenen_id = :gevangenen_id, naam = :naam, woonplaats = :woonplaats, 
+            $sql = "INSERT INTO gevangenen SET id_gevangenen = :id_gevangenen, naam_gevangenen = :naam_gevangenen, woonplaats = :woonplaats, 
             begin_straf = :begin_straf, eind_straf = :eind_straf, cel_nummer = :cel_nummer, vleugel = :vleugel, opmerking = :opmerking";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
-                ':gevangenen_id' => $gevangenenid,
-                ':naam' => $naam,
+                ':id_gevangenen' => $idgevangenen,
+                ':naam_gevangenen' => $gevangenennaam,
                 ':woonplaats' => $woonplaats,
                 ':begin_straf' => $beginstraf,
                 ':eind_straf' => $eindstraf,

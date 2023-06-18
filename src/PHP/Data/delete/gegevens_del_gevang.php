@@ -40,9 +40,9 @@
         <h2>
             <?php 
             $id = $_GET["id"];
-            $series = $pdo->query("SELECT * FROM gevangenen WHERE gevangenen_id = $id");
+            $series = $pdo->query("SELECT * FROM gevangenen WHERE id_gevangenen = $id");
             $row = $series->fetch();
-            echo $row['naam'];
+            echo $row['naam_gevangenen'];
             ?>
         </h2>
         <b style="color:red; font-size: 18px;">Weet u zeker dat u deze actie wilt uitvoeren?</b>

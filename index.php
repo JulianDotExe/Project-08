@@ -49,7 +49,6 @@
             <i class="fa fa-solid fa-code fa-lg" style="color: #f67b50;"></i>
         </div> -->
         <div class="logoFooter logoFooter-home"></div>
-
     </footer>
 
     <script>

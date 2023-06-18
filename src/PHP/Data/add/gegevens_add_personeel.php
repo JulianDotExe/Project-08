@@ -47,8 +47,8 @@
 
         <div class="dataContainAdd">
             <form method="POST">
-                <input type="text" class="form form2" name="personeel_id" placeholder="ID . . ." required><br>
-                <input type="text" class="form form2" name="naam" placeholder="Volledige naam . . ." required><br>
+                <input type="text" class="form form2" name="id_personeel" placeholder="ID . . ." required><br>
+                <input type="text" class="form form2" name="naam_personeel" placeholder="Volledige naam . . ." required><br>
                 <input type="text" class="form form3" name="wachtwoord" placeholder="Wachtwoord . . ." required><br>
                 <input type="text" class="form form4" name="gebruikersnaam" placeholder="Gebruikersnaam . . ." required><br>
                 <input type="text" class="form form4" name="functie" placeholder="Functie . . ." required><br><br><br>
@@ -65,18 +65,18 @@
                 document.getElementById("confirm").style.display = "none";
                 window.location.href="../beheer/overzicht_personeel.php";
             }, 2000);</script>';
-            $personeelid = $_POST['personeel_id'];
-            $naam= $_POST['naam'];
+            $personeelid = $_POST['id_personeel'];
+            $naam= $_POST['naam_personeel'];
             $wachtwoord = $_POST['wachtwoord'];
             $gebruikersnaam = $_POST['gebruikersnaam'];
             $functie = $_POST['functie'];
 
-            $sql = "INSERT INTO personeel SET personeel_id = :personeel_id, naam = :naam, wachtwoord = :wachtwoord, 
+            $sql = "INSERT INTO personeel SET id_personeel = :id_personeel, naam_personeel = :naam_personeel, wachtwoord = :wachtwoord, 
             gebruikersnaam = :gebruikersnaam, functie = :functie";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
-                ':personeel_id' => $personeelid,
-                ':naam' => $naam,
+                ':id_personeel' => $personeelid,
+                ':naam_personeel' => $naam,
                 ':wachtwoord' => $wachtwoord,
                 ':gebruikersnaam' => $gebruikersnaam,
                 ':functie' => $functie,

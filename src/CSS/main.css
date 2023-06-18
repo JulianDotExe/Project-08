@@ -58,12 +58,13 @@ a {
 
 .btnStyle:hover {
     transition: all 200ms ease-in;
-    scale: 1.05;
+    scale: 1.03;
 }
 
 a.navSpan:hover {
     transition: all 250ms ease-in;
     color: #fff;
+    font-size: 40px;
 }
 
 /*

@@ -32,7 +32,7 @@
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $id = $_GET["id"];
-    $series = $pdo->query("SELECT * FROM gevangenen WHERE gevangenen_id = $id");
+    $series = $pdo->query("SELECT * FROM gevangenen WHERE id_gevangenen = $id");
     $row = $series->fetch();
 ?>
 
@@ -40,7 +40,7 @@
 <div class="editContain">
     <form method="POST">
         Naam:
-        <input type="text" class="editInput" id="naam" placeholder="Naam . . ." name="naam" value="<?php echo $row['naam'] ?>"><br>
+        <input type="text" class="editInput" id="naam_gevangenen" placeholder="Naam . . ." name="naam_gevangenen" value="<?php echo $row['naam_gevangenen'] ?>"><br>
         Woonplaats:
         <input type="text" class="editInput" id="woonplaats" placeholder="Woonplaats . . ." name="woonplaats" value="<?php echo $row['woonplaats'] ?>"><br>
         Begin Straf:
@@ -66,7 +66,7 @@ require_once("../inc/db_conn.php");
             document.getElementById("confirm").style.display = "none";
             window.location.href="../overzicht_gevangenen.php";
         }, 2000);</script>';
-        $naam= $_POST['naam'];
+        $naamgevangenen= $_POST['naam_gevangenen'];
         $woonplaats = $_POST['woonplaats'];
         $beginstraf = $_POST['begin_straf'];
         $eindstraf = $_POST['eind_straf'];
@@ -74,18 +74,18 @@ require_once("../inc/db_conn.php");
         $vleugel = $_POST['vleugel'];
         $opmerking = $_POST['opmerking'];
 
-        $sql = "UPDATE gevangenen SET naam = :naam, woonplaats = :woonplaats, 
-        begin_straf = :begin_straf, eind_straf = :eind_straf, cel_nummer = :cel_nummer, vleugel = :vleugel, opmerking = :opmerking WHERE gevangenen_id = :gevangenen_id";
+        $sql = "UPDATE gevangenen SET naam_gevangenen = :naam_gevangenen, woonplaats = :woonplaats, 
+        begin_straf = :begin_straf, eind_straf = :eind_straf, cel_nummer = :cel_nummer, vleugel = :vleugel, opmerking = :opmerking WHERE id_gevangenen = :id_gevangenen";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
-            ':naam' => $naam,
+            ':naam_gevangenen' => $naamgevangenen,
             ':woonplaats' => $woonplaats,
             ':begin_straf' => $beginstraf,
             ':eind_straf' => $eindstraf,
             ':cel_nummer' => $celnummer,
             ':vleugel' => $vleugel,
             ':opmerking' => $opmerking,
-            ':gevangenen_id' => $id
+            ':id_gevangenen' => $id
 
         ]);
     }

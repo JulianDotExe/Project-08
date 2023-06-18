@@ -88,8 +88,8 @@
                 echo "<tr>";
                 switch($userRole) {
                     case 'Bewaker':
-                        echo "<td>".$row['gevangenen_id']."</td>
-                            <td>".$row['naam']."</td>
+                        echo "<td>".$row['id_gevangenen']."</td>
+                            <td>".$row['naam_gevangenen']."</td>
                             <td id='optional'>".$row['woonplaats']."</td>
                             <td id='optional'>".$row['begin_straf']."</td>
                             <td id='optional'>".$row['eind_straf']."</td>
@@ -97,13 +97,13 @@
                             <td>".$row['vleugel']."</td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>
-                                <a href='edit/gegevens_edit_gevang.php?id={$row['gevangenen_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='delete/gegevens_del_gevang.php?id={$row['gevangenen_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_gevang.php?id={$row['id_gevangenen']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
                     break;
                     case 'Coordinator':
-                        echo "<td>".$row['gevangenen_id']."</td>
-                            <td>".$row['naam']."</td>
+                        echo "<td>".$row['id_gevangenen']."</td>
+                            <td>".$row['naam_gevangenen']."</td>
                             <td id='optional'>".$row['woonplaats']."</td>
                             <td id='optional'>".$row['begin_straf']."</td>
                             <td id='optional'>".$row['eind_straf']."</td>
@@ -111,13 +111,13 @@
                             <td>".$row['vleugel']."</td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>
-                                <a href='edit/gegevens_edit_gevang.php?id={$row['gevangenen_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='delete/gegevens_del_gevang.php?id={$row['gevangenen_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_gevang.php?id={$row['id_gevangenen']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
                     break;
                     case 'Directeur':
-                        echo "<td>".$row['gevangenen_id']."</td>
-                            <td>".$row['naam']."</td>
+                        echo "<td>".$row['id_gevangenen']."</td>
+                            <td>".$row['naam_gevangenen']."</td>
                             <td>".$row['woonplaats']."</td>
                             <td id='optional'>".$row['begin_straf']."</td>
                             <td id='optional'>".$row['eind_straf']."</td>
@@ -125,13 +125,13 @@
                             <td>".$row['vleugel']."</td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>
-                                <a href='edit/gegevens_edit_gevang.php?id={$row['gevangenen_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='delete/gegevens_del_gevang.php?id={$row['gevangenen_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_gevang.php?id={$row['id_gevangenen']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
                     break;
                     default:
-                        echo "<td>".$row['gevangenen_id']."</td>
-                            <td>".$row['naam']."</td>
+                        echo "<td>".$row['id_gevangenen']."</td>
+                            <td>".$row['naam_gevangenen']."</td>
                             <td id='optional'>".$row['woonplaats']."</td>
                             <td id='optional'>".$row['begin_straf']."</td>
                             <td id='optional'>".$row['eind_straf']."</td>
@@ -139,8 +139,8 @@
                             <td>".$row['vleugel']."</td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>
-                                <a href='edit/gegevens_edit_gevang.php?id={$row['gevangenen_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='delete/gegevens_del_gevang.php?id={$row['gevangenen_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_gevang.php?id={$row['id_gevangenen']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
                     break;
                 }

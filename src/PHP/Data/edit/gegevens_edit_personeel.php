@@ -32,7 +32,7 @@
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $id = $_GET["id"];
-    $series = $pdo->query("SELECT * FROM personeel WHERE personeel_id = $id");
+    $series = $pdo->query("SELECT * FROM personeel WHERE id_personeel = $id");
     $row = $series->fetch();
 ?>
 
@@ -66,14 +66,14 @@ require_once("../inc/db_conn.php");
         $functie = $_POST['functie'];
 
         $sql = "UPDATE personeel SET naam = :naam, wachtwoord = :wachtwoord, 
-        gebruikersnaam = :gebruikersnaam, functie = :functie WHERE personeel_id = :personeel_id";
+        gebruikersnaam = :gebruikersnaam, functie = :functie WHERE id_personeel = :id_personeel";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':naam' => $naam,
             ':wachtwoord' => $wachtwoord,
             ':gebruikersnaam' => $gebruikersnaam,
             ':functie' => $functie,
-            ':personeel_id' => $id
+            ':id_personeel' => $id
         ]);
     }
     // echo "<a href='detail.php?id=" . $row['gevangenen_id'] . "'>Terug</a>";
