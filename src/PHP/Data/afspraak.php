@@ -25,6 +25,7 @@
     <header>
         <div class="logo"></div>
     </header>
+    
     <content>
     <div class="afspraakContain">
         <form method="POST">
@@ -67,6 +68,31 @@
             ':datum' => $datum,
             ':create_date' => $create_date
         ]);
+
+        $melding = "";
+        $email = [];
+        $email[] = htmlspecialchars($_POST['email_bezoeker']);
+
+        // deze function genereert een token 64 tekens lang.
+        $token = bin2hex(random_bytes(32));
+        $timestamp = new DateTime("now");
+        $timestamp = $timestamp->getTimestamp();
+        // sla de token en timestamp voor deze klant in de database
+
+        include("mail.php");
+        // $email = $_POST['email_bezoeker'];
+
+        $onderwerp = "Verzoek voor bezoek";
+        $bericht = "<p>Wij gaan uw verzoek reviewen!</p>
+                    <p>Wanneer wij klaar zijn krijgt u een email met de uitslag.</p>
+                    <p>- Team HoornHack</p>";
+        try{
+            Mailen($email, "bezoeker", $onderwerp, $bericht);
+            $melding = 'Open je mail om verder te gaan.';
+        } catch(Exception $e){
+            $melding = 'Kon geen mail sturen - ' + $e->getMessage();
+        }
+        echo "<div id='melding'>".$melding."</div>";
     }
     ?>
     </content>

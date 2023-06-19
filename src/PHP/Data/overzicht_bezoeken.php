@@ -136,8 +136,7 @@
                                 <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>
-                            <td>".$row['create_date']."</td>
-                            ";
+                            <td>".$row['create_date']."</td>";
                     break;
                 }
                 echo "</tr>";

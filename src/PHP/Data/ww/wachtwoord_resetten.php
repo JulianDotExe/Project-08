@@ -44,7 +44,7 @@
         <input required type="password" class="form form2" name="wachtwoord1" placeholder="nieuw wachtwoord"/><br>
         <input required type="password" class="form form3" name="wachtwoord2" placeholder="herhaal nieuw wachtwoord"  /> <br>
         <div>
-            <input type="submit" class="submit" id="submit"  name="submit" value="Submit &rarr;" />
+            <input type="submit" class="submitReset" id="submit"  name="submit" value="Submit &rarr;" />
         </div>
     </form>
 </div>

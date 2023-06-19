@@ -105,25 +105,25 @@ a.navSpan:hover {
 .return:hover {
     transition: all 200ms ease-in;
     scale: 1.1;
-    font-size: 1.9vh;
+    font-size: 1.5vh;
 }
 
 .submit:hover {
     transition: all 200ms ease-in;
     scale: 1.1;
-    font-size: 1.9vh;
+    font-size: 1.5vh;
 }
 
 .delBtn:hover {
     transition: all 200ms ease-in;
     scale: 1.1;
-    font-size: 1.9vh;
+    font-size: 1.5vh;
 }
 
 .delete:hover {
     transition: all 200ms ease-in;
     scale: 1.1;
-    font-size: 1.9vh;
+    font-size: 1.5vh;
     background-color: rgb(233, 41, 41);
     color: #fff;
     border: 1px solid #9E8D7D;
@@ -133,7 +133,7 @@ a.navSpan:hover {
 .editInputBtn:hover {
     transition: all 200ms ease-in;
     scale: 1.1;
-    font-size: 1.9vh;
+    font-size: 1.5vh;
 }
 
 
@@ -179,6 +179,8 @@ Logo
     background-size: cover;
     background-repeat: no-repeat;
     filter: drop-shadow(1px 2px 2px #222);
+
+    display: none;
 }
 
 .logobig {
@@ -485,6 +487,7 @@ Inloggen
     border-radius: 150px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
     place-content: center;
+    align-items: center;
     display: flex;
 }
 
@@ -623,11 +626,11 @@ Inloggen
     transform: translate(-50%, -50%);
 }
 
-/* .submit {
+.submitReset {
     width: 12.5vh; height: 3.5vh;
-
     margin-top: 50px;
-} */
+    cursor: pointer;
+}
 
 
 /*****

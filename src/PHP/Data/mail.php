@@ -35,10 +35,10 @@ function Mailen($email, $naam, $onderwerp, $bericht) {
     $mail->Body = $bericht;
     // stuur de mail...
     if ($mail->Send()) {
-        echo "Mail is verstuurd!" . PHP_EOL;
+        echo "<script>alert('Mail is verstuurd!')</script>" . PHP_EOL;
     } else {
         echo "Mail error: " . $mail->ErrorInfo . PHP_EOL;
-        echo "Mail kon niet verstuurd worden!" . PHP_EOL;
+        echo "<script>alert('Mail kon niet verstuurd worden!')</script>" . PHP_EOL;
     }
 }
 ?>
