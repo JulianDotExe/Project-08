@@ -31,7 +31,7 @@
     require_once("../inc/db_conn.php");
     if (!isset($_SESSION['uname'])) {
         echo "<script>alert('Inloggen mislukt...')</script>";
-        echo "<script>location.href='login.php'</script>";
+        echo "<script>location.href='../login.php'</script>";
     }
     $sql="SELECT * FROM personeel";
     $stmt = $pdo->prepare($sql);
@@ -51,8 +51,8 @@
             ?>
         </h2>
         <b style="color:red; font-size: 18px;">Weet u zeker dat u deze actie wilt uitvoeren?</b>
-        <input type="submit" name="verwijderen" class="delBtn" value="Verwijderen">
         <input type="submit" name="terug" class="delBtn" value="Terug">
+        <input type="submit" name="verwijderen" class="delBtn delete" value="Verwijderen">
     </form>
 </div>
 

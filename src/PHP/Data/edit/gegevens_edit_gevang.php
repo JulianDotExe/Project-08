@@ -53,14 +53,12 @@
         <input type="text" class="editInput" id="begin_straf" placeholder="Begin Straf . . ." name="begin_straf" value="<?php echo $row['begin_straf'] ?>"><br>
         Eind Straf:
         <input type="text" class="editInput" id="eind_straf" placeholder="Eind Straf . . ." name="eind_straf" value="<?php echo $row['eind_straf'] ?>"><br>
-        Cel Nummer:
-        <input type="text" class="editInput" id="cel_nummer" placeholder="Cel Nummer . . ." name="cel_nummer" value="<?php echo $row['cel_nummer'] ?>"><br>
-        Vleugel:
-        <input type="text" class="editInput" id="vleugel" placeholder="Vleugel . . ." name="vleugel" value="<?php echo $row['vleugel'] ?>"><br>
+        Vleugel Cel ID:
+        <input type="text" class="editInput" id="vleugel_cel_id" placeholder="Vleugel Cel ID . . ." name="vleugel_cel_id" value="<?php echo $row['vleugel_cel_id'] ?>"><br>
         Opmerking:
         <input type="text" class="editInput" id="opmerking" placeholder="Opmerking . . ." name="opmerking" value="<?php echo $row['opmerking'] ?>"><br>
-        <input type="submit" class="editInputBtn" name="submit" value="Save">
-        <input type="button" onclick="location.href='../overzicht_gevangenen.php';" value="Terug" class="editInputBtn"/>
+        <input type="button" onclick="location.href='../overzicht_gevangenen.php';" value="Terug" class="editInputBtn e1"/>
+        <input type="submit" class="editInputBtn e2" name="submit" value="Save">
     </form>
 </div>
 
@@ -76,20 +74,18 @@ require_once("../inc/db_conn.php");
         $woonplaats = $_POST['woonplaats'];
         $beginstraf = $_POST['begin_straf'];
         $eindstraf = $_POST['eind_straf'];
-        $celnummer = $_POST['cel_nummer'];
-        $vleugel = $_POST['vleugel'];
+        $vcid = $_POST['vleugel_cel_id'];
         $opmerking = $_POST['opmerking'];
 
         $sql = "UPDATE gevangenen SET naam_gevangenen = :naam_gevangenen, woonplaats = :woonplaats, 
-        begin_straf = :begin_straf, eind_straf = :eind_straf, cel_nummer = :cel_nummer, vleugel = :vleugel, opmerking = :opmerking WHERE id_gevangenen = :id_gevangenen";
+        begin_straf = :begin_straf, eind_straf = :eind_straf, vleugel_cel_id = :vleugel_cel_id, opmerking = :opmerking WHERE id_gevangenen = :id_gevangenen";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':naam_gevangenen' => $naamgevangenen,
             ':woonplaats' => $woonplaats,
             ':begin_straf' => $beginstraf,
             ':eind_straf' => $eindstraf,
-            ':cel_nummer' => $celnummer,
-            ':vleugel' => $vleugel,
+            ':vleugel_cel_id' => $vcid,
             ':opmerking' => $opmerking,
             ':id_gevangenen' => $id
 

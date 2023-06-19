@@ -67,7 +67,6 @@
                                 <th id='optional'>Begin-straf</th>
                                 <th id='optional'>Eind-straf</th>
                                 <th>Cel-nummer</th>
-                                <th>Vleugel</th>
                                 <th>Opmerking</th>";
                     break;
                     default:
@@ -76,8 +75,7 @@
                                 <th id='optional'>Woonplaats</th>
                                 <th id='optional'>Begin-straf</th>
                                 <th id='optional'>Eind-straf</th>
-                                <th>Cel-Nr.</th>
-                                <th>Vleugel</th>
+                                <th>Vleugel-Cel-ID</th>
                                 <th>Opmerking</th>
                                 <th id='optional'>Actie</th>";
                     break;
@@ -99,8 +97,7 @@
                             <td id='optional'>".$row['woonplaats']."</td>
                             <td id='optional'>".$row['begin_straf']."</td>
                             <td id='optional'>".$row['eind_straf']."</td>
-                            <td>".$row['cel_nummer']."</td>
-                            <td>".$row['vleugel']."</td>
+                            <td>".$row['vleugel_cel_id']."</td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>
                                 <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
@@ -113,8 +110,7 @@
                             <td id='optional'>".$row['woonplaats']."</td>
                             <td id='optional'>".$row['begin_straf']."</td>
                             <td id='optional'>".$row['eind_straf']."</td>
-                            <td>".$row['cel_nummer']."</td>
-                            <td>".$row['vleugel']."</td>
+                            <td>".$row['vleugel_cel_id']."</td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>
                                 <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
@@ -127,8 +123,7 @@
                             <td>".$row['woonplaats']."</td>
                             <td id='optional'>".$row['begin_straf']."</td>
                             <td id='optional'>".$row['eind_straf']."</td>
-                            <td>".$row['cel_nummer']."</td>
-                            <td>".$row['vleugel']."</td>
+                            <td>".$row['vleugel_cel_id']."</td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>
                                 <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
@@ -141,8 +136,7 @@
                             <td id='optional'>".$row['woonplaats']."</td>
                             <td id='optional'>".$row['begin_straf']."</td>
                             <td id='optional'>".$row['eind_straf']."</td>
-                            <td>".$row['cel_nummer']."</td>
-                            <td>".$row['vleugel']."</td>
+                            <td>".$row['vleugel_cel_id']."</td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>
                                 <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>

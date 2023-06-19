@@ -26,10 +26,12 @@
         <div class="logo"></div>
     </header>
     <content>
-    <div class="afspraakcontain">
+    <div class="afspraakContain">
         <form method="POST">
             <input type="text" class="form form1" name="naam_bezoeker" placeholder="Bezoeker volledige naam . . ." required><br>
+            <input type="email" class="form form2" name="email_bezoeker" placeholder="Email . . ." required><br>
             <input type="text" class="form form2" name="naam_gevangenen" placeholder="Gevangenen volledige naam . . ." required><br>
+            <input type="text" class="form form2" name="reden_bezoek" placeholder="Reden bezoek . . ." required><br>
             <input type="time" class="form form3" name="bezoek_tijd" placeholder="Tijdstip" min="12:00:00" max="16:00:00" required><br>
             <input type="date" class="form form4" name="bezoek_datum" placeholder="Datum" required><br>
             <input type="button" onclick="location.href='../../../index.php';" value="Terug" class="return "/>    
@@ -44,21 +46,26 @@
         echo '<div id="confirm">
             <p><input type="submit" id="meldingClick" value="Actie succesvol, klik om door te gaan"></p>
             </div>';
-    
         
         $naambezoeker = $_POST['naam_bezoeker'];
-        $naamgevangenen= $_POST['naam_gevangenen'];
+        $emailbezoeker = $_POST['email_bezoeker'];
+        $naamgevangenen = $_POST['naam_gevangenen'];
+        $redenbezoek = $_POST['reden_bezoek'];
         $tijd = $_POST['bezoek_tijd'];
         $datum = $_POST['bezoek_datum'];
+        $create_date = date('Y-m-d H:i:s');
 
-        $sql = "INSERT INTO bezoekers SET naam_bezoeker = :naam_bezoeker, naam_gevangenen = :naam_gevangenen, tijd = :tijd, 
-        datum = :datum";
+        $sql = "INSERT INTO bezoekers SET naam_bezoeker = :naam_bezoeker, email_bezoeker = :email_bezoeker, naam_gevangenen = :naam_gevangenen, reden_bezoek = :reden_bezoek,
+        tijd = :tijd, datum = :datum, create_date = :create_date";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':naam_bezoeker' => $naambezoeker,
+            ':email_bezoeker' => $emailbezoeker,
             ':naam_gevangenen' => $naamgevangenen,
+            ':reden_bezoek' => $redenbezoek,
             ':tijd' => $tijd,
-            ':datum' => $datum
+            ':datum' => $datum,
+            ':create_date' => $create_date
         ]);
     }
     ?>

@@ -49,10 +49,10 @@
         <input type="text" class="editInput" id="naam" placeholder="Naam . . ." name="naam" value="<?php echo $row['naam_personeel'] ?>"><br>
         Gebruikersnaam:
         <input type="text" class="editInput" id="gebruikersnaam" placeholder="Gebruikersnaam . . ." name="gebruikersnaam" value="<?php echo $row['gebruikersnaam'] ?>"><br>
-        Functie:
-        <input type="text" class="editInput" id="functie" placeholder="Functie . . ." name="functie" value="<?php echo $row['functie'] ?>"><br>
-        <input type="submit" class="editInputBtn" name="submit" value="Save">
-        <input type="button" onclick="location.href='../beheer/overzicht_personeel.php';" value="Terug" class="editInputBtn"/>
+        Functie ID:
+        <input type="text" class="editInput" id="functie_id" placeholder="Functie ID. . ." name="functie_id" value="<?php echo $row['functie_id'] ?>"><br>
+        <input type="button" onclick="location.href='../beheer/overzicht_personeel.php';" value="Terug" class="editInputBtn e1"/>
+        <input type="submit" class="editInputBtn e2" name="submit" value="Save">
     </form>
 </div>
 
@@ -66,14 +66,14 @@ require_once("../inc/db_conn.php");
         }, 2000);</script>';
         $naam= $_POST['naam'];
         $gebruikersnaam = $_POST['gebruikersnaam'];
-        $functie = $_POST['functie'];
+        $functie = $_POST['functie_id'];
 
-        $sql = "UPDATE personeel SET naam = :naam, gebruikersnaam = :gebruikersnaam, functie = :functie WHERE id_personeel = :id_personeel";
+        $sql = "UPDATE personeel SET naam = :naam, gebruikersnaam = :gebruikersnaam, functie_id = :functie_id WHERE id_personeel = :id_personeel";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':naam' => $naam,
             ':gebruikersnaam' => $gebruikersnaam,
-            ':functie' => $functie,
+            ':functie_id' => $functie,
             ':id_personeel' => $id
         ]);
     }

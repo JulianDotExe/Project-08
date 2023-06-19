@@ -40,7 +40,7 @@
             echo "<script>location.href='login.php'</script>";
         }
 
-        $stmt = $pdo->prepare("SELECT functie FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
+        $stmt = $pdo->prepare("SELECT functie_id FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
         $stmt->bindParam(':gebruikersnaam', $uname);
         $stmt->execute();
         $userRole = $stmt->fetchColumn();
@@ -70,11 +70,15 @@
                     default:
                         echo "  <th>Bezoek ID</th>
                                 <th>Naam bezoeker</th>
+                                <th>Email bezoeker</th>
                                 <th>Naam gevangenen</th>
+                                <th>Reden bezoek</th>
                                 <th>Tijd</th>
                                 <th>Datum</th>
-                                <th>Goedkeuring</th>
-                                <th>Actie</th>"; 
+                                <th>Verzoek status</th>
+                                <th>Verzoek review</th>
+                                <th>Actie</th>
+                                <th>Create Date</th>";
                     break;
                 }
                 ?>
@@ -111,20 +115,33 @@
                     default:
                         echo "<td>".$row['bezoek_id']."</td>
                             <td>".$row['naam_bezoeker']."</td>
+                            <td>".$row['email_bezoeker']."</td>
                             <td>".$row['naam_gevangenen']."</td>
+                            <td>".$row['reden_bezoek']."</td>
                             <td>".$row['tijd']."</td>
                             <td>".$row['datum']."</td>
+                            <td>";
+                                if ($row['bezoek_verzoek_id'] == 1) {
+                                    echo "Afwachting";
+                                } elseif ($row['bezoek_verzoek_id'] == 2) {
+                                    echo "Geaccepteerd";
+                                } elseif ($row['bezoek_verzoek_id'] == 3) {
+                                    echo "Afgewezen";
+                                }
+                            echo "</td>
                             <td>
-                                <i class='fa fa-solid fa-thumbs-up'></i>
-                                <i class='fa fa-solid fa-thumbs-down'></i>
+                                <a href='reqreview.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>Review</i></a>
                             </td>
                             <td>
                                 <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
-                            </td>";
+                            </td>
+                            <td>".$row['create_date']."</td>
+                            ";
                     break;
                 }
                 echo "</tr>";
+    
             }
             ?>
         </table>
@@ -146,3 +163,5 @@
     </script>
 </body>
 </html>
+<!-- <i class='fa fa-solid fa-thumbs-up'></i> -->
+<!-- <i class='fa fa-solid fa-thumbs-down'></i> -->

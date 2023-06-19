@@ -53,8 +53,8 @@
         <input type="time" class="editInput" id="tijd" placeholder="Tijdstip . . ." name="tijd" value="<?php echo $row['tijd'] ?>"><br>
         Datum:
         <input type="date" class="editInput" id="datum" placeholder="Datum . . ." name="datum" value="<?php echo $row['datum'] ?>"><br>
-        <input type="submit" class="editInputBtn" name="submit" value="Save">
-        <input type="button" onclick="location.href='../overzicht_bezoeken.php';" value="Terug" class="editInputBtn"/>
+        <input type="button" onclick="location.href='../overzicht_bezoeken.php';" value="Terug" class="editInputBtn e1"/>
+        <input type="submit" class="editInputBtn e2" name="submit" value="Save">
     </form>
 </div>
 

@@ -39,7 +39,7 @@
             echo "<script>location.href='../login.php'</script>";
         }
 
-        $stmt = $pdo->prepare("SELECT functie FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
+        $stmt = $pdo->prepare("SELECT functie_id FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
         $stmt->bindParam(':gebruikersnaam', $uname);
         $stmt->execute();
         $userRole = $stmt->fetchColumn();
@@ -75,17 +75,17 @@
             $naam= $_POST['naam_personeel'];
             $wachtwoord = $_POST['wachtwoord'];
             $gebruikersnaam = $_POST['gebruikersnaam'];
-            $functie = $_POST['functie'];
+            $functie = $_POST['functie_id'];
 
             $sql = "INSERT INTO personeel SET id_personeel = :id_personeel, naam_personeel = :naam_personeel, wachtwoord = :wachtwoord, 
-            gebruikersnaam = :gebruikersnaam, functie = :functie";
+            gebruikersnaam = :gebruikersnaam, functie_id = :functie_id";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
                 ':id_personeel' => $personeelid,
                 ':naam_personeel' => $naam,
                 ':wachtwoord' => $wachtwoord,
                 ':gebruikersnaam' => $gebruikersnaam,
-                ':functie' => $functie,
+                ':functie_id' => $functie,
             ]);
         }
     ?>

@@ -28,7 +28,7 @@
 
         <div class="header">
             <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
-            <span id="tekstlog"> <a href="logout.php"> Log out</a></span>
+            <span id="tekstlog"> <a href="../logout.php"> Log out</a></span>
             <i class="fa fa-solid fa-x"></i>
         </div>
     </header>
@@ -37,10 +37,10 @@
         require_once("../inc/db_conn.php");
         if (!isset($_SESSION['uname'])) {
             echo "<script>alert('Inloggen mislukt...')</script>";
-            echo "<script>location.href='login.php'</script>";
+            echo "<script>location.href='../login.php'</script>";
         }
 
-        $stmt = $pdo->prepare("SELECT functie FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
+        $stmt = $pdo->prepare("SELECT functie_id FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
         $stmt->bindParam(':gebruikersnaam', $uname);
         $stmt->execute();
         $userRole = $stmt->fetchColumn();
@@ -119,8 +119,8 @@
                                 <i class='fa fa-solid fa-thumbs-down'></i>
                             </td>
                             <td>
-                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='../edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='../delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
                     break;
                 }

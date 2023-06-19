@@ -33,7 +33,7 @@
             echo "<script>location.href='../login.php'</script>";
         }
 
-        $stmt = $pdo->prepare("SELECT functie FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
+        $stmt = $pdo->prepare("SELECT functie_id FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
         $stmt->bindParam(':gebruikersnaam', $uname);
         $stmt->execute();
         $userRole = $stmt->fetchColumn();
