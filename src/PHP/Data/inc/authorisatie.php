@@ -15,7 +15,7 @@ if($status == PHP_SESSION_ACTIVE){
     session_destroy();
     session_start();
 }
-$uname = $_POST['uname'];
+$uname = $_POST['gebruikersnaam'];
 $pwd = $_POST['pwd'];
 
 $secretKey = "6Lc8OV4lAAAAAHX_J6Z2Nao4cMCSxzK9TowFvo4A";
@@ -25,7 +25,7 @@ $url = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&respon
 $response = file_get_contents($url);
 $response = json_decode($response);
 
-if (isset($_SESSION['uname'])) {
+if (isset($_SESSION['gebruikersnaam'])) {
     echo "<script>location.href='../indexdb.php'</script>";
 } else {
     $stmt = $pdo->prepare("SELECT * FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
@@ -35,7 +35,7 @@ if (isset($_SESSION['uname'])) {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if($user && password_verify($pwd, $user['wwhash']) && $response->success) {
-        $_SESSION['uname'] = $uname;
+        $_SESSION['gebruikersnaam'] = $uname;
         echo "<script>location.href='../indexdb.php'</script>";
     } else {
         echo "<script>location.href='../failed.php'</script>";

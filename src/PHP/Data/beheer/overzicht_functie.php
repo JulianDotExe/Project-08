@@ -35,7 +35,7 @@
 
     <?php
         require_once("../inc/db_conn.php");
-        if (!isset($_SESSION['uname'])) {
+        if (!isset($_SESSION['gebruikersnaam'])) {
             echo "<script>alert('Inloggen mislukt...')</script>";
             echo "<script>location.href='../login.php'</script>";
         }
@@ -59,68 +59,47 @@
                 <?php 
                 switch($userRole) {
                     case 'Bewaker':
-                        echo "  <th>Bezoek ID</th>
-                                <th>Naam bezoeker</th>
-                                <th>Naam gevangenen</th>
-                                <th>Tijd</th>
-                                <th>Datum</th>
-                                <th>Goedkeuring</th>
+                        echo "  <th>Functie ID</th>
+                                <th>Functie Naam</th>
                                 <th>Actie</th>"; 
                     break;
                     default:
-                        echo "  <th>Bezoek ID</th>
-                                <th>Naam bezoeker</th>
-                                <th>Naam gevangenen</th>
-                                <th>Tijd</th>
-                                <th>Datum</th>
-                                <th>Goedkeuring</th>
+                        echo "  <th>Functie ID</th>
+                                <th>Functie Naam</th>
                                 <th>Actie</th>"; 
                     break;
                 }
                 ?>
             </tr>
             <?php
-            $sql="SELECT * FROM bezoekers";
+            $sql="SELECT * FROM functie";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
                 switch($userRole) {
                     case 'Bewaker':
-                        echo "<td>".$row['bezoek_id']."</td>
-                            <td>".$row['naam_bezoeker']."</td>
-                            <td>".$row['naam_gevangenen']."</td>
-                            <td>".$row['tijd']."</td>
-                            <td>".$row['datum']."</td>
+                        echo "<td>".$row['functie_id']."</td>
+                            <td>".$row['functie_naam']."</td>
                             <td>
-                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='../edit/gegevens_edit_bezoek.php?id={$row['functie_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='../delete/gegevens_del_bezoek.php?id={$row['functie_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
                     break;
                     case 'Coordinator':
-                        echo "<td>".$row['bezoek_id']."</td>
-                            <td>".$row['naam_bezoeker']."</td>
-                            <td>".$row['naam_gevangenen']."</td>
-                            <td>".$row['tijd']."</td>
-                            <td>".$row['datum']."</td>
+                        echo "<td>".$row['functie_id']."</td>
+                            <td>".$row['functie_naam']."</td>
                             <td>
-                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='../edit/gegevens_edit_bezoek.php?id={$row['functie_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='../delete/gegevens_del_bezoek.php?id={$row['functie_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
                     break;
                     default:
-                        echo "<td>".$row['bezoek_id']."</td>
-                            <td>".$row['naam_bezoeker']."</td>
-                            <td>".$row['naam_gevangenen']."</td>
-                            <td>".$row['tijd']."</td>
-                            <td>".$row['datum']."</td>
+                        echo "<td>".$row['functie_id']."</td>
+                            <td>".$row['functie_naam']."</td>
                             <td>
-                                <i class='fa fa-solid fa-thumbs-up'></i>
-                                <i class='fa fa-solid fa-thumbs-down'></i>
-                            </td>
-                            <td>
-                                <a href='../edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='../delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='../edit/gegevens_edit_functie.php?id={$row['functie_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='../delete/gegevens_del_functie.php?id={$row['functie_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
                             </td>";
                     break;
                 }
@@ -141,7 +120,7 @@
         })
 
         $(".add").click(function() {
-            location.replace("../add/gegevens_add_bezoek.php")
+            location.replace("../add/gegevens_add_functie.php")
         })
     </script>
 </body>

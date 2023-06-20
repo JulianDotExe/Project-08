@@ -34,7 +34,7 @@
 
     <?php
         require_once("../inc/db_conn.php");
-        if (!isset($_SESSION['uname'])) {
+        if (!isset($_SESSION['gebruikersnaam'])) {
             echo "<script>alert('Inloggen mislukt...')</script>";
             echo "<script>location.href='../login.php'</script>";
         }

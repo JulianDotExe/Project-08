@@ -35,7 +35,7 @@
 
     <?php
         require_once("inc/db_conn.php");
-        if (!isset($_SESSION['uname'])) {
+        if (!isset($_SESSION['gebruikersnaam'])) {
             echo "<script>alert('Inloggen mislukt...')</script>";
             echo "<script>location.href='login.php'</script>";
         }
@@ -57,17 +57,23 @@
         <table class="tableBezoek">
             <tr>
                 <?php 
+                require_once("inc/db_conn.php");
+                // Get the user's role from a database or session variable
+                $uname = $_SESSION['gebruikersnaam'];
+                $stmt = $pdo->prepare("SELECT functie_id FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
+                $stmt->bindParam(':gebruikersnaam', $uname);
+                $stmt->execute();
+                $userRole = $stmt->fetchColumn();
+
                 switch($userRole) {
-                    case 'Bewaker':
+                    case '1':
                         echo "  <th>Bezoek ID</th>
                                 <th>Naam bezoeker</th>
                                 <th>Naam gevangenen</th>
                                 <th>Tijd</th>
-                                <th>Datum</th>
-                                <th>Goedkeuring</th>
-                                <th>Actie</th>"; 
+                                <th>Datum</th>"; 
                     break;
-                    default:
+                    case '2':
                         echo "  <th>Bezoek ID</th>
                                 <th>Naam bezoeker</th>
                                 <th>Email bezoeker</th>
@@ -80,6 +86,33 @@
                                 <th>Actie</th>
                                 <th>Create Date</th>";
                     break;
+                    case '3':
+                        echo "  <th>Bezoek ID</th>
+                                <th>Naam bezoeker</th>
+                                <th>Email bezoeker</th>
+                                <th>Naam gevangenen</th>
+                                <th>Reden bezoek</th>
+                                <th>Tijd</th>
+                                <th>Datum</th>
+                                <th>Verzoek status</th>
+                                <th>Verzoek review</th>
+                                <th>Actie</th>
+                                <th>Create Date</th>";
+                    break;
+                    case '4':
+                        echo "  <th>Bezoek ID</th>
+                                <th>Naam bezoeker</th>
+                                <th>Email bezoeker</th>
+                                <th>Naam gevangenen</th>
+                                <th>Reden bezoek</th>
+                                <th>Tijd</th>
+                                <th>Datum</th>
+                                <th>Verzoek status</th>
+                                <th>Verzoek review</th>
+                                <th>Actie</th>
+                                <th>Create Date</th>";
+                    break;
+                    default: 'Er gaat hier iets mis';
                 }
                 ?>
             </tr>
@@ -90,29 +123,41 @@
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
                 switch($userRole) {
-                    case 'Bewaker':
+                    case '1':
                         echo "<td>".$row['bezoek_id']."</td>
                             <td>".$row['naam_bezoeker']."</td>
                             <td>".$row['naam_gevangenen']."</td>
                             <td>".$row['tijd']."</td>
-                            <td>".$row['datum']."</td>
-                            <td>
-                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
-                            </td>";
+                            <td>".$row['datum']."</td>";
                     break;
-                    case 'Coordinator':
+                    case '2':
                         echo "<td>".$row['bezoek_id']."</td>
-                            <td>".$row['naam_bezoeker']."</td>
-                            <td>".$row['naam_gevangenen']."</td>
-                            <td>".$row['tijd']."</td>
-                            <td>".$row['datum']."</td>
-                            <td>
-                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
-                            </td>";
+                        <td>".$row['naam_bezoeker']."</td>
+                        <td>".$row['email_bezoeker']."</td>
+                        <td>".$row['naam_gevangenen']."</td>
+                        <td>".$row['reden_bezoek']."</td>
+                        <td>".$row['tijd']."</td>
+                        <td>".$row['datum']."</td>
+                        <td>";
+                            if ($row['bezoek_verzoek_id'] == 1) {
+                                echo "Afwachting";
+                            } elseif ($row['bezoek_verzoek_id'] == 2) {
+                                echo "Geaccepteerd";
+                            } elseif ($row['bezoek_verzoek_id'] == 3) {
+                                echo "Afgewezen";
+                            }
+                        echo "</td>
+                        <td>
+                        <a href='reqreview.php?id={$row['bezoek_id']}&email_bezoeker={$row['email_bezoeker']}' class='btn-delete'><i class='material-icons md-10'>Review</i></a>
+
+                        </td>
+                        <td>
+                            <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                            <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                        </td>
+                        <td>".$row['create_date']."</td>";
                     break;
-                    default:
+                    case '3':
                         echo "<td>".$row['bezoek_id']."</td>
                             <td>".$row['naam_bezoeker']."</td>
                             <td>".$row['email_bezoeker']."</td>
@@ -139,6 +184,46 @@
                             </td>
                             <td>".$row['create_date']."</td>";
                     break;
+                    case '2':
+                        echo "<td>".$row['bezoek_id']."</td>
+                            <td>".$row['naam_bezoeker']."</td>
+                            <td>".$row['naam_gevangenen']."</td>
+                            <td>".$row['tijd']."</td>
+                            <td>".$row['datum']."</td>
+                            <td>
+                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                            </td>";
+                    break;
+                    case '4':
+                        echo "<td>".$row['bezoek_id']."</td>
+                            <td>".$row['naam_bezoeker']."</td>
+                            <td>".$row['email_bezoeker']."</td>
+                            <td>".$row['naam_gevangenen']."</td>
+                            <td>".$row['reden_bezoek']."</td>
+                            <td>".$row['tijd']."</td>
+                            <td>".$row['datum']."</td>
+                            <td>";
+                                if ($row['bezoek_verzoek_id'] == 1) {
+                                    echo "Afwachting";
+                                } elseif ($row['bezoek_verzoek_id'] == 2) {
+                                    echo "Geaccepteerd";
+                                } elseif ($row['bezoek_verzoek_id'] == 3) {
+                                    echo "Afgewezen";
+                                }
+                            echo "</td>
+                            <td>
+                            <a href='reqreview.php?id={$row['bezoek_id']}&email_bezoeker={$row['email_bezoeker']}' class='btn-delete'><i class='material-icons md-10'>Review</i></a>
+
+                            </td>
+                            <td>
+                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
+                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                            </td>
+                            <td>".$row['create_date']."</td>";
+                    break;
+                    default: 
+                            echo 'Er gaat iets mis hier';
                 }
                 echo "</tr>";
     

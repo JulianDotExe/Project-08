@@ -20,7 +20,6 @@
 </head>
 <body>
 
-
 <div class="background backgroundLight"></div>
 
 <header>
@@ -34,7 +33,7 @@
         echo "<script>alert('Inloggen mislukt...')</script>";
         echo "<script>location.href='../login.php'</script>";
     }
-    $sql="SELECT * FROM gevangenen";
+    $sql="SELECT * FROM functie";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -42,13 +41,13 @@
 
 <div class="delContain">
     <form method="POST">
-        <h1>Verwijderen gevangenen:</h1>
+        <h1>Verwijderen functie:</h1>
         <h2>
             <?php 
             $id = $_GET["id"];
-            $series = $pdo->query("SELECT * FROM gevangenen WHERE id_gevangenen = $id");
+            $series = $pdo->query("SELECT * FROM functie WHERE functie_id = $id");
             $row = $series->fetch();
-            echo $row['naam_gevangenen'];
+            echo $row['functie_naam'];
             ?>
         </h2>
         <b style="color:red; font-size: 18px;">Weet u zeker dat u deze actie wilt uitvoeren?</b>
@@ -59,16 +58,16 @@
 
 <?php
 if(isset($_POST['terug'])) {
-    echo "<script>location.href='../overzicht_gevangenen.php'</script>";
-    header("Location: ../overzicht_gevangenen.php");
+    echo "<script>location.href='../beheer/overzicht_functie.php'</script>";
+    header("Location: ../beheer/overzicht_functie.php");
     exit();
 }
 
 elseif(isset($_POST['verwijderen'])) {
-    $sql = "DELETE FROM gevangenen WHERE gevangenen_id = $id";
+    $sql = "DELETE FROM functie WHERE functie_id = $id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    header("Location: ../overzicht_gevangenen.php");
+    header("Location: ../beheer/overzicht_functie.php");
     exit();
 }
 ?>

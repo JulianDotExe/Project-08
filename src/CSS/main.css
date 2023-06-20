@@ -72,6 +72,14 @@ a {
     transition: all 200ms ease-out;
 }
 
+.inlogBtn {
+    height: 7vh; width: 20vh;
+    border-radius: 20px; border: none;
+    font-size: 2vh;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    cursor: pointer;
+    transition: all 150ms ease-out;
+}
 
 /*****
 Animations 
@@ -136,6 +144,10 @@ a.navSpan:hover {
     font-size: 1.5vh;
 }
 
+.inlogBtn:hover {
+    transition: all 150ms ease-in;
+    scale: 1.1;
+}
 
 /*****
 Background
@@ -425,7 +437,6 @@ Afspraak
     top: 70%; left: 53.5%;
     transform: translate(-50%, -50%);
     filter: drop-shadow(1px 5px 5px #222);
-
 }
 
 .afspraakContain {
@@ -471,9 +482,9 @@ Afspraak
     cursor: pointer;
 }
 
-/*
+/*****
 Inloggen
-*/
+*****/
 
 .container {
     position: absolute;
@@ -493,6 +504,7 @@ Inloggen
     position: absolute;
     top: 38%; left: 67.5%;
     transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 
@@ -526,43 +538,28 @@ Inloggen
     position: absolute;
     top: 62.5%; left: 50%;
     transform: translate(-50%, -50%);
+    cursor: pointer;    
 }
 
 #terug {
-    height: 7vh; width: 20vh;
-    border-radius: 20px; border: none;
-    font-size: 2vh;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    cursor: pointer;
-
     bottom: 5vh; left: 15vh;
     position: fixed;
 }
 
 #vergeten {
-    height: 7vh; width: 20vh;
-    border-radius: 20px; border: none;
-    font-size: 2vh;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    cursor: pointer;
-
     position: fixed;
     bottom: 5vh; 
 }
 
-#inloggen {
-    height: 7vh; width: 20vh;
-    border-radius: 20px; border: none;
-    font-size: 2vh;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    cursor: pointer;
-    
+#inloggen {    
     bottom: 5vh; right: 15vh;
     position: fixed;
 }
 
 
-/* Wachtwoord vergeten */
+/* 
+Wachtwoord vergeten 
+*/
 #terugvergeten {
     height: 7vh; width: 20vh;
     border-radius: 20px; border: none;
@@ -649,7 +646,7 @@ Database - Sidebar/Menu
 
 .menuContain {
     width: 30%;
-    height: 50%;
+    height: 60%;
     position: fixed;
     align-items: center;
     display: flex;
@@ -686,7 +683,9 @@ Database - Sidebar/Menu
     top: 5%;
 }
 
-/* Melding */
+/* 
+Melding 
+*/
 #melding {
     display: none;
 }
@@ -730,7 +729,6 @@ td {
 /*
 Database - Add
 */
-
 .add {
     position: fixed;
     top: 85%;    left: 50%;
@@ -837,6 +835,10 @@ Database - Delete
     transition: all 200ms ease-out;
 }
 
+/***** 
+Beheersmodule
+*****/
+
 /* 
 Beheersmodule - Main 
 */
@@ -876,6 +878,8 @@ Review
     border-radius: 15%;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
+
+
 /**
 Footer
 **/

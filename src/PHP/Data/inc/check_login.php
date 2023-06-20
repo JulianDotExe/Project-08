@@ -8,7 +8,7 @@ if (isset($_SESSION['uname'])) {
     $stmt->execute();
 
     if($stmt->rowCount() == 1) {
-        $_SESSION['uname'] = $uname;
+        $_SESSION['gebruikersnaam'] = $uname;
         echo "<script>location.href='./overzicht_gevangenen.php'</script>";
     } else {
         echo "<script>alert('Inloggen mislukt...')</script>";

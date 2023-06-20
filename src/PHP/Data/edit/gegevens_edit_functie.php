@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit personeel</title>
+    <title>Edit bezoekers</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="../../../../img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../../../img/favicon/favicon-32x32.png">
@@ -33,27 +33,21 @@
         echo "<script>location.href='../login.php'</script>";
     }
 
-    $sql="SELECT * FROM personeel";
+    $sql="SELECT * FROM functie";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $id = $_GET["id"];
-    $series = $pdo->query("SELECT * FROM personeel WHERE id_personeel = $id");
+    $series = $pdo->query("SELECT * FROM functie WHERE functie_id = $id");
     $row = $series->fetch();
 ?>
 
 
 <div class="editContain">
     <form method="POST">
-        Naam:
-        <input type="text" class="editInput" id="naam" placeholder="Naam . . ." name="naam" value="<?php echo $row['naam_personeel'] ?>"><br>
-        Gebruikersnaam:
-        <input type="text" class="editInput" id="gebruikersnaam" placeholder="Gebruikersnaam . . ." name="gebruikersnaam" value="<?php echo $row['gebruikersnaam'] ?>"><br>
-        Functie ID:
-        <input type="text" class="editInput" id="functie_id" placeholder="Functie ID. . ." name="functie_id" value="<?php echo $row['functie_id'] ?>"><br>
-        Email:
-        <input type="text" class="editInput" id="email_personeel" placeholder="Email ID. . ." name="email_personeel" value="<?php echo $row['email_personeel'] ?>"><br>
-        <input type="button" onclick="location.href='../beheer/overzicht_personeel.php';" value="Terug" class="editInputBtn e1"/>
+        Functie Naam:
+        <input type="text" class="editInput" id="functie_naam" placeholder="Functie naam . . ." name="functie_naam" value="<?php echo $row['functie_naam'] ?>"><br>
+        <input type="button" onclick="location.href='../beheer/overzicht_functie.php';" value="Terug" class="editInputBtn e1"/>
         <input type="submit" class="editInputBtn e2" name="submit" value="Save">
     </form>
 </div>
@@ -63,25 +57,19 @@ require_once("../inc/db_conn.php");
     if (isset($_POST['submit'])) {
         echo '<div id="confirm">Actie succesvol</div>';
         echo '<script>setTimeout(function(){
-            document.getElementById("confirm").style.display = "none";
-            window.location.href="../overzicht_personeel.php";
-        }, 2000);</script>';
-        $naam= $_POST['naam'];
-        $gebruikersnaam = $_POST['gebruikersnaam'];
-        $functie = $_POST['functie_id'];
-        $email_personeel = $_POST['email_personeel'];
+            document.getElementById("confirm").style.display = "none";        
+            window.location.href="../beheer/overzicht_functie.php";
+        }, 2000);
+        </script>';
+        $functienaam = $_POST['functie_naam'];
 
-        $sql = "UPDATE personeel SET naam = :naam, gebruikersnaam = :gebruikersnaam, functie_id = :functie_id, email_personeel = :email_personeel WHERE id_personeel = :id_personeel";
+        $sql = "UPDATE functie SET functie_naam = :functie_naam WHERE functie_id = :functie_id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
-            ':naam' => $naam,
-            ':gebruikersnaam' => $gebruikersnaam,
-            ':functie_id' => $functie,
-            ':email_personeel' => $email_personeel,
-            ':id_personeel' => $id
+            ':functie_id' => $id,
+            ':functie_naam' => $functienaam
         ]);
     }
-    // echo "<a href='detail.php?id=" . $row['gevangenen_id'] . "'>Terug</a>";
 ?>
 
     <script>

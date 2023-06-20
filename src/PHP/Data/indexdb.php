@@ -25,21 +25,12 @@
 
     <header>
         <div class="logo"></div>
-         
-
-        <div class="header">
-            <i class="fa fa-solid fa-power-off fa-lg log" style="color: #f67b50;"></i>
-            <span id="tekstlog" class="log"> <a href="logout.php"> Log out</a></span><br><br>
-            <i class="fa fa-solid fa-gear fa-lg bh" style="color: #f67b3c;"></i>
-            <span id="tekstlog"> <a href="beheersmodule.php"> Beheer</a></span>
-            <i class="fa fa-solid fa-x"></i>
-        </div>
     </header>
 
     <?php
 
         require_once("inc/db_conn.php");
-        if (!isset($_SESSION['uname'])) {
+        if (!isset($_SESSION['gebruikersnaam'])) {
             echo "<script>alert('Inloggen mislukt...')</script>";
             echo "<script>location.href='login.php'</script>";
         }
@@ -50,11 +41,65 @@
         $userRole = $stmt->fetchColumn();
     ?>
 
+    <?php
+        require_once("inc/db_conn.php");
+        // Get the user's role from a database or session variable
+        $uname = $_SESSION['gebruikersnaam'];
+        $stmt = $pdo->prepare("SELECT functie_id FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
+        $stmt->bindParam(':gebruikersnaam', $uname);
+        $stmt->execute();
+        $userRole = $stmt->fetchColumn();
+
+
+        switch ($userRole) {
+            case 1: // Bewaker
+                $menu = '
+                        <div class="header">
+                            <i class="fa fa-solid fa-power-off fa-lg log" style="color: #f67b50;"></i>
+                                <span id="tekstlog" class="log"> <a href="logout.php"> Log out</a></span><br><br>
+                        </div>
+                        ';
+                break;
+            case 2: // Coordinator
+                $menu = '
+                    <div class="header">
+                        <i class="fa fa-solid fa-power-off fa-lg log" style="color: #f67b50;"></i>
+                            <span id="tekstlog" class="log"> <a href="logout.php"> Log out</a></span><br><br>
+                    </div>
+                        ';
+                break;
+            case 3: // Directeur
+                $menu = '
+                    <div class="header">
+                        <i class="fa fa-solid fa-power-off fa-lg log" style="color: #f67b50;"></i>
+                            <span id="tekstlog" class="log"> <a href="logout.php"> Log out</a></span><br><br>
+                        <i class="fa fa-solid fa-gear fa-lg bh" style="color: #f67b3c;"></i>
+                            <span id="tekstlog"> <a href="beheersmodule.php"> Beheer</a></span>
+                    </div>
+                        ';
+                break;
+            case 4: // Admin
+                $menu = '
+                    <div class="header">
+                        <i class="fa fa-solid fa-power-off fa-lg log" style="color: #f67b50;"></i>
+                            <span id="tekstlog" class="log"> <a href="logout.php"> Log out</a></span><br><br>
+                        <i class="fa fa-solid fa-gear fa-lg bh" style="color: #f67b3c;"></i>
+                            <span id="tekstlog"> <a href="beheersmodule.php"> Beheer</a></span>
+                    </div>
+                        ';
+                break;
+            default:
+                $menu = 'Er gaat iets mis hier'; // Set an empty menu if the user role is unknown
+        }
+        echo $menu; // Output the menu
+    ?>
+
     <content>
        <div class="menuContain">
         <span class="menuTitle"> Gebruikersportaal </span>
              <button class="btnStyle btn3"> <a href="overzicht_gevangenen.php"> Overzicht - Gevangenen</a></button>
              <button class="btnStyle btn5" id="meldingDis"> <a href="overzicht_bezoeken.php" id="meldingDis"> Overzicht - Bezoeken <i class="fa fa-solid fa-star" id="melding" style="color: #f67b3c;"></i></i></a></button>
+             <button class="btnStyle btn4"> <a href="overzicht_cellen.php"> Overzicht - Cellen</a></button>
         </div>
     </content>
 
@@ -71,8 +116,11 @@
         $(".btn3").click(function () {
             location.replace("overzicht_gevangenen.php")
         })
-        
-        
+                
+        $(".btn4").click(function () {
+            location.replace("overzicht_cellen.php")
+        })
+
         $(".btn5").click(function () {
             location.replace("overzicht_bezoeken.php")
         })

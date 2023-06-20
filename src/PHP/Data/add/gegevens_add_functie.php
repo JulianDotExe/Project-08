@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bezoeker toevoegen</title>
+    <title>Gevangenen toevoegen</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="../../../../img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../../../img/favicon/favicon-32x32.png">
@@ -43,12 +43,8 @@
 
         <div class="dataContainAdd">
             <form method="POST">
-                <input type="text" class="form form2" name="naam_bezoeker" placeholder="Bezoeker volledige naam . . ." required><br>
-                <input type="email" class="form form2" name="email_bezoeker" placeholder="Email . . ." required><br>
-                <input type="text" class="form form3" name="naam_gevangenen" placeholder="Gevangenen volledige naam . . ." required><br>
-                <input type="text" class="form form2" name="reden_bezoek" placeholder="Reden bezoek . . ." required><br>
-                <input type="time" class="form form3" name="tijd" placeholder="Tijdstip" min="12:00:00" max="16:00:00" required><br>
-                <input type="date" class="form form4" name="datum" placeholder="Datum" required><br>
+                <input type="text" class="form form2" name="functie_id" placeholder="Functie ID . . ." required><br>
+                <input type="text" class="form form2" name="functie_naam" placeholder="Functie naam . . ." required><br>
                 <input type="submit" name="terug" value="Terug" class="return">
                 <input type="submit" name="submit" value="Submit" class="submit">
             </form>
@@ -60,33 +56,22 @@
             echo '<div id="confirm">Actie succesvol</div>';
             echo '<script>setTimeout(function(){
                 document.getElementById("confirm").style.display = "none";
-                window.location.href="../overzicht_bezoeken.php";
+                window.location.href="../beheer/overzicht_functie.php";
             }, 2000);</script>';
-            $naam_bezoeker = $_POST['naam_bezoeker'];
-            $emailbezoeker = $_POST['email_bezoeker'];
-            $naam_gevangenen= $_POST['naam_gevangenen'];
-            $redenbezoek = $_POST['reden_bezoek'];
-            $tijd = $_POST['tijd'];
-            $datum = $_POST['datum'];
-            $create_date = date('Y-m-d H:i:s');
+            $functieid = $_POST['functie_id'];
+            $functienaam= $_POST['functie_naam'];
 
-            $sql = "INSERT INTO bezoekers SET naam_bezoeker = :naam_bezoeker, email_bezoeker = :email_bezoeker, naam_gevangenen = :naam_gevangenen, 
-            reden_bezoek = :reden_bezoek, tijd = :tijd, datum = :datum, create_date = :create_date";
+            $sql = "INSERT INTO functie SET functie_id = :functie_id, functie_naam = :functie_naam";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
-                ':naam_bezoeker' => $naam_bezoeker,
-                ':email_bezoeker' => $emailbezoeker,
-                ':naam_gevangenen' => $naam_gevangenen,
-                ':reden_bezoek' => $redenbezoek,
-                ':tijd' => $tijd,
-                ':datum' => $datum,
-                ':create_date' => $create_date
+                ':functie_id' => $functieid,
+                ':functie_naam' => $functienaam
             ]);
         }
-    ?>
-    
-        </div>
-    
+    ?>  
+    </div>
+
+        
     </content>
 
     <script>
@@ -95,7 +80,7 @@
         })
 
         $(".return").click(function () {
-            location.replace("../overzicht_bezoeken.php")
+            location.replace("../beheer/overzicht_functie.php")
         })
 
     </script>
