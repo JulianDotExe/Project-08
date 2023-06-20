@@ -130,7 +130,8 @@
                                 }
                             echo "</td>
                             <td>
-                                <a href='reqreview.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>Review</i></a>
+                            <a href='reqreview.php?id={$row['bezoek_id']}&email_bezoeker={$row['email_bezoeker']}' class='btn-delete'><i class='material-icons md-10'>Review</i></a>
+
                             </td>
                             <td>
                                 <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>

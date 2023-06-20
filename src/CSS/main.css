@@ -179,8 +179,6 @@ Logo
     background-size: cover;
     background-repeat: no-repeat;
     filter: drop-shadow(1px 2px 2px #222);
-
-    display: none;
 }
 
 .logobig {
@@ -859,6 +857,25 @@ Beheersmodule - Main
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
+/* 
+Review
+*/
+
+.reviewContain {
+    height: 30%; width: 30%;
+    position: fixed; display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-align: end;
+    top: 50%;    left: 50%;
+    transform: translate(-50%, -50%);
+
+    line-height: 7.5vh;
+    background: rgb(251,196,144);
+    background: radial-gradient(circle, rgba(251,196,144,1) 0%, rgba(251,170,96,1) 100%);
+    border-radius: 15%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
 /**
 Footer
 **/

@@ -57,7 +57,9 @@
                 <input type="text" class="form form2" name="naam_personeel" placeholder="Volledige naam . . ." required><br>
                 <input type="text" class="form form3" name="wachtwoord" placeholder="Wachtwoord . . ." required><br>
                 <input type="text" class="form form4" name="gebruikersnaam" placeholder="Gebruikersnaam . . ." required><br>
-                <input type="text" class="form form4" name="functie" placeholder="Functie . . ." required><br>
+                <input type="text" class="form form4" name="functie_id" placeholder="Functie ID. . ." required><br>
+                <input type="text" class="form form4" name="email_personeel" placeholder="Email . . ." required><br>
+
                 <input type="submit" name="terug" value="Terug" class="return">
                 <input type="submit" name="submit" value="Submit" class="submit">           
             </form>
@@ -76,9 +78,10 @@
             $wachtwoord = $_POST['wachtwoord'];
             $gebruikersnaam = $_POST['gebruikersnaam'];
             $functie = $_POST['functie_id'];
+            $email_personeel = $_POST['email_personeel'];
 
             $sql = "INSERT INTO personeel SET id_personeel = :id_personeel, naam_personeel = :naam_personeel, wachtwoord = :wachtwoord, 
-            gebruikersnaam = :gebruikersnaam, functie_id = :functie_id";
+            gebruikersnaam = :gebruikersnaam, functie_id = :functie_id, email_personeel = :email_personeel";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
                 ':id_personeel' => $personeelid,
@@ -86,6 +89,7 @@
                 ':wachtwoord' => $wachtwoord,
                 ':gebruikersnaam' => $gebruikersnaam,
                 ':functie_id' => $functie,
+                ':email_personeel' => $email_personeel
             ]);
         }
     ?>

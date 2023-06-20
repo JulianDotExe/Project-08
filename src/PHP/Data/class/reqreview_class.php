@@ -14,7 +14,8 @@
             if (isset($_POST["bezoek_verzoek_id_yes"])) {
                 echo '<div id="confirm">Actie succesvol</div>';
                 echo '<script>setTimeout(function(){
-                    document.getElementById("confirm").style.display = "none";        
+                    document.getElementById("confirm").style.display = "none"; 
+                    window.location.href="overzicht_bezoeken.php";       
                 }, 2000);
                 </script>';
 
@@ -27,19 +28,9 @@
                     ':bezoek_id' => $this->id 
                 ]);
 
-                // $sql = "SELECT * FROM bezoekers WHERE bezoek_id = :bezoek_id"; 
-                // $stmt = $this->pdo->prepare($sql);
-                // $stmt->execute([
-                //     ':bezoek_id' => $this->id
-                // ]);
-                
-                // $row = $stmt->fetchColumn();
-
                 $melding = "";
                 $email = [];
                 $email[] = htmlspecialchars($_GET['email_bezoeker']);
-                // $email = $row['email_bezoeker'];
-                // $email = htmlspecialchars($_POST['email_bezoeker']);
 
                 // deze function genereert een token 64 tekens lang.
                 $token = bin2hex(random_bytes(32));
@@ -48,7 +39,6 @@
                 // sla de token en timestamp voor deze klant in de database
 
                 include("mail.php");
-                // $email = $_POST['email_bezoeker'];
 
                 $onderwerp = "Verzoek voor bezoek";
                 $bericht = "<p>Bij deze de resultaten van onze reviews van uw verzoek:</p>
@@ -65,10 +55,10 @@
             } else if (isset($_POST["bezoek_verzoek_id_no"])) {
                 echo '<div id="confirm">Actie succesvol</div>';
                 echo '<script>setTimeout(function(){
-                    document.getElementById("confirm").style.display = "none";        
+                    document.getElementById("confirm").style.display = "none";   
+                    window.location.href="overzicht_bezoeken.php";     
                 }, 2000);
                 </script>';
-                // window.location.href="overzicht_bezoeken.php";
 
                 $bezoekverzoekid = 3;
 
@@ -90,7 +80,6 @@
                 // sla de token en timestamp voor deze klant in de database
 
                 include("mail.php");
-                // $email = $_POST['email_bezoeker'];
 
                 $onderwerp = "Verzoek voor bezoek";
                 $bericht = "<p>Bij deze de resultaten van onze reviews van uw verzoek:</p>

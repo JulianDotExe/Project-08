@@ -62,15 +62,18 @@
                         echo "  <th>ID</th>
                                 <th id='optional'>Naam</th>
                                 <th>Gebruikersnaam</th>
-                                <th>Functie</th>
+                                <th>Functie ID</th>
+                                <th>Email</th>
                                 <th id='optional'>Actie</th>";
                     break;
                     default:
                         echo "  <th>ID</th>
                                 <th id='optional'>Naam</th>
                                 <th>Gebruikersnaam</th>
-                                <th>Functie</th>
+                                <th>Functie ID</th>
+                                <th>Email</th>
                                 <th id='optional'>Actie</th>";
+                    break;
                     break;
                 }
                 ?>
@@ -87,6 +90,7 @@
                             <td id='optional'>".$row['naam_personeel']."</td>
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie_id']."</td>
+                            <td>".$row['email_personeel']."</td>
                             <td id='optional'>
                                 <a href='../edit/gegevens_edit_personeel.php?id={$row['id_personeel']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='../delete/gegevens_del_personeel.php?id={$row['id_personeel']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
@@ -97,6 +101,7 @@
                             <td id='optional'>".$row['naam_personeel']."</td>
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie_id']."</td>
+                            <td>".$row['email_personeel']."</td>
                             <td id='optional'>
                                 <a href='../edit/gegevens_edit_personeel.php?id={$row['personeel_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='../delete/gegevens_del_personeel.php?id={$row['personeel_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
@@ -107,6 +112,7 @@
                             <td id='optional'>".$row['naam_personeel']."</td>
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie_id']."</td>
+                            <td>".$row['email_personeel']."</td>
                             <td id='optional'>
                                 <a href='../edit/gegevens_edit_personeel.php?id={$row['id_personeel']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
                                 <a href='../delete/gegevens_del_personeel.php?id={$row['id_personeel']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>

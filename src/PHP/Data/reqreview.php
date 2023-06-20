@@ -43,11 +43,10 @@
 ?>
 
 
-<div class="editContain">
+<div class="reviewContain">
     <?php
 
     ?>
-
     <form method='POST' action=''>                        
         <input type='submit' name='bezoek_verzoek_id_no' value='Reject' class='return'>        
         <input type='submit' name='bezoek_verzoek_id_yes' value='Accept' class='submit'>
@@ -57,6 +56,7 @@
 <?php
 
 include('class/reqreview_class.php')
+
 
 ?>
     <script>

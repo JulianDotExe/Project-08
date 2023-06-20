@@ -68,15 +68,17 @@ require_once("../inc/db_conn.php");
         }, 2000);
         </script>';
         $naam_bezoeker= $_POST['naam_bezoeker'];
+        $email_bezoeker = $_POST['email_bezoeker'];
         $naam_gevangenen = $_POST['naam_gevangenen'];
         $tijd = $_POST['tijd'];
         $datum = $_POST['datum'];
 
-        $sql = "UPDATE bezoekers SET naam_bezoeker = :naam_bezoeker, naam_gevangenen = :naam_gevangenen, 
+        $sql = "UPDATE bezoekers SET naam_bezoeker = :naam_bezoeker, email_bezoeker = :email_bezoeker, naam_gevangenen = :naam_gevangenen, 
         tijd = :tijd, datum = :datum WHERE bezoek_id = :bezoek_id";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':naam_bezoeker' => $naam_bezoeker,
+            ':email_bezoeker' => $email_bezoeker,
             ':naam_gevangenen' => $naam_gevangenen,
             ':tijd' => $tijd,
             ':datum' => $datum,

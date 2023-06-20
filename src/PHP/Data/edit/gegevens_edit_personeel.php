@@ -51,6 +51,8 @@
         <input type="text" class="editInput" id="gebruikersnaam" placeholder="Gebruikersnaam . . ." name="gebruikersnaam" value="<?php echo $row['gebruikersnaam'] ?>"><br>
         Functie ID:
         <input type="text" class="editInput" id="functie_id" placeholder="Functie ID. . ." name="functie_id" value="<?php echo $row['functie_id'] ?>"><br>
+        Email:
+        <input type="text" class="editInput" id="email_personeel" placeholder="Email ID. . ." name="email_personeel" value="<?php echo $row['email_personeel'] ?>"><br>
         <input type="button" onclick="location.href='../beheer/overzicht_personeel.php';" value="Terug" class="editInputBtn e1"/>
         <input type="submit" class="editInputBtn e2" name="submit" value="Save">
     </form>
@@ -67,13 +69,15 @@ require_once("../inc/db_conn.php");
         $naam= $_POST['naam'];
         $gebruikersnaam = $_POST['gebruikersnaam'];
         $functie = $_POST['functie_id'];
+        $email_personeel = $_POST['email_personeel'];
 
-        $sql = "UPDATE personeel SET naam = :naam, gebruikersnaam = :gebruikersnaam, functie_id = :functie_id WHERE id_personeel = :id_personeel";
+        $sql = "UPDATE personeel SET naam = :naam, gebruikersnaam = :gebruikersnaam, functie_id = :functie_id, email_personeel = :email_personeel WHERE id_personeel = :id_personeel";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':naam' => $naam,
             ':gebruikersnaam' => $gebruikersnaam,
             ':functie_id' => $functie,
+            ':email_personeel' => $email_personeel,
             ':id_personeel' => $id
         ]);
     }
