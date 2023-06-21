@@ -28,13 +28,6 @@
         echo "<script>alert('Inloggen mislukt...')</script>";
         echo "<script>location.href='login.php'</script>";
     }
-
-    // $id = $_GET["id"];
-    // $series = $pdo->prepare("SELECT * FROM bewijsmateriaal WHERE id_gevangenen = :id");
-    // $series->bindParam(':id', $id);
-    // $series->execute();
-    // $row = $series->fetch(PDO::FETCH_ASSOC);
-
     ?>
 
 <div class="background backgroundLight"></div>
@@ -56,6 +49,7 @@
 
 
     <div class="dataContain dataCenter">
+        <button id='btnOpenModal'>Upload File <i class="fa fa-solid fa-upload" style="color: #000;"></i></button>
     <?php
         require_once('../inc/db_conn.php');
         // Check if a gevangenen ID is provided
@@ -77,62 +71,93 @@
 
             if (count($files) > 0) {
             // Display the uploaded files
-            echo "<span class='menuTitle'>Files for Gevangenen ID $gevangenenId</span>";
-            echo "<table class='table'>
+            // echo "<span class='menuTitle'>Files for Gevangenen ID $gevangenenId</span>";
+            echo "<table class='tableBewijs'>
                         <th>File Name</th>
-                        <th>File Size</th>
                         <th>File Type</th>
                         <th>Description</th>
                         <th>Download</th>
+                        <th>Delete</th>
                     <tbody>";
 
             foreach ($files as $file) {
                 $fileId = $file['files_id'];
                 $fileName = $file['name'];
-                $fileSize = $file['size'];
                 $fileType = $file['type'];
                 $fileDesc = $file['description'];
 
-
                 echo "<tr>
                         <td>$fileName</td>
-                        <td>$fileSize</td>
                         <td>$fileType</td>
                         <td>$fileDesc</td>
-                        <td><a href='download_class.php?file_id=$fileId'>Download</a></td>
-                    </tr>";
+                        <td><a href='download_class.php?file_id=$fileId'>Download <i class='fa fa-solid fa-download' style='color: #000;'></i></a></td>
+                        <td><a href='delete_file.php?file_id=$fileId&id_gevangenen=$gevangenenId'>Delete <i class='fa fa-solid fa-trash' style='color: #000;'></i></a></td>
+                        </tr>";
             }
 
             echo "</tbody></table>";
             } else {
-            echo "<p>No uploaded files found.</p>";
+            echo "<span class='menuTitle'>No uploaded files found.</span>";
             }
 
             // Display the file upload form
-            echo "<h2>Upload File:</h2>";
-            echo "<form action='upload_class.php' method='post' enctype='multipart/form-data'>";
-            echo "<input type='hidden' name='id_gevangenen' value='$gevangenenId'>";
-            echo "<input type='file' name='file' required>";
-            echo "<input type='text' name='description' placeholder='Enter file description'>";
-            echo "<input type='submit' value='Upload'>";
-            echo "</form>";
+            echo "<div id='uploadModal' class='modal'>";
+             echo "<div class='modal-content'>";
+              echo "<span class='close'>&times;</span>";
+               echo "<h2>Upload File</h2><br>";
+                echo "<form id='uploadForm' action='upload_class.php' method='post' enctype='multipart/form-data' class='formUpload'>";
+                    echo "<input type='hidden' name='id_gevangenen' value='$gevangenenId'>";
+                    echo "<input class='formClick' type='file' name='file' required><br><br>";
+                    echo "<input class='formBtn' type='text' name='description' placeholder='Enter file description' required><br><br>";
+                    echo "<input class='formClick' type='submit' value='Upload'>";
+            echo "</form></div></div>";
         } else {
             echo "<p>No gevangenen ID provided.</p>";
         }
     ?>
     </div>
 
+
 </content>
 
 <script>
     $(".header").click(function() {
         location.replace("../logout.php")
-    })
+    });
 
     $(".back").click(function() {
         location.replace("../overzicht_gevangenen.php")
-    })
+    });
+
+    var modal = document.getElementById("uploadModal");
+
+    // Open
+    var btnOpenModal = document.getElementById("btnOpenModal");
+
+    // Close
+    var spanClose = document.getElementsByClassName("close")[0];
+
+    btnOpenModal.onclick = function() {
+        modal.style.display = "block";
+    };
+
+    spanClose.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+
+
 </script>
 
 </body>
 </html>
+
+
+
+
+

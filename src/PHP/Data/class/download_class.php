@@ -23,11 +23,9 @@ class FileDownloader {
         if ($file) {
             $fileName = $file['name'];
             $fileContent = $file['content'];
-            $fileSize = $file['size'];
             $fileType = $file['type'];
 
             // Set the appropriate headers for file download
-            header("Content-length: $fileSize");
             header("Content-type: $fileType");
             header("Content-Disposition: attachment; filename=$fileName");
 

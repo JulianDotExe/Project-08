@@ -12,26 +12,25 @@ class FileUploader {
     public function uploadFile($gevangenenId, $file, $description) {
         $fileName = $file['name'];
         $fileTmpName = $file['tmp_name'];
-        $fileSize = $file['size'];
         $fileType = $file['type'];
 
         // Read the file content
         $fileContent = file_get_contents($fileTmpName);
 
         // Prepare the SQL statement
-        $stmt = $this->pdo->prepare("INSERT INTO files (name, content, size, type, description, id_gevangenen) VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt = $this->pdo->prepare("INSERT INTO files (name, content, type, description, id_gevangenen) VALUES (?, ?, ?, ?, ?)");
         $stmt->bindParam(1, $fileName);
         $stmt->bindParam(2, $fileContent, PDO::PARAM_LOB);
-        $stmt->bindParam(3, $fileSize);
-        $stmt->bindParam(4, $fileType);
-        $stmt->bindParam(5, $description);
-        $stmt->bindParam(6, $gevangenenId);
+        $stmt->bindParam(3, $fileType);
+        $stmt->bindParam(4, $description);
+        $stmt->bindParam(5, $gevangenenId);
 
         // Execute the statement
         if ($stmt->execute()) {
-            echo "File uploaded successfully.";
+            echo "<script>alert('File uploaded successfully.')</script>";
+            header("Location: bewijs_class.php?id=$gevangenenId");
         } else {
-            echo "Error uploading file.";
+            echo "<script>alert('Error uploading file.')</script>";
         }
     }
 }
