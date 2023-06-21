@@ -138,7 +138,7 @@
                             <td id='optional'>".$row['eind_straf']."</td>
                             <td>".$row['vleugel_cel_id']."</td>
                             <td>
-                                <a href='class/bewijs_class.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>View</i></a>
+                                <a href='bewijs.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>View</i></a>
                             </td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>

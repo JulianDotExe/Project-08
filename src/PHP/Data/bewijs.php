@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bewijs</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="../../../../img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../../../img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../../../img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="../../../../img/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../../img/favicon/site.webmanifest">
     
-    <link rel="stylesheet" href="../../../CSS/main.css">
-    <link rel="stylesheet" href="../../../CSS/resize.css">
+    <link rel="stylesheet" href="../../CSS/main.css">
+    <link rel="stylesheet" href="../../CSS/resize.css">
     
     <!-- External Scripts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -23,7 +23,7 @@
 
     <?php
 
-    require_once("../inc/db_conn.php");
+    require_once("inc/db_conn.php");
     if (!isset($_SESSION['gebruikersnaam'])) {
         echo "<script>alert('Inloggen mislukt...')</script>";
         echo "<script>location.href='login.php'</script>";
@@ -51,13 +51,13 @@
     <div class="dataContain dataCenter">
         <button id='btnOpenModal'>Upload File <i class="fa fa-solid fa-upload" style="color: #000;"></i></button>
     <?php
-        require_once('../inc/db_conn.php');
+        require_once('inc/db_conn.php');
         // Check if a gevangenen ID is provided
         if (isset($_GET['id'])) {
             $gevangenenId = $_GET['id'];
 
             // Connect to the database
-            require_once("../inc/db_conn.php");
+            require_once("inc/db_conn.php");
 
             // Prepare the SQL statement
             $stmt = $pdo->prepare("SELECT * FROM files WHERE id_gevangenen = ?");
@@ -90,8 +90,8 @@
                         <td>$fileName</td>
                         <td>$fileType</td>
                         <td>$fileDesc</td>
-                        <td><a href='download_class.php?file_id=$fileId'>Download <i class='fa fa-solid fa-download' style='color: #000;'></i></a></td>
-                        <td><a href='delete_file.php?file_id=$fileId&id_gevangenen=$gevangenenId'>Delete <i class='fa fa-solid fa-trash' style='color: #000;'></i></a></td>
+                        <td><a href='class/download_class.php?file_id=$fileId'>Download <i class='fa fa-solid fa-download' style='color: #000;'></i></a></td>
+                        <td><a href='class/delete_class.php?file_id=$fileId&id_gevangenen=$gevangenenId'>Delete <i class='fa fa-solid fa-trash' style='color: #000;'></i></a></td>
                         </tr>";
             }
 
@@ -105,7 +105,7 @@
              echo "<div class='modal-content'>";
               echo "<span class='close'>&times;</span>";
                echo "<h2>Upload File</h2><br>";
-                echo "<form id='uploadForm' action='upload_class.php' method='post' enctype='multipart/form-data' class='formUpload'>";
+                echo "<form id='uploadForm' action='class/upload_class.php' method='post' enctype='multipart/form-data' class='formUpload'>";
                     echo "<input type='hidden' name='id_gevangenen' value='$gevangenenId'>";
                     echo "<input class='formClick' type='file' name='file' required><br><br>";
                     echo "<input class='formBtn' type='text' name='description' placeholder='Enter file description' required><br><br>";
@@ -122,11 +122,11 @@
 
 <script>
     $(".header").click(function() {
-        location.replace("../logout.php")
+        location.replace("logout.php")
     });
 
     $(".back").click(function() {
-        location.replace("../overzicht_gevangenen.php")
+        location.replace("overzicht_gevangenen.php")
     });
 
     var modal = document.getElementById("uploadModal");

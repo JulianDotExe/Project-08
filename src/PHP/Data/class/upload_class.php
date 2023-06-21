@@ -28,7 +28,7 @@ class FileUploader {
         // Execute the statement
         if ($stmt->execute()) {
             echo "<script>alert('File uploaded successfully.')</script>";
-            header("Location: bewijs_class.php?id=$gevangenenId");
+            header("Location: ../bewijs.php?id=$gevangenenId");
         } else {
             echo "<script>alert('Error uploading file.')</script>";
         }
