@@ -73,20 +73,6 @@
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
                 echo "<td>" . $row['vleugel_cel_id'] . "</td>";
-
-                // Check if vleugel_cel_id exists for the gevangenen
-                $vleugel_cel_id = $row['vleugel_cel_id'];
-                $vleugel_cel_bezet = 'N'; // Default value is 'N'
-                
-                $check_query = "SELECT vleugel_cel_bezet FROM cellen WHERE vleugel_cel_id = :vleugel_cel_id";
-                $check_stmt = $pdo->prepare($check_query);
-                $check_stmt->bindParam(':vleugel_cel_id', $vleugel_cel_id);
-                $check_stmt->execute();
-                
-                if ($check_stmt->rowCount() > 0) {
-                    $vleugel_cel_bezet = 'Y';
-                }
-
                 echo "<td>" . $row['vleugel_cel_bezet'] . "</td>";
                 echo "</tr>";
             }
