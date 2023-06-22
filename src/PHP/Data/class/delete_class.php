@@ -35,7 +35,7 @@ if (isset($_GET['file_id']) && isset($_GET['id_gevangenen'])) {
     $gevangenenId = $_GET['id_gevangenen'];
 
     if ($fileDeletionSystem->deleteFile($fileId, $gevangenenId)) {
-        header("Location: ../bewijs.php?id=" . $gevangenenId);
+        header("Location: ../bestanden.php?id=" . $gevangenenId);
         exit;
     } else {
         echo "<p>File not found.</p>";

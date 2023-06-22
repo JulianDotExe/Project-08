@@ -39,9 +39,14 @@
         <span class="menuTitle">Beheersmodule <i class="fa fa-solid fa-gears" style="color: #000000;"></i></span>
              <button class="btnStyle btn3"> <a href="beheer/overzicht_personeel.php"> Overzicht - Personeel</a></button>
              <button class="btnStyle btn5"> <a href="beheer/overzicht_functie.php"> Overzicht - Functies </a></button>
-             <button class="btnStyle btn4"> <a href="beheer/permissies.php"> Permissies - Personeel </a></button>
+             <button class="btnStyle btn4"> <a href="beheer/permissies.php"> Permissies - Functies </a></button>
         </div>
     </content>
+
+
+    <footer>
+        <div class="warning"></div>
+    </footer>
 
     <script>
         $(".log").click(function() {

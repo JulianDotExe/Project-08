@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 22 jun 2023 om 16:02
+-- Gegenereerd op: 23 jun 2023 om 00:54
 -- Serverversie: 10.4.24-MariaDB
 -- PHP-versie: 8.1.4
 
@@ -31,8 +31,7 @@ CREATE TABLE `bewijsmateriaal` (
   `id_bewijs` int(11) NOT NULL,
   `id_gevangenen` int(11) NOT NULL,
   `bestand_naam` varchar(255) NOT NULL,
-  `bestand_desc` varchar(255) NOT NULL,
-  `verwijzing` varchar(255) NOT NULL
+  `bestand_desc` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -156,15 +155,16 @@ CREATE TABLE `files` (
   `content` longblob NOT NULL,
   `type` varchar(100) NOT NULL,
   `description` varchar(255) NOT NULL,
-  `id_gevangenen` int(11) DEFAULT NULL
+  `id_gevangenen` int(11) DEFAULT NULL,
+  `category` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `files`
 --
 
-INSERT INTO `files` (`files_id`, `name`, `content`, `type`, `description`, `id_gevangenen`) VALUES
-(28, 'Testbewijs.txt', '', 'text/plain', 'Test', 5);
+INSERT INTO `files` (`files_id`, `name`, `content`, `type`, `description`, `id_gevangenen`, `category`) VALUES
+(34, 'Testbewijs.txt', '', 'text/plain', 'Test bewijsmateriaal voor testen van PHP bestanden en SQL database', 1, 'Bewijsmateriaal');
 
 -- --------------------------------------------------------
 
@@ -238,9 +238,16 @@ INSERT INTO `gevangenen` (`id_gevangenen`, `naam_gevangenen`, `woonplaats`, `beg
 
 CREATE TABLE `permissie` (
   `permissie_id` int(11) NOT NULL,
-  `permissie_mod` varchar(50) NOT NULL,
   `permissie_desc` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `permissie`
+--
+
+INSERT INTO `permissie` (`permissie_id`, `permissie_desc`) VALUES
+(1, 'Bewijs materiaal beheren'),
+(2, 'Gevangenen beheren');
 
 -- --------------------------------------------------------
 
@@ -385,19 +392,13 @@ ALTER TABLE `cellen_bezetting`
 -- AUTO_INCREMENT voor een tabel `files`
 --
 ALTER TABLE `files`
-  MODIFY `files_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `files_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT voor een tabel `functie`
 --
 ALTER TABLE `functie`
-  MODIFY `functie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
-
---
--- AUTO_INCREMENT voor een tabel `functie_permissie`
---
-ALTER TABLE `functie_permissie`
-  MODIFY `functie_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `functie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT voor een tabel `gevangenen`
@@ -409,7 +410,7 @@ ALTER TABLE `gevangenen`
 -- AUTO_INCREMENT voor een tabel `permissie`
 --
 ALTER TABLE `permissie`
-  MODIFY `permissie_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `permissie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT voor een tabel `personeel`

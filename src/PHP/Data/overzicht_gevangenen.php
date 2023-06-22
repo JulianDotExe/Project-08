@@ -75,7 +75,7 @@
                                 <th id='optional'>Begin-straf</th>
                                 <th id='optional'>Eind-straf</th>
                                 <th>Vleugel-Cel-Nr</th>
-                                <th>Bewijsmateriaal</th>
+                                <th>Bestanden</th>
                                 <th>Opmerking</th>
                                 <th id='optional'>Actie</th>";
                     break;
@@ -138,7 +138,7 @@
                             <td id='optional'>".$row['eind_straf']."</td>
                             <td>".$row['vleugel_cel_nr']."</td>
                             <td>
-                                <a href='bewijs.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>View</i></a>
+                                <a href='bestanden.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>View</i></a>
                             </td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>

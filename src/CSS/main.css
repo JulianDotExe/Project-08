@@ -703,6 +703,7 @@ Database - Main
     transform: translate(-50%, -50%);
     border-radius: 3px;
     border: 2px solid #000;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 .dataCenter {
@@ -842,6 +843,7 @@ Database - Delete
 /* 
 Bewijsmateriaal
 */
+
 .modal {
     display: none;
     position: fixed;
@@ -859,6 +861,10 @@ Bewijsmateriaal
     margin: 10% auto; padding: 20px;
     border: 1px solid #888;
     width: 50%; max-width: 500px;
+}
+
+.larger {
+    height: 50%;
 }
 
 .close {
@@ -889,6 +895,36 @@ Bewijsmateriaal
     cursor: pointer;
 }
 
+.formInput {
+    width: 80%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+  
+  .formSelect {
+    width: 80%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+  
+  .formButton {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+  .formButton:hover {
+    background-color: #45a049;
+}
+
 /* 
 Cellen - Overzicht
 */
@@ -896,6 +932,7 @@ Cellen - Overzicht
     margin-top: 20px;
     position: absolute;
     right: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 .pagination a {
@@ -913,6 +950,26 @@ Cellen - Overzicht
 
 .pagination a:hover:not(.active) {
     background-color: #ddd;
+}
+
+/* 
+Review
+*/
+
+.reviewContain {
+    height: 30%; width: 30%;
+    position: fixed; display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-align: end;
+    top: 50%;    left: 50%;
+    transform: translate(-50%, -50%);
+
+    line-height: 7.5vh;
+    background: rgb(251,196,144);
+    background: radial-gradient(circle, rgba(251,196,144,1) 0%, rgba(251,170,96,1) 100%);
+    border-radius: 15%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
 /***** 
@@ -939,30 +996,39 @@ Beheersmodule - Main
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
-/* 
-Review
+
+/*
+Beheersmodule - Perm
 */
-
-.reviewContain {
-    height: 30%; width: 30%;
-    position: fixed; display: flex; 
-    justify-content: center;
-    align-items: center;
-    text-align: end;
-    top: 50%;    left: 50%;
+.permContain{
+    width: 50%; height: 80%;
+    background-color: white;
+    position: absolute;
+    top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-
-    line-height: 7.5vh;
-    background: rgb(251,196,144);
-    background: radial-gradient(circle, rgba(251,196,144,1) 0%, rgba(251,170,96,1) 100%);
-    border-radius: 15%;
+    border-radius: 3px;
+    border: 2px solid #000;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    display: flex; justify-content: center;
 }
-
 
 /**
 Footer
 **/
+
+/*
+Beheersmodule - Warning
+*/
+.warning{
+    position: absolute;
+    width: 100%; height: 50px;
+    bottom: 0;
+
+    background: rgb(253,29,29);
+    background: linear-gradient(90deg, rgba(253,29,29,1) 0%, rgba(252,176,69,1) 100%);
+    border-radius: 15px 15px 0 0;
+}
+
 
 /*
 Code

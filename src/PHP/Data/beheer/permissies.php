@@ -20,8 +20,6 @@
     <!-- External Scripts -->
 </head>
 <body>
-
-
 <div class="background backgroundLight"></div>
 
 <header>
@@ -38,21 +36,78 @@
     <div class="back">
         <i class="fa fa-solid fa-arrow-left fa-2x" style="color: #f67b50;"></i>
     </div>
+
+    <?php
+        require_once("../inc/db_conn.php");
+
+        // Prepare the query
+        $query = "SELECT functie_id, functie_naam FROM functie";
+        $statement = $pdo->prepare($query);
+
+        // Execute the query
+        $statement->execute();
+
+        // Fetch the results
+        $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+    ?>
+
+    <div class="permContain">
+        <!-- <span class="menuTitle">Permissies:</span> -->
+
+        <table>
+            <tr>
+                <th>Functie ID</th>
+                <th>Functie Naam</th>
+            </tr>
+            <?php
+            // Loop through each functie row and display data
+            foreach ($results as $row) {
+                $functieID = $row['functie_id'];
+                $functieNaam = $row['functie_naam'];
+                echo "<tr>";
+                echo "<td>$functieID</td>";
+                echo "<td><a href='#' class='functieLink' onclick='openModal($functieID)'>$functieNaam</a></td>";
+                echo "</tr>";
+            }
+            ?>
+        </table>
+    </div>
 </content>
 
+<div id="modalBox" class="modal">
+    <div class="modal-content larger">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalContent"></div>
+    </div>
+</div>
+
 <script>
-    $(".header").click(function() {
-        location.replace("../logout.php")
-    })
+    function openModal(functieID) {
+        var modalContent = document.getElementById("modalContent");
+        modalContent.innerHTML = "Functie ID: " + functieID;
 
-    $(".back").click(function() {
-        location.replace("../beheersmodule.php")
-    })
+        var modalBox = document.getElementById("modalBox");
+        modalBox.style.display = "block";
+    }
 
-    $(".add").click(function() {
-        location.replace("../add/gegevens_add_bezoek.php")
-    })
+    function closeModal() {
+        var modalBox = document.getElementById("modalBox");
+        modalBox.style.display = "none";
+    }
+
+    $(".header").click(function () {
+        location.replace("../logout.php");
+    });
+
+    $(".back").click(function () {
+        location.replace("../beheersmodule.php");
+    });
+
+    $(".add").click(function () {
+        location.replace("../add/gegevens_add_bezoek.php");
+    });
 </script>
+
 
 </body>
 </html>
