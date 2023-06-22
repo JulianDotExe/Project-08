@@ -191,7 +191,6 @@
     }
 
     td {
-        /* display: none; */
         font-size: 3vw;
     }
 
@@ -203,10 +202,20 @@
         display: none;
     }
 
- 
-
     .back {
          left: 5%;
+    }
+
+    /* 
+    Cellenoverzicht 
+    */
+    .pagination {
+        bottom: 10px;
+        border: solid 1px #000;
+    }
+    
+    .pagination a {
+        border: solid 1px #000;
     }
 }
 

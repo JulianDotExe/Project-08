@@ -53,8 +53,8 @@
         <input type="text" class="editInput" id="begin_straf" placeholder="Begin Straf . . ." name="begin_straf" value="<?php echo $row['begin_straf'] ?>"><br>
         Eind Straf:
         <input type="text" class="editInput" id="eind_straf" placeholder="Eind Straf . . ." name="eind_straf" value="<?php echo $row['eind_straf'] ?>"><br>
-        Vleugel Cel ID:
-        <input type="text" class="editInput" id="vleugel_cel_id" placeholder="Vleugel Cel ID . . ." name="vleugel_cel_id" value="<?php echo $row['vleugel_cel_id'] ?>"><br>
+        Vleugel Cel Nr:
+        <input type="text" class="editInput" id="vleugel_cel_nr" placeholder="Vleugel Cel Nr . . ." name="vleugel_cel_nr" value="<?php echo $row['vleugel_cel_nr'] ?>"><br>
         Opmerking:
         <input type="text" class="editInput" id="opmerking" placeholder="Opmerking . . ." name="opmerking" value="<?php echo $row['opmerking'] ?>"><br>
         <input type="button" onclick="location.href='../overzicht_gevangenen.php';" value="Terug" class="editInputBtn e1"/>
@@ -74,18 +74,18 @@ require_once("../inc/db_conn.php");
         $woonplaats = $_POST['woonplaats'];
         $beginstraf = $_POST['begin_straf'];
         $eindstraf = $_POST['eind_straf'];
-        $vcid = $_POST['vleugel_cel_id'];
+        $vcnr = $_POST['vleugel_cel_nr'];
         $opmerking = $_POST['opmerking'];
 
         $sql = "UPDATE gevangenen SET naam_gevangenen = :naam_gevangenen, woonplaats = :woonplaats, 
-        begin_straf = :begin_straf, eind_straf = :eind_straf, vleugel_cel_id = :vleugel_cel_id, opmerking = :opmerking WHERE id_gevangenen = :id_gevangenen";
+        begin_straf = :begin_straf, eind_straf = :eind_straf, vleugel_cel_nr = :vleugel_cel_nr, opmerking = :opmerking WHERE id_gevangenen = :id_gevangenen";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             ':naam_gevangenen' => $naamgevangenen,
             ':woonplaats' => $woonplaats,
             ':begin_straf' => $beginstraf,
             ':eind_straf' => $eindstraf,
-            ':vleugel_cel_id' => $vcid,
+            ':vleugel_cel_nr' => $vcnr,
             ':opmerking' => $opmerking,
             ':id_gevangenen' => $id
 

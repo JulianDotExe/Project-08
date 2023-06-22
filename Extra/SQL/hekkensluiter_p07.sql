@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 22 jun 2023 om 01:59
+-- Gegenereerd op: 22 jun 2023 om 16:02
 -- Serverversie: 10.4.24-MariaDB
 -- PHP-versie: 8.1.4
 
@@ -90,45 +90,45 @@ INSERT INTO `bezoek_verzoek` (`bezoek_verzoek_id`, `status`) VALUES
 --
 
 CREATE TABLE `cellen` (
-  `vleugel_cel_id` varchar(10) NOT NULL,
-  `vleugel_cel_bezet` char(1) NOT NULL
+  `vleugel_cel_id` int(11) NOT NULL,
+  `vleugel_cel_nr` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `cellen`
 --
 
-INSERT INTO `cellen` (`vleugel_cel_id`, `vleugel_cel_bezet`) VALUES
-('A01', 'N'),
-('A02', 'N'),
-('A03', 'N'),
-('A04', 'N'),
-('A05', 'N'),
-('A06', 'N'),
-('A07', 'N'),
-('A08', 'N'),
-('A09', 'N'),
-('A10', 'N'),
-('B01', 'N'),
-('B02', 'N'),
-('B03', 'N'),
-('B04', 'N'),
-('B05', 'N'),
-('B06', 'N'),
-('B07', 'N'),
-('B08', 'N'),
-('B09', 'N'),
-('B10', 'N'),
-('C01', 'N'),
-('C02', 'N'),
-('C03', 'N'),
-('C04', 'N'),
-('C05', 'N'),
-('C06', 'N'),
-('C07', 'N'),
-('C08', 'N'),
-('C09', 'N'),
-('C10', 'N');
+INSERT INTO `cellen` (`vleugel_cel_id`, `vleugel_cel_nr`) VALUES
+(1, 'A01'),
+(2, 'A02'),
+(3, 'A03'),
+(4, 'A04'),
+(5, 'A05'),
+(6, 'A06'),
+(7, 'A07'),
+(8, 'A08'),
+(9, 'A09'),
+(10, 'A10'),
+(11, 'B01'),
+(12, 'B02'),
+(13, 'B03'),
+(14, 'B04'),
+(15, 'B05'),
+(16, 'B06'),
+(17, 'B07'),
+(18, 'B08'),
+(19, 'B09'),
+(20, 'B10'),
+(21, 'C01'),
+(22, 'C02'),
+(23, 'C03'),
+(24, 'C04'),
+(25, 'C05'),
+(26, 'C06'),
+(27, 'C07'),
+(28, 'C08'),
+(29, 'C09'),
+(30, 'C10');
 
 -- --------------------------------------------------------
 
@@ -211,7 +211,7 @@ CREATE TABLE `gevangenen` (
   `begin_straf` date NOT NULL,
   `eind_straf` date NOT NULL,
   `reden_straf` varchar(50) NOT NULL,
-  `vleugel_cel_id` varchar(10) NOT NULL,
+  `vleugel_cel_nr` varchar(10) NOT NULL,
   `cellen_bezetting_id` int(11) NOT NULL,
   `bezoek_aantal` int(11) NOT NULL,
   `opmerking` varchar(100) NOT NULL
@@ -221,10 +221,10 @@ CREATE TABLE `gevangenen` (
 -- Gegevens worden geëxporteerd voor tabel `gevangenen`
 --
 
-INSERT INTO `gevangenen` (`id_gevangenen`, `naam_gevangenen`, `woonplaats`, `begin_straf`, `eind_straf`, `reden_straf`, `vleugel_cel_id`, `cellen_bezetting_id`, `bezoek_aantal`, `opmerking`) VALUES
+INSERT INTO `gevangenen` (`id_gevangenen`, `naam_gevangenen`, `woonplaats`, `begin_straf`, `eind_straf`, `reden_straf`, `vleugel_cel_nr`, `cellen_bezetting_id`, `bezoek_aantal`, `opmerking`) VALUES
 (1, 'gevangenen1', 'Amsterdam', '2023-04-21', '2023-08-04', '', 'A01', 0, 0, ''),
 (2, 'gevangenen2', 'Rotterdam', '2023-02-14', '2023-04-27', '', 'A03', 0, 0, 'Agressief'),
-(3, 'gevangenen3', 'Hengelo', '2023-03-16', '2025-03-13', '', 'A06', 0, 0, ''),
+(3, 'gevangenen3', 'Hengelo', '2023-03-16', '2025-03-13', '', 'A10', 0, 0, ''),
 (4, 'gevangenen4', 'Utrecht', '2023-02-14', '2024-02-09', '', 'B02', 0, 0, ''),
 (5, 'gevangenen5', 'Groningen', '2018-04-05', '2026-08-19', '', 'B05', 0, 0, 'Gevaarlijk'),
 (6, 'gevangenen6', 'Lelystad', '2018-04-02', '2030-04-16', '', 'C01', 0, 0, ''),
@@ -332,7 +332,7 @@ ALTER TABLE `functie_permissie`
 --
 ALTER TABLE `gevangenen`
   ADD PRIMARY KEY (`id_gevangenen`),
-  ADD KEY `vleugel_cel_id` (`vleugel_cel_id`);
+  ADD KEY `vleugel_cel_id` (`vleugel_cel_nr`);
 
 --
 -- Indexen voor tabel `permissie`
@@ -368,6 +368,12 @@ ALTER TABLE `bezoekers`
 --
 ALTER TABLE `bezoek_verzoek`
   MODIFY `bezoek_verzoek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT voor een tabel `cellen`
+--
+ALTER TABLE `cellen`
+  MODIFY `vleugel_cel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT voor een tabel `cellen_bezetting`
@@ -427,12 +433,6 @@ ALTER TABLE `files`
 ALTER TABLE `functie_permissie`
   ADD CONSTRAINT `fk_functie_permissie_functie` FOREIGN KEY (`functie_id`) REFERENCES `functie` (`functie_id`),
   ADD CONSTRAINT `fk_functie_permissie_permissie` FOREIGN KEY (`permissie_id`) REFERENCES `permissie` (`permissie_id`);
-
---
--- Beperkingen voor tabel `gevangenen`
---
-ALTER TABLE `gevangenen`
-  ADD CONSTRAINT `gevangenen_ibfk_1` FOREIGN KEY (`vleugel_cel_id`) REFERENCES `cellen` (`vleugel_cel_id`);
 
 --
 -- Beperkingen voor tabel `personeel`

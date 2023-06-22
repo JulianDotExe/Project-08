@@ -46,45 +46,63 @@
             require_once('inc/db_conn.php');
 
             try {
-             // Pagination variables
-            $results_per_page = 10;
-            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-            $offset = ($current_page - 1) * $results_per_page;
+                // Fetch used vleugel cel numbers from gevangenen table
+                $query = "SELECT vleugel_cel_nr FROM gevangenen";
+                $stmt = $pdo->query($query);
+                $usedVleugelCelNrs = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                
+                // Fetch existing vleugel cel numbers from cellen table
+                $query = "SELECT vleugel_cel_nr FROM cellen";
+                $stmt = $pdo->query($query);
+                $existingVleugelCelNrs = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-            // Fetch total number of records
-            $total_records_query = "SELECT COUNT(*) AS total FROM cellen";
-            $total_records_result = $pdo->query($total_records_query);
-            $total_records = $total_records_result->fetch(PDO::FETCH_ASSOC)['total'];
+                // Pagination variables
+                $results_per_page = 10;
+                $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+                $offset = ($current_page - 1) * $results_per_page;
 
-            // Calculate total number of pages
-            $total_pages = ceil($total_records / $results_per_page);
+                // Fetch total number of records
+                $total_records_query = "SELECT COUNT(*) AS total FROM cellen";
+                $total_records_result = $pdo->query($total_records_query);
+                $total_records = $total_records_result->fetch(PDO::FETCH_ASSOC)['total'];
 
-            // Fetch vleugel_cel_id and vleugel_cel_bezet from cellen table with pagination
-            $query = "SELECT vleugel_cel_id, vleugel_cel_bezet FROM cellen LIMIT $offset, $results_per_page";
-            $stmt = $pdo->query($query);
+                // Calculate total number of pages
+                $total_pages = ceil($total_records / $results_per_page);
 
-            // Display the results in a table
-            echo "<table>";
-            echo "<tr>
-                    <th>Vleugel-Cel-ID:</th>
-                    <th>Vleugel-Cel-Bezet:</th>
-                </tr>";
+                // Fetch vleugel_cel_id and vleugel_cel_bezet from cellen table with pagination
+                $query = "SELECT vleugel_cel_id, vleugel_cel_nr FROM cellen LIMIT $offset, $results_per_page";
+                $stmt = $pdo->query($query);
 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<tr>";
-                echo "<td>" . $row['vleugel_cel_id'] . "</td>";
-                echo "<td>" . $row['vleugel_cel_bezet'] . "</td>";
-                echo "</tr>";
-            }
+                // Display the results in a table
+                echo "<tr>
+                        <th>Vleugel-Cel-ID:</th>
+                        <th>Vleugel-Cel-Nr:</th>
+                        <th>Status:</th>
+                    </tr>";
 
-                echo "</table>";
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<tr>";
+                    echo "<td>" . $row['vleugel_cel_id'] . "</td>";
+                    echo "<td>" . $row['vleugel_cel_nr'] . "</td>";
 
-            // Display pagination links
-            echo "<div class='pagination'>";
-            for ($page = 1; $page <= $total_pages; $page++) {
-                echo "<a href='?page=$page' " . ($page == $current_page ? "class='active'" : "") . ">$page</a>";
-            }
-            echo "</div>";
+                    // Check if vleugel cel number is in use or available
+                    echo "<td>";
+                    if (in_array($row['vleugel_cel_nr'], $usedVleugelCelNrs)) {
+                        echo "In use";
+                    } else {
+                        echo "Available";
+                    }
+                    echo "</td>";
+
+                    echo "</tr>";
+                }
+
+                // Display pagination links
+                echo "<div class='pagination'>";
+                for ($page = 1; $page <= $total_pages; $page++) {
+                    echo "<a href='?page=$page' " . ($page == $current_page ? "class='active'" : "") . ">$page</a>";
+                }
+                echo "</div>";
 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
@@ -92,7 +110,7 @@
 
             $pdo = null; // Close the connection
         ?>
-
+        
         </table>
     </div>
 
