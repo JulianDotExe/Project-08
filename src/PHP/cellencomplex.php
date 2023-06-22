@@ -54,7 +54,7 @@
             <p>De A vleugel bevat de gevangenen die tijdelijk vast zullen zitten.</p>
             <p>De B vleugel bevat de gevangenen die lang vast zullen zitten.</p>
             <p>De C vleugel bevat de gevangen die erg lang vast zullen zitten.</p>
-            <p>In totaal zijn er 23 cellen beschikbaar binnen het complex.</p>
+            <p>In totaal zijn er 30 cellen beschikbaar binnen het complex.</p>
         </div>
     </content>
 

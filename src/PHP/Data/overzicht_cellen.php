@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Permissies</title>
+    <title>Overzicht</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="../../../img/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../../../img/favicon/favicon-32x32.png">
@@ -38,6 +38,78 @@
     <div class="back">
         <i class="fa fa-solid fa-arrow-left fa-2x" style="color: #f67b50;"></i>
     </div>
+
+
+    <div class="dataContain dataCenter">
+        <table class="table">
+        <?php
+            require_once('inc/db_conn.php');
+
+            try {
+             // Pagination variables
+            $results_per_page = 10;
+            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+            $offset = ($current_page - 1) * $results_per_page;
+
+            // Fetch total number of records
+            $total_records_query = "SELECT COUNT(*) AS total FROM cellen";
+            $total_records_result = $pdo->query($total_records_query);
+            $total_records = $total_records_result->fetch(PDO::FETCH_ASSOC)['total'];
+
+            // Calculate total number of pages
+            $total_pages = ceil($total_records / $results_per_page);
+
+            // Fetch vleugel_cel_id and vleugel_cel_bezet from cellen table with pagination
+            $query = "SELECT vleugel_cel_id, vleugel_cel_bezet FROM cellen LIMIT $offset, $results_per_page";
+            $stmt = $pdo->query($query);
+
+            // Display the results in a table
+            echo "<table>";
+            echo "<tr>
+                    <th>Vleugel-Cel-ID:</th>
+                    <th>Vleugel-Cel-Bezet:</th>
+                </tr>";
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo "<tr>";
+                echo "<td>" . $row['vleugel_cel_id'] . "</td>";
+
+                // Check if vleugel_cel_id exists for the gevangenen
+                $vleugel_cel_id = $row['vleugel_cel_id'];
+                $vleugel_cel_bezet = 'N'; // Default value is 'N'
+                
+                $check_query = "SELECT vleugel_cel_bezet FROM cellen WHERE vleugel_cel_id = :vleugel_cel_id";
+                $check_stmt = $pdo->prepare($check_query);
+                $check_stmt->bindParam(':vleugel_cel_id', $vleugel_cel_id);
+                $check_stmt->execute();
+                
+                if ($check_stmt->rowCount() > 0) {
+                    $vleugel_cel_bezet = 'Y';
+                }
+
+                echo "<td>" . $row['vleugel_cel_bezet'] . "</td>";
+                echo "</tr>";
+            }
+
+                echo "</table>";
+
+            // Display pagination links
+            echo "<div class='pagination'>";
+            for ($page = 1; $page <= $total_pages; $page++) {
+                echo "<a href='?page=$page' " . ($page == $current_page ? "class='active'" : "") . ">$page</a>";
+            }
+            echo "</div>";
+
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
+
+            $pdo = null; // Close the connection
+        ?>
+
+        </table>
+    </div>
+
 </content>
 
 <script>
