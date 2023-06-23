@@ -64,7 +64,6 @@
 
 <?php
 require_once("../inc/db_conn.php");
-        $stmt->execute([
 
 function generateUniqueBezettingId()
 {
