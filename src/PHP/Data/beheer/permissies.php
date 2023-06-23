@@ -54,7 +54,7 @@
     <div class="permContain">
         <!-- <span class="menuTitle">Permissies:</span> -->
 
-        <table>
+        <table class="table">
             <tr>
                 <th>Functie ID</th>
                 <th>Functie Naam</th>

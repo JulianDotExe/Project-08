@@ -54,7 +54,7 @@
         <span class="add"><i class="fa fa-solid fa-plus fa-2x" style="color: #f67b50;"></i></span>
 
         <div class="dataContain dataCenter">
-        <table class="tableBezoek">
+        <table class="table">
             <tr>
                 <?php 
                 switch($userRole) {
