@@ -63,7 +63,7 @@ if(isset($_POST["submit"])) {
         $wachtwoordHash = password_hash($wachtwoord, PASSWORD_DEFAULT);
         try {
             $sql = "SELECT * FROM personeel WHERE email_personeel = ? AND token = ?";
-            $stmt = $verbinding->prepare($sql);
+            $stmt = $pdo->prepare($sql);
             $stmt->execute(array($email,$token));
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
             // hier controleren we of de link verlopen is.
@@ -73,8 +73,8 @@ if(isset($_POST["submit"])) {
                 $dif = $timestamp2 - $timestamp1;
                 // als de link geldig is slaan we het nieuwe wachtwoord op.
                 if(($timestamp2 - $timestamp1) < 43200){
-                    $query = "UPDATE gebruiker SET `wwhash` = ? WHERE `email_gebruiker` = ?";
-                    $stmt = $verbinding->prepare($query);
+                    $query = "UPDATE personeel SET `wwhash` = ? WHERE `email_personeel` = ?";
+                    $stmt = $pdo->prepare($query);
                     $stmt = $stmt->execute(array($wachtwoordHash, $email));
                     if($stmt) {
                         echo "<script>alert('Uw wachtwoord is reset.'); 

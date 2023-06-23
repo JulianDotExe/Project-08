@@ -55,7 +55,7 @@
             <form method="POST">
                 <input type="text" class="form form2" name="id_personeel" placeholder="ID . . ." required><br>
                 <input type="text" class="form form2" name="naam_personeel" placeholder="Volledige naam . . ." required><br>
-                <input type="text" class="form form3" name="wachtwoord" placeholder="Wachtwoord . . ." required><br>
+                <input type="password" class="form form3" name="wachtwoord" placeholder="Wachtwoord . . ." required><br>
                 <input type="text" class="form form4" name="gebruikersnaam" placeholder="Gebruikersnaam . . ." required><br>
                 <input type="text" class="form form4" name="functie_id" placeholder="Functie ID. . ." required><br>
                 <input type="text" class="form form4" name="email_personeel" placeholder="Email . . ." required><br>
@@ -73,6 +73,7 @@
                 document.getElementById("confirm").style.display = "none";
                 window.location.href="../beheer/overzicht_personeel.php";
             }, 2000);</script>';
+
             $personeelid = $_POST['id_personeel'];
             $naam= $_POST['naam_personeel'];
             $wachtwoord = $_POST['wachtwoord'];
@@ -80,17 +81,29 @@
             $functie = $_POST['functie_id'];
             $email_personeel = $_POST['email_personeel'];
 
-            $sql = "INSERT INTO personeel SET id_personeel = :id_personeel, naam_personeel = :naam_personeel, wachtwoord = :wachtwoord, 
-            gebruikersnaam = :gebruikersnaam, functie_id = :functie_id, email_personeel = :email_personeel";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([
-                ':id_personeel' => $personeelid,
-                ':naam_personeel' => $naam,
-                ':wachtwoord' => $wachtwoord,
-                ':gebruikersnaam' => $gebruikersnaam,
-                ':functie_id' => $functie,
-                ':email_personeel' => $email_personeel
-            ]);
+            // Hash the password
+            $pwHash = password_hash($wachtwoord, PASSWORD_BCRYPT);
+
+            // // Display the original password and the hashed password (for testing purposes)
+            // echo $wachtwoord . PHP_EOL;
+            // echo $pwHash . PHP_EOL;
+
+            // Save the hashed password to the database
+            if (password_verify($wachtwoord, $pwHash)) {
+                // echo 'Password is valid';
+                // Store the $pwHash value in the 'wwhash' column of the 'personeel' table during the INSERT query
+                $stmt = $pdo->prepare("INSERT INTO personeel (id_personeel, naam_personeel, gebruikersnaam, functie_id, email_personeel, wwhash) VALUES (:id_personeel, :naam_personeel, :gebruikersnaam, :functie_id, :email_personeel, :wwhash)");
+                $stmt->execute([
+                    ':id_personeel' => $personeelid,
+                    ':naam_personeel' => $naam,
+                    ':gebruikersnaam' => $gebruikersnaam,
+                    ':functie_id' => $functie,
+                    ':email_personeel' => $email_personeel,
+                    ':wwhash' => $pwHash
+                ]);
+            } else {
+                // echo 'Invalid password';
+            }
         }
     ?>
       
