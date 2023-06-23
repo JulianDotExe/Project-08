@@ -92,8 +92,8 @@
                             <td>".$row['functie_id']."</td>
                             <td>".$row['email_personeel']."</td>
                             <td id='optional'>
-                                <a href='../edit/gegevens_edit_personeel.php?id={$row['id_personeel']}' class='btn-edit'><i class='material-icons md-24'>Edit</i></a>
-                                <a href='../delete/gegevens_del_personeel.php?id={$row['id_personeel']}' class='btn-delete'><i class='material-icons md-10'>Delete</i></a>
+                                <a href='../edit/gegevens_edit_personeel.php?id={$row['id_personeel']}' class='hoverOverzicht'><i>Edit</i></a>
+                                <a href='../delete/gegevens_del_personeel.php?id={$row['id_personeel']}' class='hoverOverzicht'><i>Delete</i></a>
                             </td>";
                     break;
                     case 'Coordinator':
@@ -103,8 +103,8 @@
                             <td>".$row['functie_id']."</td>
                             <td>".$row['email_personeel']."</td>
                             <td id='optional'>
-                                <a href='../edit/gegevens_edit_personeel.php?id={$row['personeel_id']}' class='btn-edit'><i class='material-icons md-24'>Edit</i></a>
-                                <a href='../delete/gegevens_del_personeel.php?id={$row['personeel_id']}' class='btn-delete'><i class='material-icons md-10'>Delete</i></a>
+                                <a href='../edit/gegevens_edit_personeel.php?id={$row['id_personeel']}' class='hoverOverzicht'><i>Edit</i></a>
+                                <a href='../delete/gegevens_del_personeel.php?id={$row['id_personeel']}' class='hoverOverzicht'><i>Delete</i></a>
                             </td>";
                     break;
                     default:
@@ -114,8 +114,8 @@
                             <td>".$row['functie_id']."</td>
                             <td>".$row['email_personeel']."</td>
                             <td id='optional'>
-                                <a href='../edit/gegevens_edit_personeel.php?id={$row['id_personeel']}' class='btn-edit'><i class='material-icons md-24'>Edit</i></a>
-                                <a href='../delete/gegevens_del_personeel.php?id={$row['id_personeel']}' class='btn-delete'><i class='material-icons md-10'>Delete</i></a>
+                                <a href='../edit/gegevens_edit_personeel.php?id={$row['id_personeel']}' class='hoverOverzicht'><i>Edit</i></a>
+                                <a href='../delete/gegevens_del_personeel.php?id={$row['id_personeel']}' class='hoverOverzicht'><i>Delete</i></a>
                             </td>";
                     break;
                 }

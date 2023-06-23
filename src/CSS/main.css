@@ -106,10 +106,6 @@ a.navSpan:hover {
     scale: 1.20;
 }
 
-/* .add:hover {
-    transition: all 150ms ease-in;
-} */
-
 .return:hover {
     transition: all 200ms ease-in;
     scale: 1.1;
@@ -147,6 +143,11 @@ a.navSpan:hover {
 .inlogBtn:hover {
     transition: all 150ms ease-in;
     scale: 1.1;
+}
+
+.hoverOverzicht:hover {
+    text-decoration: underline;
+    transition: all 100ms ease-in;
 }
 
 /*****
@@ -929,9 +930,9 @@ Bewijsmateriaal
 Cellen - Overzicht
 */
 .pagination {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     position: absolute;
-    right: 20px;
+    right: 20px; bottom: 20px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
@@ -979,7 +980,6 @@ Beheersmodule
 /* 
 Beheersmodule - Main 
 */
-
 .beheerContain {
     width: 30%;
     height: 60%;
@@ -998,7 +998,7 @@ Beheersmodule - Main
 
 
 /*
-Beheersmodule - Perm
+Beheersmodule - Permissions
 */
 .permContain{
     width: 50%; height: 80%;

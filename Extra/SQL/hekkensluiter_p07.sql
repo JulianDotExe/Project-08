@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 23 jun 2023 om 00:54
+-- Gegenereerd op: 23 jun 2023 om 03:40
 -- Serverversie: 10.4.24-MariaDB
 -- PHP-versie: 8.1.4
 
@@ -60,7 +60,9 @@ INSERT INTO `bezoekers` (`bezoek_id`, `naam_bezoeker`, `email_bezoeker`, `naam_g
 (127, 'test', '47854@hoornbeeck.nl', 'test', 'test', 2, '14:53:00', '2023-06-22', '2023-06-19 21:46:30'),
 (128, 'test', 'julianvstavel@gmail.com', 'test', 'test', 3, '14:47:00', '2023-06-18', '2023-06-19 21:48:42'),
 (129, 'testadd', '47854@hoornbeeck.nl', 'testadd', 'testadd', 2, '14:26:00', '2023-06-21', '2023-06-20 11:08:41'),
-(130, 'Dick', 'famvanstavel@ziggo.nl', 'Annette', 'Gezelligheid', 2, '14:49:00', '2023-06-28', '2023-06-20 10:56:47');
+(130, 'Dick', 'famvanstavel@ziggo.nl', 'Annette', 'Gezelligheid', 2, '14:49:00', '2023-06-28', '2023-06-20 10:56:47'),
+(132, 'test', 'test@gmail.com', 'test', 'test', 1, '14:18:00', '2023-06-15', '2023-06-23 01:18:51'),
+(133, 'test', 'test@gmail.com', 'test', 'test', 1, '15:18:00', '2023-06-14', '2023-06-23 01:19:15');
 
 -- --------------------------------------------------------
 
@@ -137,11 +139,19 @@ INSERT INTO `cellen` (`vleugel_cel_id`, `vleugel_cel_nr`) VALUES
 
 CREATE TABLE `cellen_bezetting` (
   `cellen_bezetting_id` int(11) NOT NULL,
-  `vleugel_cel_id` varchar(10) NOT NULL,
+  `vleugel_cel_id` int(11) NOT NULL,
   `id_gevangenen` int(11) NOT NULL,
   `datum_begin` date NOT NULL,
-  `datum_eind` int(11) NOT NULL
+  `datum_eind` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `cellen_bezetting`
+--
+
+INSERT INTO `cellen_bezetting` (`cellen_bezetting_id`, `vleugel_cel_id`, `id_gevangenen`, `datum_begin`, `datum_eind`) VALUES
+(639851, 3, 2, '2023-06-23', '2023-06-23'),
+(836524, 4, 2, '2023-06-23', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -223,7 +233,7 @@ CREATE TABLE `gevangenen` (
 
 INSERT INTO `gevangenen` (`id_gevangenen`, `naam_gevangenen`, `woonplaats`, `begin_straf`, `eind_straf`, `reden_straf`, `vleugel_cel_nr`, `cellen_bezetting_id`, `bezoek_aantal`, `opmerking`) VALUES
 (1, 'gevangenen1', 'Amsterdam', '2023-04-21', '2023-08-04', '', 'A01', 0, 0, ''),
-(2, 'gevangenen2', 'Rotterdam', '2023-02-14', '2023-04-27', '', 'A03', 0, 0, 'Agressief'),
+(2, 'gevangenen2', 'Rotterdam', '2023-02-14', '2023-04-27', '', 'A04', 836524, 0, 'Agressief'),
 (3, 'gevangenen3', 'Hengelo', '2023-03-16', '2025-03-13', '', 'A10', 0, 0, ''),
 (4, 'gevangenen4', 'Utrecht', '2023-02-14', '2024-02-09', '', 'B02', 0, 0, ''),
 (5, 'gevangenen5', 'Groningen', '2018-04-05', '2026-08-19', '', 'B05', 0, 0, 'Gevaarlijk'),
@@ -312,7 +322,9 @@ ALTER TABLE `cellen`
 -- Indexen voor tabel `cellen_bezetting`
 --
 ALTER TABLE `cellen_bezetting`
-  ADD PRIMARY KEY (`cellen_bezetting_id`);
+  ADD PRIMARY KEY (`cellen_bezetting_id`),
+  ADD KEY `vleugel_cel_id` (`vleugel_cel_id`),
+  ADD KEY `id_gevangenen` (`id_gevangenen`);
 
 --
 -- Indexen voor tabel `files`
@@ -368,7 +380,7 @@ ALTER TABLE `bewijsmateriaal`
 -- AUTO_INCREMENT voor een tabel `bezoekers`
 --
 ALTER TABLE `bezoekers`
-  MODIFY `bezoek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `bezoek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT voor een tabel `bezoek_verzoek`
@@ -381,12 +393,6 @@ ALTER TABLE `bezoek_verzoek`
 --
 ALTER TABLE `cellen`
   MODIFY `vleugel_cel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- AUTO_INCREMENT voor een tabel `cellen_bezetting`
---
-ALTER TABLE `cellen_bezetting`
-  MODIFY `cellen_bezetting_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT voor een tabel `files`
@@ -404,7 +410,7 @@ ALTER TABLE `functie`
 -- AUTO_INCREMENT voor een tabel `gevangenen`
 --
 ALTER TABLE `gevangenen`
-  MODIFY `id_gevangenen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1000;
+  MODIFY `id_gevangenen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1006;
 
 --
 -- AUTO_INCREMENT voor een tabel `permissie`
@@ -421,6 +427,13 @@ ALTER TABLE `personeel`
 --
 -- Beperkingen voor geëxporteerde tabellen
 --
+
+--
+-- Beperkingen voor tabel `cellen_bezetting`
+--
+ALTER TABLE `cellen_bezetting`
+  ADD CONSTRAINT `cellen_bezetting_ibfk_1` FOREIGN KEY (`vleugel_cel_id`) REFERENCES `cellen` (`vleugel_cel_id`),
+  ADD CONSTRAINT `cellen_bezetting_ibfk_2` FOREIGN KEY (`id_gevangenen`) REFERENCES `gevangenen` (`id_gevangenen`);
 
 --
 -- Beperkingen voor tabel `files`

@@ -82,24 +82,24 @@
                         echo "<td>".$row['functie_id']."</td>
                             <td>".$row['functie_naam']."</td>
                             <td>
-                                <a href='../edit/gegevens_edit_bezoek.php?id={$row['functie_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='../delete/gegevens_del_bezoek.php?id={$row['functie_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='../edit/gegevens_edit_functie.php?id={$row['functie_id']}' class='hoverOverzicht'><i>edit</i></a>
+                                <a href='../delete/gegevens_del_functie.php?id={$row['functie_id']}' class='hoverOverzicht'><i>delete</i></a>
                             </td>";
                     break;
                     case 'Coordinator':
                         echo "<td>".$row['functie_id']."</td>
                             <td>".$row['functie_naam']."</td>
                             <td>
-                                <a href='../edit/gegevens_edit_bezoek.php?id={$row['functie_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='../delete/gegevens_del_bezoek.php?id={$row['functie_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='../edit/gegevens_edit_functie.php?id={$row['functie_id']}' class='hoverOverzicht'><i>edit</i></a>
+                                <a href='../delete/gegevens_del_functie.php?id={$row['functie_id']}' class='hoverOverzicht'><i>delete</i></a>
                             </td>";
                     break;
                     default:
                         echo "<td>".$row['functie_id']."</td>
                             <td>".$row['functie_naam']."</td>
                             <td>
-                                <a href='../edit/gegevens_edit_functie.php?id={$row['functie_id']}' class='btn-edit'><i class='material-icons md-24'>edit</i></a>
-                                <a href='../delete/gegevens_del_functie.php?id={$row['functie_id']}' class='btn-delete'><i class='material-icons md-10'>delete</i></a>
+                                <a href='../edit/gegevens_edit_functie.php?id={$row['functie_id']}' class='hoverOverzicht'><i>edit</i></a>
+                                <a href='../delete/gegevens_del_functie.php?id={$row['functie_id']}' class='hoverOverzicht'><i>delete</i></a>
                             </td>";
                     break;
                 }

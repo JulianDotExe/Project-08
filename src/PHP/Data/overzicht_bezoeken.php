@@ -54,7 +54,7 @@
         <span class="add"><i class="fa fa-solid fa-plus fa-2x" style="color: #f67b50;"></i></span>
 
         <div class="dataContain dataCenter">
-        <table class="tableBezoek">
+        <table class="table">
             <tr>
                 <?php 
                 require_once("inc/db_conn.php");
@@ -117,7 +117,22 @@
                 ?>
             </tr>
             <?php
-            $sql="SELECT * FROM bezoekers";
+            
+            // Pagination variables
+            $results_per_page = 10;
+            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+            $offset = ($current_page - 1) * $results_per_page;
+
+            // Fetch total number of records
+            $total_records_query = "SELECT COUNT(*) AS total FROM bezoekers";
+            $total_records_result = $pdo->query($total_records_query);
+            $total_records = $total_records_result->fetch(PDO::FETCH_ASSOC)['total'];
+
+            // Calculate total number of pages
+            $total_pages = ceil($total_records / $results_per_page);
+
+
+            $sql="SELECT * FROM bezoekers LIMIT $offset, $results_per_page";;
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -148,12 +163,11 @@
                             }
                         echo "</td>
                         <td>
-                        <a href='reqreview.php?id={$row['bezoek_id']}&email_bezoeker={$row['email_bezoeker']}' class='btn-delete'><i class='material-icons md-10'>Review</i></a>
-
+                            <a href='reqreview.php?id={$row['bezoek_id']}&email_bezoeker={$row['email_bezoeker']}' class='hoverOverzicht'><i>Review</i></a>
                         </td>
                         <td>
-                            <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>Edit</i></a>
-                            <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>Delete</i></a>
+                            <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='hoverOverzicht'><i>Edit</i></a>
+                            <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='hoverOverzicht'><i>Delete</i></a>
                         </td>
                         <td>".$row['create_date']."</td>";
                     break;
@@ -175,25 +189,39 @@
                                 }
                             echo "</td>
                             <td>
-                            <a href='reqreview.php?id={$row['bezoek_id']}&email_bezoeker={$row['email_bezoeker']}' class='btn-delete'><i class='material-icons md-10'>Review</i></a>
-
+                                <a href='reqreview.php?id={$row['bezoek_id']}&email_bezoeker={$row['email_bezoeker']}' class='hoverOverzicht'><i>Review</i></a>
                             </td>
                             <td>
-                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>Edit</i></a>
-                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>Delete</i></a>
+                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='hoverOverzicht'><i>Edit</i></a>
+                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='hoverOverzicht'><i>Delete</i></a>
                             </td>
                             <td>".$row['create_date']."</td>";
                     break;
                     case '2':
                         echo "<td>".$row['bezoek_id']."</td>
-                            <td>".$row['naam_bezoeker']."</td>
-                            <td>".$row['naam_gevangenen']."</td>
-                            <td>".$row['tijd']."</td>
-                            <td>".$row['datum']."</td>
-                            <td>
-                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>Edit</i></a>
-                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>Delete</i></a>
-                            </td>";
+                        <td>".$row['naam_bezoeker']."</td>
+                        <td>".$row['email_bezoeker']."</td>
+                        <td>".$row['naam_gevangenen']."</td>
+                        <td>".$row['reden_bezoek']."</td>
+                        <td>".$row['tijd']."</td>
+                        <td>".$row['datum']."</td>
+                        <td>";
+                            if ($row['bezoek_verzoek_id'] == 1) {
+                                echo "Afwachting";
+                            } elseif ($row['bezoek_verzoek_id'] == 2) {
+                                echo "Geaccepteerd";
+                            } elseif ($row['bezoek_verzoek_id'] == 3) {
+                                echo "Afgewezen";
+                            }
+                        echo "</td>
+                        <td>
+                            <a href='reqreview.php?id={$row['bezoek_id']}&email_bezoeker={$row['email_bezoeker']}' class='hoverOverzicht'><i>Review</i></a>
+                        </td>
+                        <td>
+                            <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='hoverOverzicht'><i>Edit</i></a>
+                            <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='hoverOverzicht'><i>Delete</i></a>
+                        </td>
+                        <td>".$row['create_date']."</td>";
                     break;
                     case '4':
                         echo "<td>".$row['bezoek_id']."</td>
@@ -213,21 +241,28 @@
                                 }
                             echo "</td>
                             <td>
-                            <a href='reqreview.php?id={$row['bezoek_id']}&email_bezoeker={$row['email_bezoeker']}' class='btn-delete'><i class='material-icons md-10'>Review</i></a>
-
+                                <a href='reqreview.php?id={$row['bezoek_id']}&email_bezoeker={$row['email_bezoeker']}' class='hoverOverzicht'><i>Review</i></a>
                             </td>
                             <td>
-                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='btn-edit'><i class='material-icons md-24'>Edit</i></a>
-                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='btn-delete'><i class='material-icons md-10'>Delete</i></a>
+                                <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='hoverOverzicht'><i>Edit</i></a>
+                                <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='hoverOverzicht'><i>Delete</i></a>
                             </td>
                             <td>".$row['create_date']."</td>";
+
+
                     break;
                     default: 
                             echo 'Er gaat iets mis hier';
                 }
                 echo "</tr>";
-    
             }
+
+                // Display pagination links
+                echo "<div class='pagination'>";
+                for ($page = 1; $page <= $total_pages; $page++) {
+                    echo "<a href='?page=$page' " . ($page == $current_page ? "class='active'" : "") . ">$page</a>";
+                }
+                echo "</div>";
             ?>
         </table>
         </div>

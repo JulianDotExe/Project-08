@@ -74,18 +74,31 @@
                                 <th id='optional'>Woonplaats</th>
                                 <th id='optional'>Begin-straf</th>
                                 <th id='optional'>Eind-straf</th>
-                                <th>Vleugel-Cel-Nr</th>
-                                <th>Bestanden</th>
+                                <th>Cel nr.</th>
                                 <th>Opmerking</th>
+                                <th>Cel History</th>
+                                <th>Bestanden</th>
                                 <th id='optional'>Actie</th>";
                     break;
                 }
             ?>
-
             
             </tr>
             <?php
-            $sql="SELECT * FROM gevangenen LIMIT 5  ";
+            // Pagination variables
+            $results_per_page = 10;
+            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+            $offset = ($current_page - 1) * $results_per_page;
+
+            // Fetch total number of records
+            $total_records_query = "SELECT COUNT(*) AS total FROM gevangenen";
+            $total_records_result = $pdo->query($total_records_query);
+            $total_records = $total_records_result->fetch(PDO::FETCH_ASSOC)['total'];
+
+            // Calculate total number of pages
+            $total_pages = ceil($total_records / $results_per_page);
+
+            $sql="SELECT * FROM gevangenen LIMIT $offset, $results_per_page";;
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -100,8 +113,8 @@
                             <td>".$row['vleugel_cel_nr']."</td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>
-                                <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>Edit</i></a>
-                                <a href='delete/gegevens_del_gevang.php?id={$row['id_gevangenen']}' class='btn-delete'><i class='material-icons md-10'>Delete</i></a>
+                                <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='hoverOverzicht'><i>Edit</i></a>
+                                <a href='delete/gegevens_del_gevang.php?id={$row['id_gevangenen']}' class='hoverOverzicht'><i>Delete</i></a>
                             </td>";
                     break;
                     case 'Coordinator':
@@ -113,8 +126,8 @@
                             <td>".$row['vleugel_cel_nr']."</td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>
-                                <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>Edit</i></a>
-                                <a href='delete/gegevens_del_gevang.php?id={$row['id_gevangenen']}' class='btn-delete'><i class='material-icons md-10'>Delete</i></a>
+                                <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='hoverOverzicht'><i>Edit</i></a>
+                                <a href='delete/gegevens_del_gevang.php?id={$row['id_gevangenen']}' class='hoverOverzicht'><i>Delete</i></a>
                             </td>";
                     break;
                     case 'Directeur':
@@ -126,8 +139,8 @@
                             <td>".$row['vleugel_cel_nr']."</td>
                             <td>".$row['opmerking']."</td>
                             <td id='optional'>
-                                <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>Edit</i></a>
-                                <a href='delete/gegevens_del_gevang.php?id={$row['id_gevangenen']}' class='btn-delete'><i class='material-icons md-10'>Delete</i></a>
+                                <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='hoverOverzicht'><i>Edit</i></a>
+                                <a href='delete/gegevens_del_gevang.php?id={$row['id_gevangenen']}' class='hoverOverzicht'><i>Delete</i></a>
                             </td>";
                     break;
                     default:
@@ -137,18 +150,25 @@
                             <td id='optional'>".$row['begin_straf']."</td>
                             <td id='optional'>".$row['eind_straf']."</td>
                             <td>".$row['vleugel_cel_nr']."</td>
-                            <td>
-                                <a href='bestanden.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>View</i></a>
-                            </td>
                             <td>".$row['opmerking']."</td>
+                            <td><a href='cellen_history.php?id_gevangenen={$row['id_gevangenen']}' class='hoverOverzicht'><i>Information</i></a></td>
+                            <td>
+                                <a href='bestanden.php?id={$row['id_gevangenen']}' class='hoverOverzicht'><i>View</i></a>
+                            </td>
                             <td id='optional'>
-                                <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='btn-edit'><i class='material-icons md-24'>Edit</i></a>
-                                <a href='delete/gegevens_del_gevang.php?id={$row['id_gevangenen']}' class='btn-delete'><i class='material-icons md-10'>Delete</i></a>
+                                <a href='edit/gegevens_edit_gevang.php?id={$row['id_gevangenen']}' class='hoverOverzicht'><i>Edit</i></a>
+                                <a href='delete/gegevens_del_gevang.php?id={$row['id_gevangenen']}' class='hoverOverzicht'><i>Delete</i></a>
                             </td>";
                     break;
                 }
                 echo "</tr>";
             }
+                // Display pagination links
+                echo "<div class='pagination'>";
+                for ($page = 1; $page <= $total_pages; $page++) {
+                    echo "<a href='?page=$page' " . ($page == $current_page ? "class='active'" : "") . ">$page</a>";
+                }
+                echo "</div>";
             ?>
         </table>
         </div>

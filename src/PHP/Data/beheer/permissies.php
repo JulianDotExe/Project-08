@@ -66,7 +66,7 @@
                 $functieNaam = $row['functie_naam'];
                 echo "<tr>";
                 echo "<td>$functieID</td>";
-                echo "<td><a href='#' class='functieLink' onclick='openModal($functieID)'>$functieNaam</a></td>";
+                echo "<td><a href='#' class='functieLink hoverOverzicht' onclick='openModal($functieID)'>$functieNaam</a></td>";
                 echo "</tr>";
             }
             ?>
