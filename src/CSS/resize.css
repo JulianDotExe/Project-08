@@ -14,28 +14,14 @@
         transform: translate(-50%, -50%);
     }
 
-    /* Footer */
-    .logoFooter-home {
-        display: flex;
-        top: 90%;
-    }
 
-    .logoFooter-cc {
-        display: flex;
-        top: 165%;
-    }
+    /***** 
+    Bezoekers
+    *****/
 
-    .logoFooter-news {
-        display: flex;
-        top: 245%;
-    }
-
-    .logoFooter-contact {
-        display: flex;
-        top: 200%;
-    }
-
-    /* NavMenu */
+    /* 
+    NavMenu 
+    */
     .currentPage {
         position: absolute;
         top: 20%; left: 50%;
@@ -49,11 +35,13 @@
     .NavMenu {
         position: absolute;
         left: 50%; top: 40%;
-        font-size: 3.25vh;
+        font-size: 5.5vw;
         opacity: 1;
     }
 
-    /* Cellencomplexplage */
+    /* 
+    Cellencomplexplage
+    */
     .img3 {
         position: absolute;
         top: 80%; left: 50%;
@@ -64,10 +52,10 @@
     
     .cc-content {
         position: absolute;
-        top: 130%; left: 50%;
+        top: 135%; left: 50%;
         transform: translate(-50%, -50%);
         width: 75%;
-        font-size: 2.5vh;
+        font-size: 4vw;
         text-align: center;
     }
 
@@ -75,7 +63,9 @@
         display: none;
     }
 
-    /* Newspage */
+    /* 
+    Newspage 
+    */
     .img1 {
         position: absolute;
         top: 80%; left: 50%;
@@ -86,13 +76,13 @@
 
     .n-content-1 {
         position: absolute;
-        top: 125%; left: 50%;
+        top: 130%; left: 50%;
         transform: translate(-50%, -50%);
     }
     
     .img2 {
         position: absolute;
-        top: 170%; left: 50%;
+        top: 180%; left: 50%;
         transform: translate(-50%, -50%);
         background-size: cover;
         width: 80%; height: 40%;
@@ -100,11 +90,13 @@
 
     .n-content-2 {
         position: absolute;
-        top: 215%; left: 50%;
+        top: 225%; left: 50%;
         transform: translate(-50%, -50%);
     }
 
-    /* Contactpage */
+    /* 
+    Contactpage 
+    */
     .img5 {
         position: absolute;
         top: 105%; left: 50%;
@@ -119,7 +111,8 @@
         transform: translate(-50%, -50%);
         text-align: center;    
         font-weight: bold;
-        font-size: 2.2vh;
+        font-size: 3.5vw;
+        width: 50%;
     }
 
     .c-content-2 {
@@ -135,7 +128,30 @@
         transform: translate(-50%, -50%);
     }
 
-    /* Login */
+    /***** 
+    Personeel
+    *****/
+
+    .back {
+        left: 2.5%;
+    }
+
+    .add {
+        top: 80%;    
+    }
+
+    .pagination {
+        bottom: 10px;
+        border: solid 1px #000;
+    }
+    
+    .pagination a {
+        border: solid 1px #000;
+    }
+
+    /*** 
+    Login 
+    ***/
     .container {
         border-radius: 25px;
         width: 90%; height: 85%;
@@ -143,7 +159,7 @@
     }
 
     .eye {
-        top: 33%;
+        top: 34%;
     }
 
     .g-recaptcha {
@@ -151,18 +167,18 @@
     }
 
     #gn-login {
-        width: 40vh;
+        width: 35vh;
         top: 15%;
     }
 
     #ww-login {
-        width: 40vh;
+        width: 35vh;
         top: 35%;
     }
 
     #terug {
         left: 5vh;
-        width: 17.5vh;
+        width: 15vh; height: 6vh;
         border-radius: 15px;
     }
 
@@ -173,17 +189,39 @@
     }
 
     #inloggen {
-        right: 5vh;
-        width: 17.5vh;
+        right: 5vh; 
+        width: 15vh; height: 6vh;
         border-radius: 15px;
     }
 
-    /* Database */
+    /***
+    Wachtwoord vergeten 
+    ***/
+    .resetContain {
+        position: absolute;
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+    }
+
+    .resetTitle {
+        font-size: 18px;
+    }
+
+    /*** 
+    Database 
+    ***/
     .menuContain {
         position: absolute;
         left: 50%; top: 50%;
         transform: translate(-50%, -50%);
         width: 300px;
+    }
+
+    .btnStyle {
+        height: 7.5vh;
+        width: 27.5vh;
+        font-size: 15px;
     }
 
     .btn1, .btn2, .btn4, .btn5, .btn6, .btn7{
@@ -202,20 +240,39 @@
         display: none;
     }
 
-    .back {
-         left: 5%;
+
+    /*** 
+    Beheersmodule 
+    ***/
+    .beheerContain {
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
     }
 
-    /* 
-    Cellenoverzicht 
-    */
-    .pagination {
-        bottom: 10px;
-        border: solid 1px #000;
+
+    /***** 
+    Footer 
+    ******/
+
+    .logoFooter-home {
+        display: flex;
+        top: 90%;
     }
-    
-    .pagination a {
-        border: solid 1px #000;
+
+    .logoFooter-cc {
+        display: flex;
+        top: 175%;
     }
+
+    .logoFooter-news {
+        display: flex;
+        top: 255%;
+    }
+
+    .logoFooter-contact {
+        display: flex;
+        top: 200%;
+    }
+
 }
-

@@ -100,17 +100,17 @@
                                 <th>Create Date</th>";
                     break;
                     case '4':
-                        echo "  <th>Bezoek ID</th>
+                        echo "  <th id='optional'>Bezoek ID</th>
                                 <th>Naam bezoeker</th>
-                                <th>Email bezoeker</th>
+                                <th id='optional'>Email bezoeker</th>
                                 <th>Naam gevangenen</th>
                                 <th>Reden bezoek</th>
                                 <th>Tijd</th>
                                 <th>Datum</th>
-                                <th>Verzoek status</th>
-                                <th>Verzoek review</th>
-                                <th>Actie</th>
-                                <th>Create Date</th>";
+                                <th id='optional'>Verzoek status</th>
+                                <th id='optional'>Verzoek review</th>
+                                <th id='optional'>Actie</th>
+                                <th id='optional'>Create Date</th>";
                     break;
                     default: 'Er gaat hier iets mis';
                 }
@@ -200,7 +200,7 @@
                     case '2':
                         echo "<td>".$row['bezoek_id']."</td>
                         <td>".$row['naam_bezoeker']."</td>
-                        <td>".$row['email_bezoeker']."</td>
+                        <td id='optional'>".$row['email_bezoeker']."</td>
                         <td>".$row['naam_gevangenen']."</td>
                         <td>".$row['reden_bezoek']."</td>
                         <td>".$row['tijd']."</td>
@@ -224,14 +224,14 @@
                         <td>".$row['create_date']."</td>";
                     break;
                     case '4':
-                        echo "<td>".$row['bezoek_id']."</td>
+                        echo "<td id='optional'>".$row['bezoek_id']."</td>
                             <td>".$row['naam_bezoeker']."</td>
-                            <td>".$row['email_bezoeker']."</td>
+                            <td id='optional'>".$row['email_bezoeker']."</td>
                             <td>".$row['naam_gevangenen']."</td>
                             <td>".$row['reden_bezoek']."</td>
                             <td>".$row['tijd']."</td>
                             <td>".$row['datum']."</td>
-                            <td>";
+                            <td id='optional'>";
                                 if ($row['bezoek_verzoek_id'] == 1) {
                                     echo "Afwachting";
                                 } elseif ($row['bezoek_verzoek_id'] == 2) {
@@ -240,15 +240,15 @@
                                     echo "Afgewezen";
                                 }
                             echo "</td>
-                            <td>
+                            <td id='optional'>
                                 <a href='reqreview.php?id={$row['bezoek_id']}&email_bezoeker={$row['email_bezoeker']}' class='hoverOverzicht'><i>Review</i></a>
                             </td>
-                            <td>
+                            <td id='optional'>
                                 <a href='edit/gegevens_edit_bezoek.php?id={$row['bezoek_id']}' class='hoverOverzicht'><i>Edit</i></a>
                                 <a href='delete/gegevens_del_bezoek.php?id={$row['bezoek_id']}' class='hoverOverzicht'><i>Delete</i></a>
                             </td>
-                            <td>".$row['create_date']."</td>";
-
+                            <td id='optional'>".$row['create_date']."</td>";
+                            
 
                     break;
                     default: 

@@ -76,8 +76,8 @@
                                 <th id='optional'>Eind-straf</th>
                                 <th>Cel nr.</th>
                                 <th>Opmerking</th>
-                                <th>Cel History</th>
-                                <th>Bestanden</th>
+                                <th id='optional'>Cel History</th>
+                                <th id='optional'>Bestanden</th>
                                 <th id='optional'>Actie</th>";
                     break;
                 }
@@ -151,8 +151,8 @@
                             <td id='optional'>".$row['eind_straf']."</td>
                             <td>".$row['vleugel_cel_nr']."</td>
                             <td>".$row['opmerking']."</td>
-                            <td><a href='cellen_history.php?id_gevangenen={$row['id_gevangenen']}' class='hoverOverzicht'><i>Information</i></a></td>
-                            <td>
+                            <td id='optional'><a href='cellen_history.php?id_gevangenen={$row['id_gevangenen']}' class='hoverOverzicht'><i>Information</i></a></td>
+                            <td id='optional'>
                                 <a href='bestanden.php?id={$row['id_gevangenen']}' class='hoverOverzicht'><i>View</i></a>
                             </td>
                             <td id='optional'>

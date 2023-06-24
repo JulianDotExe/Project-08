@@ -59,7 +59,7 @@
                 <?php 
                 switch($userRole) {
                     case 'Bewaker':
-                        echo "  <th>ID</th>
+                        echo "  <th id='optional'>ID</th>
                                 <th id='optional'>Naam</th>
                                 <th>Gebruikersnaam</th>
                                 <th>Functie ID</th>
@@ -67,7 +67,7 @@
                                 <th id='optional'>Actie</th>";
                     break;
                     default:
-                        echo "  <th>ID</th>
+                        echo "  <th id='optional'>ID</th>
                                 <th id='optional'>Naam</th>
                                 <th>Gebruikersnaam</th>
                                 <th>Functie ID</th>
@@ -97,7 +97,7 @@
                             </td>";
                     break;
                     case 'Coordinator':
-                        echo "<td>".$row['id_personeel']."</td>
+                        echo "<td id='optional'>".$row['id_personeel']."</td>
                             <td id='optional'>".$row['naam_personeel']."</td>
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie_id']."</td>
@@ -108,7 +108,7 @@
                             </td>";
                     break;
                     default:
-                        echo "<td>".$row['id_personeel']."</td>
+                        echo "<td id='optional'>".$row['id_personeel']."</td>
                             <td id='optional'>".$row['naam_personeel']."</td>
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie_id']."</td>

@@ -61,12 +61,12 @@
                     case 'Bewaker':
                         echo "  <th>Functie ID</th>
                                 <th>Functie Naam</th>
-                                <th>Actie</th>"; 
+                                <th id='optional'Actie</th>"; 
                     break;
                     default:
                         echo "  <th>Functie ID</th>
                                 <th>Functie Naam</th>
-                                <th>Actie</th>"; 
+                                <th id='optional'>Actie</th>"; 
                     break;
                 }
                 ?>
@@ -81,7 +81,7 @@
                     case 'Bewaker':
                         echo "<td>".$row['functie_id']."</td>
                             <td>".$row['functie_naam']."</td>
-                            <td>
+                            <td id='optional'>
                                 <a href='../edit/gegevens_edit_functie.php?id={$row['functie_id']}' class='hoverOverzicht'><i>edit</i></a>
                                 <a href='../delete/gegevens_del_functie.php?id={$row['functie_id']}' class='hoverOverzicht'><i>delete</i></a>
                             </td>";
@@ -89,7 +89,7 @@
                     case 'Coordinator':
                         echo "<td>".$row['functie_id']."</td>
                             <td>".$row['functie_naam']."</td>
-                            <td>
+                            <td id='optional'>
                                 <a href='../edit/gegevens_edit_functie.php?id={$row['functie_id']}' class='hoverOverzicht'><i>edit</i></a>
                                 <a href='../delete/gegevens_del_functie.php?id={$row['functie_id']}' class='hoverOverzicht'><i>delete</i></a>
                             </td>";
@@ -97,7 +97,7 @@
                     default:
                         echo "<td>".$row['functie_id']."</td>
                             <td>".$row['functie_naam']."</td>
-                            <td>
+                            <td id='optional'>
                                 <a href='../edit/gegevens_edit_functie.php?id={$row['functie_id']}' class='hoverOverzicht'><i>edit</i></a>
                                 <a href='../delete/gegevens_del_functie.php?id={$row['functie_id']}' class='hoverOverzicht'><i>delete</i></a>
                             </td>";
