@@ -102,7 +102,6 @@
         $(".return").click(function () {
             location.replace("../overzicht_gevangenen.php")
         })
-
     </script>
 </body>
 </html>

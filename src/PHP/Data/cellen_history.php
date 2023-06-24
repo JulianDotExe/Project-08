@@ -55,12 +55,12 @@
         <div class="dataContain dataCenter">
             <table class="table">
                 <?php if (!empty($cellenHistory)): ?>
-                        <!-- <thead> -->
+                        <thead>
                             <th>Cellen Bezetting ID:</th>
                             <th>Vleugel Cel Nummer:</th>
                             <th>Datum Begin:</th>
                             <th>Datum Eind:</th>
-                        <!-- </thead> -->
+                        </thead>
                     <?php foreach ($cellenHistory as $row): ?>
                         <tr>
                             <td><?php echo $row['cellen_bezetting_id']; ?></td>

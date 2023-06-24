@@ -25,6 +25,9 @@
     <div class="logo"></div>
 </header>
 
+<div class="back">
+    <i class="fa fa-solid fa-arrow-left fa-2x" style="color: #f67b50;"></i>
+</div>
 
 <?php
     require_once("inc/db_conn.php");
@@ -48,8 +51,8 @@
 
     ?>
     <form method='POST' action=''>                        
-        <input type='submit' name='bezoek_verzoek_id_no' value='Reject' class='return'>        
-        <input type='submit' name='bezoek_verzoek_id_yes' value='Accept' class='submit'>
+        <input type='submit' name='bezoek_verzoek_id_no' value='Reject' class='reject'>        
+        <input type='submit' name='bezoek_verzoek_id_yes' value='Accept' class='accept'>
     </form>
 </div>
 
@@ -62,6 +65,10 @@ include('class/reqreview_class.php')
     <script>
         $(".log").click(function() {
             location.replace("logout.php")
+        })
+
+        $(".back").click(function() {
+            location.replace("overzicht_bezoeken.php")
         })
     </script>
 </body>
