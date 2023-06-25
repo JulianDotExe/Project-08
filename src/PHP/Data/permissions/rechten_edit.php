@@ -85,7 +85,7 @@
                     <?php foreach($rollen as $row): ?>
                         <div class="recht-col">
                             <div class="recht-top">
-                                <input type="hidden" name="functie_id[]" value="<?= $functieID; ?>">
+                                <input type="hidden" name="functie_id[]" value="<?= $row['functie_id']; ?>">
                                 <input style="padding: 2px 0px; font-size: 18px; width: fit-content; border: none; border-radius: 3px;" type="text" class="rol-title" name="rol_title[]" value="<?= $row['functie_naam']; ?>">
                             </div>
                             <!-- get recht...  -->
@@ -121,11 +121,11 @@ if (isset($_POST['submitButton'])) {
         if (isset($_POST[$rolnaam])) {
             $checkboxes = $_POST[$rolnaam];
             $rolId = $row['functie_id'];
-        
+
             // $rights = new Permission($pdo);
             
             // $rechten = $rights->savePermissions($rolId, $checkboxes);
-        
+
             if (!empty($rolId)) {
                 $rights = new Permission($pdo);
                 $rechten = $rights->savePermissions($rolId, $checkboxes);
@@ -162,15 +162,14 @@ if (isset($_POST['submitButton'])) {
 
 }
 ?>
-   
-   
-   <script>
+
+<script>
         $(".header").click(function() {
             location.replace("../logout.php")
         })
         
         $(".back").click(function() {
-            location.replace("../beheersmodule.php")
+            location.replace("../beheer/permissies.php")
         })
     </script>
 </body>

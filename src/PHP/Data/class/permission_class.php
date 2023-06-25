@@ -81,7 +81,10 @@ class Permission {
         $stmt->bindParam(':rolId', $rolId, PDO::PARAM_INT);
         $stmt->bindParam(':permId', $permId, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt;
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        $permissions = array_column($result, 'permissie_id'); // Extract the permissie_id values into an array
+        return $permissions;
     }
 
     public function savePermissions($rolId, $checkboxes) {

@@ -76,8 +76,7 @@
                 echo "<tr>";
                 echo "<td>$functieID</td>";
                 echo "<td>$functieNaam</td>";
-                // echo "<td><a href='#' class='functieLink hoverOverzicht' onclick='openModal($functieID, \"$functieNaam\")'>$functieNaam</a></td>";
-
+                // echo "<td><a href='#' class='functieLink hoverOverzicht' onclick='openModal($functieID)'>$functieNaam</a></td>";
                 echo "<td><a style='text-decoration: none; font-weight: bold;' href='../permissions/rechten_edit.php' class='btn-edit'>Rechten/Rollen aanpassen</a></td>";
                 
                 echo "</tr>";
