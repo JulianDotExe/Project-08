@@ -27,7 +27,7 @@
 
     <div class="header">
         <i class="fa fa-solid fa-power-off fa-lg" style="color: #f67b50;"></i>
-        <span id="tekstlog"> <a href="logout.php"> Log out</a></span>
+        <span id="tekstlog"> <a href="../logout.php"> Log out</a></span>
         <i class="fa fa-solid fa-x"></i>
     </div>
 </header>
@@ -60,31 +60,14 @@
     ?>
 
     <div class="permContain">
-        <!-- <span class="menuTitle">Permissies:</span> -->
-
-        <table class="table">
-            <tr>
-                <th>Functie ID</th>
-                <th>Functie Naam</th>
-                <th>Actie</th>
-            </tr>
-            <?php
-            // Loop through each functie row and display data
-            foreach ($results as $row) {
-                $functieID = $row['functie_id'];
-                $functieNaam = $row['functie_naam'];
-                echo "<tr>";
-                echo "<td>$functieID</td>";
-                echo "<td>$functieNaam</td>";
-                // echo "<td><a href='#' class='functieLink hoverOverzicht' onclick='openModal($functieID)'>$functieNaam</a></td>";
-                echo "<td><a style='text-decoration: none; font-weight: bold;' href='../permissions/rechten_edit.php' class='btn-edit'>Rechten/Rollen aanpassen</a></td>";
+        <span class="menuTitle">Permissies:</span>
+        <a style='text-decoration: none;' href='../permissions/rechten_edit.php' class='btn-edit'>Permissies aanpassen</a>
                 
-                echo "</tr>";
-            }
-            ?>
+
     </div>
-        </table>
     </div>
+
+
 </content>
 
 <div id="modalBox" class="modal">

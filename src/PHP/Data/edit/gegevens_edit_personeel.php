@@ -46,7 +46,7 @@
 <div class="editContain">
     <form method="POST">
         Naam:
-        <input type="text" class="editInput" id="naam" placeholder="Naam . . ." name="naam" value="<?php echo $row['naam_personeel'] ?>"><br>
+        <input type="text" class="editInput" id="naam_personeel" placeholder="Naam . . ." name="naam_personeel" value="<?php echo $row['naam_personeel'] ?>"><br>
         Gebruikersnaam:
         <input type="text" class="editInput" id="gebruikersnaam" placeholder="Gebruikersnaam . . ." name="gebruikersnaam" value="<?php echo $row['gebruikersnaam'] ?>"><br>
         Functie ID:
@@ -64,17 +64,17 @@ require_once("../inc/db_conn.php");
         echo '<div id="confirm">Actie succesvol</div>';
         echo '<script>setTimeout(function(){
             document.getElementById("confirm").style.display = "none";
-            window.location.href="../overzicht_personeel.php";
+            window.location.href="../beheer/overzicht_personeel.php";
         }, 2000);</script>';
-        $naam= $_POST['naam'];
+        $naam= $_POST['naam_personeel'];
         $gebruikersnaam = $_POST['gebruikersnaam'];
         $functie = $_POST['functie_id'];
         $email_personeel = $_POST['email_personeel'];
 
-        $sql = "UPDATE personeel SET naam = :naam, gebruikersnaam = :gebruikersnaam, functie_id = :functie_id, email_personeel = :email_personeel WHERE id_personeel = :id_personeel";
+        $sql = "UPDATE personeel SET naam_personeel = :naam_personeel, gebruikersnaam = :gebruikersnaam, functie_id = :functie_id, email_personeel = :email_personeel WHERE id_personeel = :id_personeel";
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
-            ':naam' => $naam,
+            ':naam_personeel' => $naam,
             ':gebruikersnaam' => $gebruikersnaam,
             ':functie_id' => $functie,
             ':email_personeel' => $email_personeel,

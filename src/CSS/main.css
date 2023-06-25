@@ -1032,47 +1032,55 @@ Beheersmodule - Main
 Beheersmodule - Permissions
 */
 .permContain{
-    width: 50%; height: 80%;
-    background-color: white;
-    position: absolute;
-    top: 50%; left: 50%;
+    width: 30%;
+    height: 60%;
+    position: fixed;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    left: 50%; top: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 3px;
-    border: 2px solid #000;
+    justify-content: center;
+    background: rgb(251,196,144);
+    background: radial-gradient(circle, rgba(251,196,144,1) 0%, rgba(251,170,96,1) 100%);    
+    border-radius: 40px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    display: flex; justify-content: center;
 }
 
 
 .center {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
-    margin-top: 20px;
+
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
   }
   
   .center form {
-    width: 60%;
+    width: 50%;
   }
   
   .center header {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     margin-bottom: 20px;
   }
   
   .center header h1 {
     font-size: 24px;
     font-weight: bold;
-    text-align: center;
+    /* text-align: center; */
   }
   
   .center .recht {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 20px;
     margin-bottom: 20px;
+    flex-direction: row;
   }
   
   .center .recht-col {

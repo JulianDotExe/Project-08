@@ -74,7 +74,7 @@ if(isset($_POST['terug'])) {
 }
 
 elseif(isset($_POST['verwijderen'])) {
-    $sql = "DELETE FROM gevangenen WHERE gevangenen_id = $id";
+    $sql = "DELETE FROM gevangenen WHERE id_gevangenen = $id";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     header("Location: ../overzicht_gevangenen.php");

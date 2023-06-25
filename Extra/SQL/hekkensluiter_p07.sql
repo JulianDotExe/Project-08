@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 23 jun 2023 om 03:40
+-- Gegenereerd op: 26 jun 2023 om 01:12
 -- Serverversie: 10.4.24-MariaDB
 -- PHP-versie: 8.1.4
 
@@ -20,19 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `hekkensluiter_p07`
 --
-
--- --------------------------------------------------------
-
---
--- Tabelstructuur voor tabel `bewijsmateriaal`
---
-
-CREATE TABLE `bewijsmateriaal` (
-  `id_bewijs` int(11) NOT NULL,
-  `id_gevangenen` int(11) NOT NULL,
-  `bestand_naam` varchar(255) NOT NULL,
-  `bestand_desc` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -60,7 +47,7 @@ INSERT INTO `bezoekers` (`bezoek_id`, `naam_bezoeker`, `email_bezoeker`, `naam_g
 (127, 'test', '47854@hoornbeeck.nl', 'test', 'test', 2, '14:53:00', '2023-06-22', '2023-06-19 21:46:30'),
 (128, 'test', 'julianvstavel@gmail.com', 'test', 'test', 3, '14:47:00', '2023-06-18', '2023-06-19 21:48:42'),
 (129, 'testadd', '47854@hoornbeeck.nl', 'testadd', 'testadd', 2, '14:26:00', '2023-06-21', '2023-06-20 11:08:41'),
-(130, 'Dick', 'famvanstavel@ziggo.nl', 'Annette', 'Gezelligheid', 2, '14:49:00', '2023-06-28', '2023-06-20 10:56:47'),
+(130, 'Dick', 'famvanstavel@ziggo.nl', 'Annette', 'Gezelligheid', 3, '14:49:00', '2023-06-28', '2023-06-23 15:47:13'),
 (132, 'test', 'test@gmail.com', 'test', 'test', 1, '14:18:00', '2023-06-15', '2023-06-23 01:18:51'),
 (133, 'test', 'test@gmail.com', 'test', 'test', 1, '15:18:00', '2023-06-14', '2023-06-23 01:19:15');
 
@@ -150,6 +137,7 @@ CREATE TABLE `cellen_bezetting` (
 --
 
 INSERT INTO `cellen_bezetting` (`cellen_bezetting_id`, `vleugel_cel_id`, `id_gevangenen`, `datum_begin`, `datum_eind`) VALUES
+(279751, 12, 4, '2023-06-25', '0000-00-00'),
 (639851, 3, 2, '2023-06-23', '2023-06-23'),
 (836524, 4, 2, '2023-06-23', '0000-00-00');
 
@@ -195,7 +183,8 @@ INSERT INTO `functie` (`functie_id`, `functie_naam`) VALUES
 (1, 'bewaker'),
 (2, 'coordinator'),
 (3, 'directeur'),
-(4, 'admin');
+(4, 'admin'),
+(5, 'test');
 
 -- --------------------------------------------------------
 
@@ -207,6 +196,49 @@ CREATE TABLE `functie_permissie` (
   `functie_id` int(11) NOT NULL,
   `permissie_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `functie_permissie`
+--
+
+INSERT INTO `functie_permissie` (`functie_id`, `permissie_id`) VALUES
+(1, 1),
+(1, 4),
+(2, 1),
+(2, 2),
+(2, 3),
+(2, 4),
+(2, 5),
+(2, 6),
+(2, 7),
+(3, 1),
+(3, 2),
+(3, 3),
+(3, 4),
+(3, 5),
+(3, 6),
+(3, 7),
+(3, 8),
+(3, 9),
+(3, 10),
+(3, 11),
+(3, 12),
+(3, 13),
+(3, 14),
+(4, 1),
+(4, 2),
+(4, 3),
+(4, 4),
+(4, 5),
+(4, 6),
+(4, 7),
+(4, 8),
+(4, 9),
+(4, 10),
+(4, 11),
+(4, 12),
+(4, 13),
+(4, 14);
 
 -- --------------------------------------------------------
 
@@ -235,7 +267,7 @@ INSERT INTO `gevangenen` (`id_gevangenen`, `naam_gevangenen`, `woonplaats`, `beg
 (1, 'gevangenen1', 'Amsterdam', '2023-04-21', '2023-08-04', '', 'A01', 0, 0, ''),
 (2, 'gevangenen2', 'Rotterdam', '2023-02-14', '2023-04-27', '', 'A04', 836524, 0, 'Agressief'),
 (3, 'gevangenen3', 'Hengelo', '2023-03-16', '2025-03-13', '', 'A10', 0, 0, ''),
-(4, 'gevangenen4', 'Utrecht', '2023-02-14', '2024-02-09', '', 'B02', 0, 0, ''),
+(4, 'gevangenen4', 'Utrecht', '2023-02-14', '2024-02-09', '', 'B02', 279751, 0, ''),
 (5, 'gevangenen5', 'Groningen', '2018-04-05', '2026-08-19', '', 'B05', 0, 0, 'Gevaarlijk'),
 (6, 'gevangenen6', 'Lelystad', '2018-04-02', '2030-04-16', '', 'C01', 0, 0, ''),
 (7, 'gevangenen7', 'den Haag', '2023-03-24', '2023-04-23', '', 'C04', 0, 0, 'Goed gedrag');
@@ -256,8 +288,20 @@ CREATE TABLE `permissie` (
 --
 
 INSERT INTO `permissie` (`permissie_id`, `permissie_desc`) VALUES
-(1, 'Bewijs materiaal beheren'),
-(2, 'Gevangenen beheren');
+(1, 'Bezoek review'),
+(2, 'Bezoek edit'),
+(3, 'Bezoek delete'),
+(4, 'Gevangenen cel history'),
+(5, 'Gevangenen edit'),
+(6, 'Gevangenen delete'),
+(7, 'Gevangenen bestanden'),
+(8, 'Beheermodule'),
+(9, 'Functie edit'),
+(10, 'Functie delete'),
+(11, 'Functie toevoegen'),
+(12, 'Permissies'),
+(13, 'Rol aanmaken'),
+(14, 'Overzicht personeel');
 
 -- --------------------------------------------------------
 
@@ -288,17 +332,12 @@ INSERT INTO `personeel` (`id_personeel`, `naam_personeel`, `gebruikersnaam`, `fu
 (6, 'Herman', 'Bewaker3', 1, 'herman@hoornhack.com', '$2y$10$3cMBRiEhhsEoB4Ap3CEX7.V0aoXvQbB6BsPijfdIKbPPecN45Bznq', 'd2a911e0f5c12fe2f88bd155af2c1a40fcf703e6e3a0bf55266f5af62dc340f6'),
 (7, 'Adam', 'Bewaker4', 1, 'adam@hoornhack.com', '$2y$10$ibEoGHuatrKnDhQvNoyAGuEsOJn0taR3qLjujsQKM7aIh4vhGHrCa', 'd2a911e0f5c12fe2f88bd155af2c1a40fcf703e6e3a0bf55266f5af62dc340f6'),
 (8, 'Piet', 'Bewaker5', 1, 'piet@hoornhack.com', '$2y$10$RPjaNOPwDQ5.Yw0sX0mp5eaoI/QDKzEhMQvpzeI1IF1xSjG/u/6zG', 'd2a911e0f5c12fe2f88bd155af2c1a40fcf703e6e3a0bf55266f5af62dc340f6'),
-(9, 'Julian', 'admingn', 4, '47854@hoornbeeck.nl', '$2y$10$Fih1VTSCSJ.LaKBqb4pvie4lTrShRRgfWKr2bWmj6DYeKc1iZwb0m', 'a6a2e64afd4d794c2838e0157ec65676397fed6eb2816cf97401089e0e00871e');
+(9, 'Julian', 'admingn', 4, '47854@hoornbeeck.nl', '$2y$10$Fih1VTSCSJ.LaKBqb4pvie4lTrShRRgfWKr2bWmj6DYeKc1iZwb0m', 'a6a2e64afd4d794c2838e0157ec65676397fed6eb2816cf97401089e0e00871e'),
+(10, 'Julian', 'bewakergn', 1, 'julianvstavel@gmail.com', '$2y$10$Jxg.xjOZsSiLr7R3/1Iu8u5osR1IaSUNT1t9V/FusCvAvwKOQDdvK', '');
 
 --
 -- Indexen voor geëxporteerde tabellen
 --
-
---
--- Indexen voor tabel `bewijsmateriaal`
---
-ALTER TABLE `bewijsmateriaal`
-  ADD PRIMARY KEY (`id_bewijs`);
 
 --
 -- Indexen voor tabel `bezoekers`
@@ -343,7 +382,6 @@ ALTER TABLE `functie`
 -- Indexen voor tabel `functie_permissie`
 --
 ALTER TABLE `functie_permissie`
-  ADD PRIMARY KEY (`functie_id`),
   ADD KEY `fk_functie_permissie_permissie` (`permissie_id`);
 
 --
@@ -371,16 +409,10 @@ ALTER TABLE `personeel`
 --
 
 --
--- AUTO_INCREMENT voor een tabel `bewijsmateriaal`
---
-ALTER TABLE `bewijsmateriaal`
-  MODIFY `id_bewijs` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT voor een tabel `bezoekers`
 --
 ALTER TABLE `bezoekers`
-  MODIFY `bezoek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+  MODIFY `bezoek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT voor een tabel `bezoek_verzoek`
@@ -401,12 +433,6 @@ ALTER TABLE `files`
   MODIFY `files_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT voor een tabel `functie`
---
-ALTER TABLE `functie`
-  MODIFY `functie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
-
---
 -- AUTO_INCREMENT voor een tabel `gevangenen`
 --
 ALTER TABLE `gevangenen`
@@ -416,13 +442,13 @@ ALTER TABLE `gevangenen`
 -- AUTO_INCREMENT voor een tabel `permissie`
 --
 ALTER TABLE `permissie`
-  MODIFY `permissie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `permissie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT voor een tabel `personeel`
 --
 ALTER TABLE `personeel`
-  MODIFY `id_personeel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1001;
+  MODIFY `id_personeel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1004;
 
 --
 -- Beperkingen voor geëxporteerde tabellen

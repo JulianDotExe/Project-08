@@ -48,8 +48,7 @@
                 <input type="text" class="form form3" name="woonplaats" placeholder="Woonplaats . . ." required><br>
                 <input type="date" class="form form4" name="begin_straf" placeholder="Datum begin straf . . ." required><br>
                 <input type="date" class="form form4" name="eind_straf" placeholder="Datum eind straf . . ." required><br>
-                <input type="text" class="form form4" name="cel_nummer" placeholder="Cel nummer . . ." required><br>
-                <input type="text" class="form form4" name="vleugel" placeholder="Vleugel . . ." required><br>
+                <input type="text" class="form form4" name="vleugel_cel_nr" placeholder="Vleugel Cel Nr.. . ." required><br>
                 <input type="text" class="form form4" name="opmerking" placeholder="Opmerking . . ."><br>
                 <input type="submit" name="terug" value="Terug" class="return">
                 <input type="submit" name="submit" value="Submit" class="submit">
@@ -69,12 +68,11 @@
             $woonplaats = $_POST['woonplaats'];
             $beginstraf = $_POST['begin_straf'];
             $eindstraf = $_POST['eind_straf'];
-            $celnummer = $_POST['cel_nummer'];
-            $vleugel = $_POST['vleugel'];
+            $vleugel_cel_nr = $_POST['vleugel_cel_nr'];
             $opmerking = $_POST['opmerking'];
 
             $sql = "INSERT INTO gevangenen SET id_gevangenen = :id_gevangenen, naam_gevangenen = :naam_gevangenen, woonplaats = :woonplaats, 
-            begin_straf = :begin_straf, eind_straf = :eind_straf, cel_nummer = :cel_nummer, vleugel = :vleugel, opmerking = :opmerking";
+            begin_straf = :begin_straf, eind_straf = :eind_straf, vleugel_cel_nr = :vleugel_cel_nr, opmerking = :opmerking";
             $stmt = $pdo->prepare($sql);
             $stmt->execute([
                 ':id_gevangenen' => $idgevangenen,
@@ -82,8 +80,7 @@
                 ':woonplaats' => $woonplaats,
                 ':begin_straf' => $beginstraf,
                 ':eind_straf' => $eindstraf,
-                ':cel_nummer' => $celnummer,
-                ':vleugel' => $vleugel,
+                ':vleugel_cel_nr' => $vleugel_cel_nr,
                 ':opmerking' => $opmerking
             ]);
         }

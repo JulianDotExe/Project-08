@@ -249,7 +249,25 @@
         transform: translate(-50%, -50%);
         width: 300px;
     }
+    
+    .permContain {
+        left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+    }
 
+    .center {
+        top: 20%;
+    }
+
+    .center .recht {
+        display: flex;
+        position: absolute;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 20px;
+        flex-direction: column-reverse;
+    }
 
     /***** 
     Footer 
