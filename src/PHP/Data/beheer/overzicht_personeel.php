@@ -40,8 +40,16 @@
             echo "<script>location.href='../login.php'</script>";
         }
 
+        require_once("../class/permission_class.php");
+
+        $pageTitle = "Overzicht personeel";
+        $emailUser = $_SESSION['gebruikersnaam'];
+        
+        $objCheckRecht = new Permission($pdo);
+        $CheckRecht = $objCheckRecht->CheckPagePermission($pageTitle, $emailUser);
+
         $stmt = $pdo->prepare("SELECT functie_id FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
-        $stmt->bindParam(':gebruikersnaam', $uname);
+        $stmt->bindParam(':gebruikersnaam', $emailUser);
         $stmt->execute();
         $userRole = $stmt->fetchColumn();
     ?>
@@ -78,6 +86,7 @@
                 }
                 ?>
             </tr>
+            
             <?php
             $sql="SELECT * FROM personeel";
             $stmt = $pdo->prepare($sql);
@@ -85,18 +94,14 @@
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 echo "<tr>";
                 switch($userRole) {
-                    case 'Bewaker':
-                        echo "<td>".$row['id_personeel']."</td>
+                    case '1':
+                        echo "<td id='optional'>".$row['id_personeel']."</td>
                             <td id='optional'>".$row['naam_personeel']."</td>
                             <td>".$row['gebruikersnaam']."</td>
                             <td>".$row['functie_id']."</td>
-                            <td>".$row['email_personeel']."</td>
-                            <td id='optional'>
-                                <a href='../edit/gegevens_edit_personeel.php?id={$row['id_personeel']}' class='hoverOverzicht'><i>Edit</i></a>
-                                <a href='../delete/gegevens_del_personeel.php?id={$row['id_personeel']}' class='hoverOverzicht'><i>Delete</i></a>
-                            </td>";
+                            <td>".$row['email_personeel']."</td>";
                     break;
-                    case 'Coordinator':
+                    case '2':
                         echo "<td id='optional'>".$row['id_personeel']."</td>
                             <td id='optional'>".$row['naam_personeel']."</td>
                             <td>".$row['gebruikersnaam']."</td>
@@ -107,7 +112,7 @@
                                 <a href='../delete/gegevens_del_personeel.php?id={$row['id_personeel']}' class='hoverOverzicht'><i>Delete</i></a>
                             </td>";
                     break;
-                    default:
+                    case '3':
                         echo "<td id='optional'>".$row['id_personeel']."</td>
                             <td id='optional'>".$row['naam_personeel']."</td>
                             <td>".$row['gebruikersnaam']."</td>
@@ -118,6 +123,18 @@
                                 <a href='../delete/gegevens_del_personeel.php?id={$row['id_personeel']}' class='hoverOverzicht'><i>Delete</i></a>
                             </td>";
                     break;
+                    case '4':
+                        echo "<td id='optional'>".$row['id_personeel']."</td>
+                            <td id='optional'>".$row['naam_personeel']."</td>
+                            <td>".$row['gebruikersnaam']."</td>
+                            <td>".$row['functie_id']."</td>
+                            <td>".$row['email_personeel']."</td>
+                            <td id='optional'>
+                                <a href='../edit/gegevens_edit_personeel.php?id={$row['id_personeel']}' class='hoverOverzicht'><i>Edit</i></a>
+                                <a href='../delete/gegevens_del_personeel.php?id={$row['id_personeel']}' class='hoverOverzicht'><i>Delete</i></a>
+                            </td>";
+                    break;
+                    default: 'Er gaat hier iets mis';
                 }
                 echo "</tr>";
             }

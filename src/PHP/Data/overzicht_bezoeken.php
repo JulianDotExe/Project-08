@@ -67,37 +67,37 @@
 
                 switch($userRole) {
                     case '1':
-                        echo "  <th>Bezoek ID</th>
+                        echo "   <th id='optional'>Bezoek ID</th>
                                 <th>Naam bezoeker</th>
                                 <th>Naam gevangenen</th>
                                 <th>Tijd</th>
                                 <th>Datum</th>"; 
                     break;
                     case '2':
-                        echo "  <th>Bezoek ID</th>
+                        echo "  <th id='optional'>Bezoek ID</th>
                                 <th>Naam bezoeker</th>
-                                <th>Email bezoeker</th>
+                                <th id='optional'>Email bezoeker</th>
                                 <th>Naam gevangenen</th>
                                 <th>Reden bezoek</th>
                                 <th>Tijd</th>
                                 <th>Datum</th>
-                                <th>Verzoek status</th>
-                                <th>Verzoek review</th>
-                                <th>Actie</th>
-                                <th>Create Date</th>";
+                                <th id='optional'>Verzoek status</th>
+                                <th id='optional'>Verzoek review</th>
+                                <th id='optional'>Actie</th>
+                                <th id='optional'>Create Date</th>";
                     break;
                     case '3':
-                        echo "  <th>Bezoek ID</th>
+                        echo "  <th id='optional'>Bezoek ID</th>
                                 <th>Naam bezoeker</th>
-                                <th>Email bezoeker</th>
+                                <th id='optional'>Email bezoeker</th>
                                 <th>Naam gevangenen</th>
                                 <th>Reden bezoek</th>
                                 <th>Tijd</th>
                                 <th>Datum</th>
-                                <th>Verzoek status</th>
-                                <th>Verzoek review</th>
-                                <th>Actie</th>
-                                <th>Create Date</th>";
+                                <th id='optional'>Verzoek status</th>
+                                <th id='optional'>Verzoek review</th>
+                                <th id='optional'>Actie</th>
+                                <th id='optional'>Create Date</th>";
                     break;
                     case '4':
                         echo "  <th id='optional'>Bezoek ID</th>

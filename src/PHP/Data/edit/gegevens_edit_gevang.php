@@ -33,6 +33,14 @@
         echo "<script>location.href='../login.php'</script>";
     }
 
+    require_once("../class/permission_class.php");
+
+    $pageTitle = "Gevangenen edit";
+    $emailUser = $_SESSION['gebruikersnaam'];
+
+    $objCheckRecht = new Permission($pdo);
+    $CheckRecht = $objCheckRecht->CheckPagePermission($pageTitle, $emailUser);
+
     $sql="SELECT * FROM gevangenen";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();

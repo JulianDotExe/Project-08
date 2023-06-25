@@ -21,6 +21,28 @@
 
 </head>
 <body>
+
+<?php
+        require_once("inc/db_conn.php");
+        if (!isset($_SESSION['gebruikersnaam'])) {
+            echo "<script>alert('Inloggen mislukt...')</script>";
+            echo "<script>location.href='login.php'</script>";
+        }
+
+        require_once("class/permission_class.php");
+
+        $pageTitle = "Beheermodule";
+        $emailUser = $_SESSION['gebruikersnaam'];
+    
+        $objCheckRecht = new Permission($pdo);
+        $CheckRecht = $objCheckRecht->CheckPagePermission($pageTitle, $emailUser);
+
+        $stmt = $pdo->prepare("SELECT functie_id FROM personeel WHERE gebruikersnaam = :gebruikersnaam");
+        $stmt->bindParam(':gebruikersnaam', $emailUser);
+        $stmt->execute();
+        $userRole = $stmt->fetchColumn();
+    ?>
+
     <div class="background backgroundLight"></div>
     <header>
         <div class="logo"></div>

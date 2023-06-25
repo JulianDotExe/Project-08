@@ -57,6 +57,8 @@
                         <div class="header">
                             <i class="fa fa-solid fa-power-off fa-lg log" style="color: #f67b50;"></i>
                                 <span id="tekstlog" class="log"> <a href="logout.php"> Log out</a></span><br><br>
+                            <i class="fa fa-solid fa-gear fa-lg bh" style="color: #f67b3c;"></i>
+                                <span id="tekstlog"> <a href="beheersmodule.php"> Beheer</a></span>
                         </div>
                         ';
                 break;
@@ -65,6 +67,8 @@
                     <div class="header">
                         <i class="fa fa-solid fa-power-off fa-lg log" style="color: #f67b50;"></i>
                             <span id="tekstlog" class="log"> <a href="logout.php"> Log out</a></span><br><br>
+                        <i class="fa fa-solid fa-gear fa-lg bh" style="color: #f67b3c;"></i>
+                            <span id="tekstlog"> <a href="beheersmodule.php"> Beheer</a></span>
                     </div>
                         ';
                 break;

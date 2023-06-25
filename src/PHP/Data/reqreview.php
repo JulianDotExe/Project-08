@@ -36,6 +36,15 @@
         echo "<script>location.href='login.php'</script>";
     }
 
+    require_once("class/permission_class.php");
+
+    $pageTitle = "Bezoek review";
+    $emailUser = $_SESSION['gebruikersnaam'];
+    
+
+    $objCheckRecht = new Permission($pdo);
+    $CheckRecht = $objCheckRecht->CheckPagePermission($pageTitle, $emailUser);
+
     $sql="SELECT * FROM bezoekers";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();

@@ -34,6 +34,16 @@
     <?php
     require_once("inc/db_conn.php");
 
+
+    require_once("class/permission_class.php");
+
+    $pageTitle = "Gevangenen cel history";
+    $emailUser = $_SESSION['gebruikersnaam'];
+
+    $objCheckRecht = new Permission($pdo);
+    $CheckRecht = $objCheckRecht->CheckPagePermission($pageTitle, $emailUser);
+
+
     if (isset($_GET['id_gevangenen'])) {
         $id_gevangenen = $_GET['id_gevangenen'];
 

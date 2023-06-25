@@ -40,6 +40,14 @@
     <?php
         require_once("../inc/db_conn.php");
 
+        require_once("../class/permission_class.php");
+
+        $pageTitle = "Permissies";
+        $emailUser = $_SESSION['gebruikersnaam'];
+    
+        $objCheckRecht = new Permission($pdo);
+        $CheckRecht = $objCheckRecht->CheckPagePermission($pageTitle, $emailUser);
+
         // Prepare the query
         $query = "SELECT functie_id, functie_naam FROM functie";
         $statement = $pdo->prepare($query);
@@ -58,6 +66,7 @@
             <tr>
                 <th>Functie ID</th>
                 <th>Functie Naam</th>
+                <th>Actie</th>
             </tr>
             <?php
             // Loop through each functie row and display data
@@ -66,10 +75,15 @@
                 $functieNaam = $row['functie_naam'];
                 echo "<tr>";
                 echo "<td>$functieID</td>";
-                echo "<td><a href='#' class='functieLink hoverOverzicht' onclick='openModal($functieID)'>$functieNaam</a></td>";
+                echo "<td>$functieNaam</td>";
+                // echo "<td><a href='#' class='functieLink hoverOverzicht' onclick='openModal($functieID, \"$functieNaam\")'>$functieNaam</a></td>";
+
+                echo "<td><a style='text-decoration: none; font-weight: bold;' href='../permissions/rechten_edit.php' class='btn-edit'>Rechten/Rollen aanpassen</a></td>";
+                
                 echo "</tr>";
             }
             ?>
+    </div>
         </table>
     </div>
 </content>
