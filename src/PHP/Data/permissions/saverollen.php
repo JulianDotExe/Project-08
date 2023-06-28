@@ -6,7 +6,7 @@
     // Controleer of de gebruiker is ingelogd
     if (!isset($_SESSION['mail'])) {
         echo "<script>alert('Inloggen mislukt...')</script>";
-        echo "<script>location.href='login.php'</script>";
+        echo "<script>location.href='../login.php'</script>";
         exit(); // Stop de uitvoering van de rest van de code als de gebruiker niet is ingelogd
     }
 
@@ -26,11 +26,11 @@
         }
 
         echo "<script>alert('Rollen succesvol opgeslagen')</script>";
-        echo "<script>location.href='gebruiker.php'</script>";
+        echo "<script>location.href='rechten_edit.php'</script>";
         exit(); // Stop de uitvoering van de rest van de code na het opslaan van de rollen
     }
 
     // Als er geen POST-data is verzonden of als de gebruiker niet is ingelogd, doorsturen naar een andere pagina
     echo "<script>alert('Ongeldige aanvraag...')</script>";
-    echo "<script>location.href='index.php'</script>";
+    echo "<script>location.href='rechten_edit.php'</script>";
 ?>

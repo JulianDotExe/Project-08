@@ -61,7 +61,7 @@
 
     <div class="permContain">
         <span class="menuTitle">Permissies:</span>
-        <a style='text-decoration: none;' href='../permissions/rechten_edit.php' class='btn-edit'>Permissies aanpassen</a>
+        <button class="btnStyle"><a style='text-decoration: none;' href='../permissions/rechten_edit.php' class='btn-edit'>Permissies aanpassen</a></button>
                 
 
     </div>
@@ -90,6 +90,10 @@
         var modalBox = document.getElementById("modalBox");
         modalBox.style.display = "none";
     }
+
+    $(".btnStyle").click(function () {
+        location.replace("overzicht_gevangenen.php")
+    })
 
     $(".header").click(function () {
         location.replace("../logout.php");
