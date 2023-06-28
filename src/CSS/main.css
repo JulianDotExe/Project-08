@@ -695,7 +695,7 @@ Database - Sidebar/Menu
 }
 
 .menuTitle {
-    /* font-style: italic;  */
+    font-style: italic; 
     font-size: 24px;
     color: #000;
     position: absolute;
