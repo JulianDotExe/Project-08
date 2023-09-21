@@ -92,7 +92,7 @@
     }
 
     $(".btnStyle").click(function () {
-        location.replace("overzicht_gevangenen.php")
+        location.replace("../permissions/rechten_edit.php")
     })
 
     $(".header").click(function () {
